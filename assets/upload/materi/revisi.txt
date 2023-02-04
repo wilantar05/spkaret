@@ -1,0 +1,11 @@
+SEMUA
+- foto profil buat agar bisa diubah[udah]
+- tambah logo sekolah kalo bisa[udah]
+
+Guru
+- Pengumuman bisa tambah gambar[udah]
+
+Siswa
+- Latihan Soal Pilihan Ganda dan Essay kalo bisa dibuat di menu yang beda
+- Tambah menu buat siswa liat nilai keseluruhan
+- tambahkan agar bisa print nilai mandiri
