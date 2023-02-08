@@ -11,6 +11,7 @@ class Rules extends CI_Controller
 		$this->load->helper('url');
 		//$this->load->model('Member_model');
 		$this->load->model('Admin_model');
+		$this->load->model('Admin_rules');
 		$this->load->database();
 	}
 
@@ -25,14 +26,18 @@ class Rules extends CI_Controller
 			// $result = $this->Admin_model->getAdmin($this->session->username);
 			// $data['user'] = $result;
 
+			$rules = $this->Admin_rules->getRuleData($search, $page);
+			$data['rules'] = $rules;
+			$ruleCount = $this->Admin_rules->getCountRules($search, $page);
+			$data['rulescount'] = $ruleCount;
 			// $member = $this->Member_model->getAllMember($search,$page);
 			// $data['member'] = $member;
 			// $membercount = $this->Member_model->getCountMember($search,$page);
 			// $data['membercount'] = $membercount;
 
 			$data['user'] = null;
-			$data['rules'] = null;
-			$data['rulescount'] = 0;
+			// $data['rules'] = null;
+			//$data['rulescount'] = 0;
 
 
 			$this->load->view('admin/rules/index', $data);
@@ -90,23 +95,21 @@ class Rules extends CI_Controller
 	public function store()
 	{
 		$data = array(
-			'Nama' => $this->input->post('Nama'),
-			'Username' => $this->input->post('Username'),
-			'Password' => password_hash($this->input->post('Password'), PASSWORD_DEFAULT),
-			'Alamat' => $this->input->post('Alamat'),
-			'No_Tlp' => $this->input->post('No_Tlp'),
-			'Email' => $this->input->post('Email'),
-			'Jenis_Kelamin' => $this->input->post('Jenis_Kelamin'),
-			'Status' => $this->input->post('Status')
+			'id' => $this->input->post('id'),
+			'idPenyakit' => $this->input->post('idPenyakit'),
+			'idGejala' => $this->input->post('idGejala'),
+			'nilaiMB' => $this->input->post('mb'),
+			'nilaiMD' => $this->input->post('md'),
+			'nilaiCF' => $this->input->post('cf'),
 		);
 
-		$result = $this->db->insert('member', $data);
+		$result = $this->db->insert('rules', $data);
 		if ($result) {
 			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil menambahkan member!</div>');
 		} else {
 			$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert"><strong>Gagal!</strong> Gagal menambahkan member!</div>');
 		}
-		redirect('admin/member', 'refresh');
+		redirect('admin/rules', 'refresh');
 	}
 
 	public function delete($id)
