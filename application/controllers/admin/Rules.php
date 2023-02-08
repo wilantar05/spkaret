@@ -12,6 +12,8 @@ class Rules extends CI_Controller
 		//$this->load->model('Member_model');
 		$this->load->model('Admin_model');
 		$this->load->model('Admin_rules');
+		$this->load->model('Admin_penyakit');
+		$this->load->model('Admin_gejala');
 		$this->load->database();
 	}
 
@@ -30,6 +32,10 @@ class Rules extends CI_Controller
 			$data['rules'] = $rules;
 			$ruleCount = $this->Admin_rules->getCountRules($search, $page);
 			$data['rulescount'] = $ruleCount;
+			$gejala = $this->Admin_gejala->getAllGejala($search, $page);
+			$data['gejala'] = $gejala;
+			$penyakit = $this->Admin_penyakit->getAllPenyakit($search, $page);
+			$data['penyakit'] = $penyakit;
 			// $member = $this->Member_model->getAllMember($search,$page);
 			// $data['member'] = $member;
 			// $membercount = $this->Member_model->getCountMember($search,$page);

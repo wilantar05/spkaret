@@ -47,12 +47,24 @@
 									$this->session->unset_userdata('error');
 								} ?>
 								<div class="form-group">
-									<label for="exampleFormControlInput1">Nama Penyakit</label>
-									<input type="text" name="idPenyakit" class="form-control" id="exampleFormControlInput1" placeholder="Nama Penyakit">
+									<!-- <label for="exampleFormControlInput1">Nama Penyakit</label>
+									<input type="text" name="idPenyakit" class="form-control" id="exampleFormControlInput1" placeholder="Nama Penyakit"> -->
+									<label>Nama Gejala</label>
+									<select class="form-control" name="idGejala">
+										<?php foreach ($gejala as $g) { ?>
+											<option value="<?php echo $g['id']; ?>"><?php echo $g['NamaGejala']; ?> </option>
+										<?php } ?>
+									</select>
 								</div>
 								<div class="form-group">
-									<label for="exampleFormControlInput1">Nama Gejala</label>
-									<input type="password" name="idGejala" class="form-control" id="exampleFormControlInput1" placeholder="Nama Gejala">
+									<!-- <label for="exampleFormControlInput1">Nama Gejala</label>
+									<input type="password" name="idGejala" class="form-control" id="exampleFormControlInput1" placeholder="Nama Gejala"> -->
+									<label>Nama Penyakit</label>
+									<select class="form-control" name="idPenyakit">
+										<?php foreach ($penyakit as $p) { ?>
+											<option value="<?php echo $p['id']; ?>"><?php echo $p['NamaPenyakit']; ?> </option>
+										<?php } ?>
+									</select>
 								</div>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Nilai MB</label>
