@@ -57,6 +57,8 @@ class Gejala extends CI_Controller
 
 		$data['user'] = null;
 		$data['gejala'] = null;
+		$gejala = $this->Admin_gejala->findGejala($id);
+		$data['gejala'] = $gejala;
 		// $barang = $this->Barang_model->findBarang($id);
 		// $data['barang'] = $barang;
 
@@ -80,9 +82,9 @@ class Gejala extends CI_Controller
 		$this->db->where('id', $this->input->post('id'));
 		$result = $this->db->update('gejala', $data);
 		if ($result) {
-			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil memperbarui barang!</div>');
+			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil memperbarui data gejala!</div>');
 		} else {
-			$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert"><strong>Gagal!</strong> Gagal memperbarui barang!</div>');
+			$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert"><strong>Gagal!</strong> Gagal memperbarui data gejala!</div>');
 		}
 		redirect('admin/gejala/edit/' . $this->input->post('id'), 'refresh');
 	}

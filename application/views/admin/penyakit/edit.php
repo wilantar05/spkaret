@@ -30,7 +30,7 @@
 								<div class="col-8">
 									<h3 class="mb-0">Edit Penyakit</h3>
 								</div>
-								
+
 								<div class="col-4 text-right">
 									<!-- <button class="btn btn-sm btn-primary" data-toggle="modal"
 										data-target="#tambah">Tambah Data</button> -->
@@ -38,34 +38,40 @@
 							</div>
 						</div>
 						<form action="<?php echo base_url() ?>index.php/admin/penyakit/update" method="POST">
-                        <input type="hidden" name="Id_Penyakit" value="<?php echo ($penyakit != null) ? $penyakit[0]['Id_Penyakit'] : "" ?>">
-						<div class="card-body border-0">
-							<?php if($this->session->flashdata('true')) { echo $this->session->flashdata('true'); $this->session->unset_userdata('true');}else if($this->session->flashdata('error')){ echo $this->session->flashdata('error');$this->session->unset_userdata('error');} ?>
-							<div class="form-group">
-								<label for="exampleFormControlInput1">Penyakit</label>
-								<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama Penyakit" value="<?php echo ($penyakit != null) ? $penyakit[0]['Nama'] : "" ?>">
+							<input type="hidden" name="id" value="<?php echo ($penyakit != null) ? $penyakit[0]['id'] : "" ?>">
+							<div class="card-body border-0">
+								<?php if ($this->session->flashdata('true')) {
+									echo $this->session->flashdata('true');
+									$this->session->unset_userdata('true');
+								} else if ($this->session->flashdata('error')) {
+									echo $this->session->flashdata('error');
+									$this->session->unset_userdata('error');
+								} ?>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">Penyakit</label>
+									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama Penyakit" value="<?php echo ($penyakit != null) ? $penyakit[0]['Nama'] : "" ?>">
+								</div>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">Solusi</label>
+									<input type="text" name="Solusi" class="form-control" id="exampleFormControlInput1" placeholder="Solusi" value="<?php echo ($penyakit != null) ? $penyakit[0]['Solusi'] : "" ?>">
+								</div>
 							</div>
-							<div class="form-group">
-								<label for="exampleFormControlInput1">Solusi</label>
-								<input type="text" name="Solusi" class="form-control" id="exampleFormControlInput1" placeholder="Solusi" value="<?php echo ($penyakit != null) ? $penyakit[0]['Solusi'] : "" ?>">
+							<div class="card-footer py-4">
+								<div class="row">
+									<div class="col-lg-8">
+										<a href="<?php echo base_url() ?>index.php/admin/penyakit">
+											<button class="btn btn-default" type="button">Kembali</button>
+										</a>
+									</div>
+									<div class="col-lg-4 text-right">
+										<button class="btn btn-primary" type="submit">Simpan</button>
+									</div>
+								</div>
 							</div>
-						</div>
-						<div class="card-footer py-4">
-                            <div class="row">
-                                <div class="col-lg-8">
-                                    <a href="<?php echo base_url() ?>index.php/admin/penyakit">
-                                        <button class="btn btn-default" type="button">Kembali</button>
-                                    </a>
-                                </div>
-                                <div class="col-lg-4 text-right">
-                                    <button class="btn btn-primary" type="submit">Simpan</button>
-                                </div>
-						    </div>
-                        </div>
 						</form>
 					</div>
 				</div>
-				
+
 
 			</div>
 		</div>

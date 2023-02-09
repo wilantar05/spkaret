@@ -48,4 +48,17 @@ class Admin_rules extends CI_Model
         $data = $this->db->get()->result_array();
         return $data;
     }
+
+    public function findRules($id)
+    {
+        $this->load->database();
+        $this->db->select("rules.id as id, penyakit.id as idPenyakit, gejala.id as idGejala, NamaGejala, NamaPenyakit, nilaiMB, nilaiMD, nilaiCF");
+        $this->db->from("rules");
+        $this->db->join("penyakit", "penyakit.id = rules.idPenyakit");
+        $this->db->join("gejala", "gejala.id = rules.idGejala");
+        $this->db->where('rules.id', $id);
+
+        $data = $this->db->get()->result_array();
+        return $data;
+    }
 }

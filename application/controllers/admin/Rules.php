@@ -56,6 +56,12 @@ class Rules extends CI_Controller
 	{
 		$data['title'] = "Rules";
 		$data['page'] = "Edit";
+		$rules = $this->Admin_rules->findRules($id);
+		$data['rules'] = $rules;
+		$gejala = $this->Admin_gejala->getAllGejala();
+		$data['gejala'] = $gejala;
+		$penyakit = $this->Admin_penyakit->getAllPenyakit();
+		$data['penyakit'] = $penyakit;
 		//$member = $this->Member_model->findMember($id);
 		//$data['memberedit'] = $member;
 
@@ -70,24 +76,22 @@ class Rules extends CI_Controller
 	public function update()
 	{
 		$data = array(
-			'Nama' => $this->input->post('Nama'),
-			'Username' => $this->input->post('Username'),
-			'Password' => password_hash($this->input->post('Password'), PASSWORD_DEFAULT),
-			'Alamat' => $this->input->post('Alamat'),
-			'No_Tlp' => $this->input->post('No_Tlp'),
-			'Email' => $this->input->post('Email'),
-			'Jenis_Kelamin' => $this->input->post('Jenis_Kelamin'),
-			'Status' => $this->input->post('Status')
+			'id' => $this->input->post('id'),
+			'idPenyakit' => $this->input->post('idPenyakit'),
+			'idGejala' => $this->input->post('idGejala'),
+			'nilaiMB' => $this->input->post('mb'),
+			'nilaiMD' => $this->input->post('md'),
+			'nilaiCF' => $this->input->post('cf'),
 		);
 
-		$this->db->where('Id_Member', $this->input->post('Id_Member'));
-		$result = $this->db->update('member', $data);
+		$this->db->where('id', $this->input->post('id'));
+		$result = $this->db->update('rules', $data);
 		if ($result) {
-			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil memperbarui member!</div>');
+			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil memperbarui data rules!</div>');
 		} else {
-			$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert"><strong>Gagal!</strong> Gagal memperbarui member!</div>');
+			$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert"><strong>Gagal!</strong> Gagal memperbarui data rules!</div>');
 		}
-		redirect('admin/member/edit/' . $this->input->post('Id_Member'), 'refresh');
+		redirect('admin/rules/edit/' . $this->input->post('id'), 'refresh');
 	}
 
 	public function search()
@@ -121,14 +125,14 @@ class Rules extends CI_Controller
 	public function delete($id)
 	{
 		$data = array(
-			'Id_Member' => $id,
+			'id' => $id,
 		);
-		$result = $this->db->delete('member', $data);
+		$result = $this->db->delete('rules', $data);
 		if ($result) {
-			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil menghapus member!</div>');
+			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil menghapus rules!</div>');
 		} else {
-			$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert"><strong>Gagal!</strong> Gagal menghapus member!</div>');
+			$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert"><strong>Gagal!</strong> Gagal menghapus rules!</div>');
 		}
-		redirect('admin/member', 'refresh');
+		redirect('admin/rules', 'refresh');
 	}
 }

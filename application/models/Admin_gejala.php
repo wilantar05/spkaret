@@ -36,4 +36,14 @@ class Admin_gejala extends CI_Model
         $data = $this->db->count_all_results();
         return $data;
     }
+
+    public function findGejala($id)
+    {
+        $this->load->database();
+        $this->db->select('*');
+        $this->db->from('gejala');
+        $this->db->where('id', $id);
+        $data = $this->db->get()->result_array();
+        return $data;
+    }
 }

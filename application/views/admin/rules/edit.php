@@ -30,7 +30,7 @@
 								<div class="col-8">
 									<h3 class="mb-0">Edit Rules</h3>
 								</div>
-								
+
 								<div class="col-4 text-right">
 									<!-- <button class="btn btn-sm btn-primary" data-toggle="modal"
 										data-target="#tambah">Tambah Data</button> -->
@@ -38,46 +38,64 @@
 							</div>
 						</div>
 						<form action="<?php echo base_url() ?>index.php/admin/rules/update" method="POST">
-                        <input type="hidden" name="Id_Rules" value="<?php echo ($rulesedit != null) ? $rulesedit[0]['Id_Rules'] : "" ?>">
-						<div class="card-body border-0">
-						<?php if($this->session->flashdata('true')) { echo $this->session->flashdata('true'); $this->session->unset_userdata('true');}else if($this->session->flashdata('error')){ echo $this->session->flashdata('error');$this->session->unset_userdata('error');} ?>
-						<div class="form-group">
-								<label for="exampleFormControlInput1">Nama Penyakit</label>
-								<input type="text" name="Username" class="form-control" id="exampleFormControlInput1" placeholder="Nama Penyakit">
+							<input type="hidden" name="id" value="<?php echo ($rules != null) ? $rules[0]['id'] : "" ?>">
+							<div class="card-body border-0">
+								<?php if ($this->session->flashdata('true')) {
+									echo $this->session->flashdata('true');
+									$this->session->unset_userdata('true');
+								} else if ($this->session->flashdata('error')) {
+									echo $this->session->flashdata('error');
+									$this->session->unset_userdata('error');
+								} ?>
+								<div class="form-group">
+									<!-- <label for="exampleFormControlInput1">Nama Gejala</label>
+									<input type="text" name="Username" class="form-control" id="exampleFormControlInput1" value="<?php echo ($rules != null) ? $rules[0]['NamaGejala'] : "" ?>" placeholder="Nama Gejala"> -->
+									<label>Nama Gejala</label>
+									<select class="form-control" name="idGejala">
+										<?php foreach ($gejala as $g) { ?>
+											<option value="<?php echo $g['id']; ?>"><?php echo $g['NamaGejala']; ?> </option>
+										<?php } ?>
+									</select>
+								</div>
+								<div class="form-group">
+									<!-- <label for="exampleFormControlInput1">Nama Penyakit</label>
+									<input type="text" name="Password" class="form-control" id="exampleFormControlInput1" value="<?php echo ($rules != null) ? $rules[0]['NamaPenyakit'] : "" ?>" placeholder="Nama Penyakit"> -->
+									<label>Nama Penyakit</label>
+									<select class="form-control" name="idPenyakit">
+										<?php foreach ($penyakit as $p) { ?>
+											<option value="<?php echo $p['id']; ?>"><?php echo $p['NamaPenyakit']; ?> </option>
+										<?php } ?>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">MB</label>
+									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" value="<?php echo ($rules != null) ? $rules[0]['nilaiMB'] : "" ?>" placeholder="MB">
+								</div>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">MD</label>
+									<input type="text" name="Alamat" class="form-control" id="exampleFormControlInput1" value="<?php echo ($rules != null) ? $rules[0]['nilaiMD'] : "" ?>" placeholder="MD">
+								</div>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">CF</label>
+									<input type="text" name="Alamat" class="form-control" id="exampleFormControlInput1" value="<?php echo ($rules != null) ? $rules[0]['nilaiCF'] : "" ?>" placeholder="CF">
+								</div>
 							</div>
-                            <div class="form-group">
-								<label for="exampleFormControlInput1">Nama Gejala</label>
-								<input type="password" name="Password" class="form-control" id="exampleFormControlInput1" placeholder="Nama Gejala">
+							<div class="card-footer py-4">
+								<div class="row">
+									<div class="col-lg-8">
+										<a href="<?php echo base_url() ?>index.php/admin/rules">
+											<button class="btn btn-default" type="button">Kembali</button>
+										</a>
+									</div>
+									<div class="col-lg-4 text-right">
+										<button class="btn btn-primary" type="submit">Simpan</button>
+									</div>
+								</div>
 							</div>
-                            <div class="form-group">
-								<label for="exampleFormControlInput1">MB</label>
-								<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="MB">
-							</div>
-                            <div class="form-group">
-								<label for="exampleFormControlInput1">MD</label>
-								<input type="text" name="Alamat" class="form-control" id="exampleFormControlInput1" placeholder="MD">
-							</div>
-                            <div class="form-group">
-								<label for="exampleFormControlInput1">CF</label>
-								<input type="text" name="Alamat" class="form-control" id="exampleFormControlInput1" placeholder="CF">
-							</div>
-						</div>
-						<div class="card-footer py-4">
-                            <div class="row">
-                                <div class="col-lg-8">
-                                    <a href="<?php echo base_url() ?>index.php/admin/rules">
-                                        <button class="btn btn-default" type="button">Kembali</button>
-                                    </a>
-                                </div>
-                                <div class="col-lg-4 text-right">
-                                    <button class="btn btn-primary" type="submit">Simpan</button>
-                                </div>
-						    </div>
-						</div>
 						</form>
 					</div>
 				</div>
-				
+
 
 			</div>
 		</div>

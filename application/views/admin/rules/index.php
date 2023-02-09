@@ -141,7 +141,7 @@
 													</a>
 													<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 														<a class="dropdown-item" href="<?php echo base_url() ?>index.php/admin/rules/edit/<?php echo $value['id'] ?>">Edit</a>
-														<!-- <a class="dropdown-item" onclick="return confirm('Apakah anda yakin menghapus data ini ?')" href="<?php echo base_url() ?>index.php/admin/rules/delete/<?php echo $value['Id_Rules'] ?>">Delete</a> -->
+														<a class="dropdown-item" onclick="return confirm('Apakah anda yakin menghapus data ini ?')" href="<?php echo base_url() ?>index.php/admin/rules/delete/<?php echo $value['id'] ?>">Delete</a>
 													</div>
 												</div>
 											</td>

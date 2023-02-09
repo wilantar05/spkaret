@@ -52,6 +52,8 @@ class Penyakit extends CI_Controller
 
 		$data['penyakit'] = null;
 		$data['user'] = null;
+		$penyakit = $this->Admin_penyakit->findPenyakit($id);
+		$data['penyakit'] = $penyakit;
 		// $kategori = $this->Kategori_model->findKategori($id);
 		// $data['kategori'] = $kategori;
 
@@ -63,18 +65,17 @@ class Penyakit extends CI_Controller
 	public function update()
 	{
 		$data = array(
-			'Nama' => $this->input->post('Nama'),
-			'Status' => $this->input->post('Status')
+			'NamaPenyakit' => $this->input->post('NamaPenyakit'),
 		);
 
-		$this->db->where('Id_Kategori', $this->input->post('Id_Kategori'));
-		$result = $this->db->update('kategori', $data);
+		$this->db->where('id', $this->input->post('id'));
+		$result = $this->db->update('penyakit', $data);
 		if ($result) {
-			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil memperbarui kategori!</div>');
+			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil memperbarui data penyakit!</div>');
 		} else {
-			$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert"><strong>Gagal!</strong> Gagal memperbarui kategori!</div>');
+			$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert"><strong>Gagal!</strong> Gagal memperbarui data penyakit!</div>');
 		}
-		redirect('admin/kategori/edit/' . $this->input->post('Id_Kategori'), 'refresh');
+		redirect('admin/gejala/edit/' . $this->input->post('id'), 'refresh');
 	}
 
 	public function search()
