@@ -53,7 +53,9 @@
 									<label>Nama Gejala</label>
 									<select class="form-control" name="idGejala">
 										<?php foreach ($gejala as $g) { ?>
-											<option value="<?php echo $g['id']; ?>"><?php echo $g['NamaGejala']; ?> </option>
+											<option value="<?php echo $g['id']; ?>" <?php if ($g['id'] == $rules[0]['idGejala']) {
+																						echo 'selected';
+																					} ?>><?php echo $g['NamaGejala']; ?> </option>
 										<?php } ?>
 									</select>
 								</div>
@@ -63,7 +65,9 @@
 									<label>Nama Penyakit</label>
 									<select class="form-control" name="idPenyakit">
 										<?php foreach ($penyakit as $p) { ?>
-											<option value="<?php echo $p['id']; ?>"><?php echo $p['NamaPenyakit']; ?> </option>
+											<option value="<?php echo $p['id']; ?>" <?php if ($p['id'] == $rules[0]['idPenyakit']) {
+																						echo 'selected';
+																					} ?>><?php echo $p['NamaPenyakit']; ?> </option>
 										<?php } ?>
 									</select>
 								</div>
