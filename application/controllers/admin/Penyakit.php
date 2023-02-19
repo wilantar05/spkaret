@@ -38,8 +38,6 @@ class Penyakit extends CI_Controller
 			$penyakit = $this->Admin_penyakit->getAllPenyakit($search, $page);
 			$data['penyakit'] = $penyakit;
 			$this->load->view('admin/penyakit/index', $data);
-
-			$this->load->view('admin/penyakit/index', $data);
 		} else {
 			redirect('admin/dashboard', 'refresh');
 		}

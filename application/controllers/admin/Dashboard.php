@@ -23,8 +23,8 @@ class Dashboard extends CI_Controller
 			$data['page'] = "Home";
 
 			$result = $this->Admin_model->getAdmin($this->session->username);
-			$data['user'] = $result;
-
+			//$data['user'] = $result;
+			$data['user'] = null;
 
 			// $transaksi = $this->Transaksi_model->getCountTransaksi();
 			// $data['transaksi'] = $transaksi;
