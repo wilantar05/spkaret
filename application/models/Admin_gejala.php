@@ -21,6 +21,16 @@ class Admin_gejala extends CI_Model
         return $data;
     }
 
+    public function getAllGejalaNoFilter()
+    {
+        $this->load->database();
+        $this->db->select('*');
+        $this->db->from('gejala');
+
+        $data = $this->db->get()->result_array();
+        return $data;
+    }
+
     public function insertGejala()
     {
     }

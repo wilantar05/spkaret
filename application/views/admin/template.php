@@ -41,6 +41,9 @@
 	<!-- Optional JS -->
 	<script src="<?php echo base_url() ?>/assets/vendor/chart.js/dist/Chart.min.js"></script>
 	<script src="<?php echo base_url() ?>/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 	<!-- Argon JS -->
 
 </head>
@@ -59,6 +62,7 @@
 				<!-- Collapse -->
 				<div class="collapse navbar-collapse" id="sidenav-collapse-main">
 					<!-- Nav items -->
+					<?php if($this->session->username == "Guest"){ ?>
 					<ul class="navbar-nav">
 						<li class="nav-item">
 							<a class="nav-link active" href="<?php echo base_url() ?>index.php/admin/dashboard/">
@@ -67,7 +71,7 @@
 							</a>
 						</li>
 					</ul>
-
+					<?php }else{ ?>		
 					<ul class="navbar-nav">
 						<li class="nav-item">
 							<a class="nav-link" href="<?php echo base_url() ?>index.php/admin/gejala/">
@@ -88,6 +92,7 @@
 							</a>
 						</li>
 					</ul>
+					<?php } ?>
 
 					<!-- Divider -->
 					<hr class="my-3">

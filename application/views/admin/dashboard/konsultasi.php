@@ -53,7 +53,12 @@
 
 							<div class="form-group">
 								<label for="exampleFormControlInput1">Gejala</label>
-								<input type="text" name="Gejala" class="form-control" id="exampleFormControlInput1" placeholder="Gejala">
+								<select class="form-control js-example-basic-multiple" name="Gejala[]" id="" multiple>
+									<?php foreach ($gejala as $key => $value) { ?>
+										<option value="<?php echo $value['id'] ?>"><?php echo $value['NamaGejala'] ?></option>
+									<?php } ?>
+								</select>
+								<!--<input type="text" name="Gejala" class="form-control" id="exampleFormControlInput1" placeholder="Gejala">-->
 							</div>
 							
 						</div>

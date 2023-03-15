@@ -32,15 +32,25 @@ class Auth extends CI_Controller
 				$result = true;
 				if($result){
 					$this->session->set_userdata('username', $this->input->post('username'));
-					redirect('admin/dashboard', 'refresh');
+					redirect('admin/gejala', 'refresh');
 				}else{
 					redirect('admin/auth', 'refresh');
 				}
 			}
 			
 		}else{
-			redirect('admin/dashboard', 'refresh');
+			if($this->session->username == "Guest"){
+				redirect('admin/dashboard', 'refresh');
+			}else{
+				redirect('admin/gejala', 'refresh');
+			}
+			
 		}
+	}
+
+	public function loginasguest(){
+		$this->session->set_userdata('username', 'Guest');
+					redirect('admin/dashboard', 'refresh');
 	}
 
 	public function logout()

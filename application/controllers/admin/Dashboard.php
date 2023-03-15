@@ -10,6 +10,7 @@ class Dashboard extends CI_Controller
 		$this->load->helper('form');
 		$this->load->helper('url');
 		$this->load->model('Admin_model');
+		$this->load->model('Admin_gejala');
 		// $this->load->model('Transaksi_model');
 		// $this->load->model('Barang_model');
 		// $this->load->model('Member_model');
@@ -50,6 +51,7 @@ class Dashboard extends CI_Controller
 		$data['page'] = "Konsultasi";
 
 		$data['user'] = null;
+		$data['gejala'] = $this->Admin_gejala->getAllGejalaNoFilter();
 		$this->load->view('admin/dashboard/konsultasi', $data);
 	}
 
