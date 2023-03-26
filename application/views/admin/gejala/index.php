@@ -85,7 +85,7 @@
 						</div>
 						<!-- Light table -->
 
-						<table class="table align-items-center table-flush">
+						<table class="table align-items-center table-responsive">
 							<thead class="thead-light">
 								<tr>
 									<th scope="col" width="10%">No</th>

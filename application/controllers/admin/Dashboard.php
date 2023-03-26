@@ -11,6 +11,7 @@ class Dashboard extends CI_Controller
 		$this->load->helper('url');
 		$this->load->model('Admin_model');
 		$this->load->model('Admin_gejala');
+		$this->load->model('konsultasi');
 		// $this->load->model('Transaksi_model');
 		// $this->load->model('Barang_model');
 		// $this->load->model('Member_model');
@@ -23,7 +24,7 @@ class Dashboard extends CI_Controller
 			$data['title'] = "Dashboard";
 			$data['page'] = "Home";
 
-			$result = $this->Admin_model->getAdmin($this->session->username);
+			$result = $this->Admin_model->GetAdmin($this->session->username);
 			//$data['user'] = $result;
 			$data['user'] = null;
 
@@ -51,8 +52,18 @@ class Dashboard extends CI_Controller
 		$data['page'] = "Konsultasi";
 
 		$data['user'] = null;
-		$data['gejala'] = $this->Admin_gejala->getAllGejalaNoFilter();
+		$data['gejala'] = $this->Admin_gejala->GetAllGejalaNoFilter();
 		$this->load->view('admin/dashboard/konsultasi', $data);
+	}
+
+	public function detail_konsultasi()
+	{
+		$data['title'] = "Dashboard";
+		$data['page'] = "Konsultasi";
+		$data['user'] = null;
+		$data['gejala'] = $this->konsultasi->GetDetailKonsultasi();
+		$data['nama_gejala'] = $this->konsultasi->GetNamaGejala();
+		$this->load->view('admin/dashboard/detail-konsultasi', $data);
 	}
 
 	public function hasilkonsultasi()

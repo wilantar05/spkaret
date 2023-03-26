@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Admin_penyakit extends CI_Model
 {
-    public function getAllPenyakit($search = "", $page = 1)
+    public function GetAllPenyakit($search = "", $page = 1)
     {
         $limit = 10;
         $start = ($page * $limit) - $limit;
@@ -21,7 +21,7 @@ class Admin_penyakit extends CI_Model
         return $data;
     }
 
-    public function getCountPenyakit($search = "", $page = 1)
+    public function GetCountPenyakit($search = "", $page = 1)
     {
         $this->load->database();
         $this->db->select('*');
@@ -33,7 +33,7 @@ class Admin_penyakit extends CI_Model
         return $data;
     }
 
-    public function findPenyakit($id)
+    public function FindPenyakit($id)
     {
         $this->load->database();
         $this->db->select('*');

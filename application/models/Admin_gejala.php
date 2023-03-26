@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Admin_gejala extends CI_Model
 {
-    public function getAllGejala($search = "", $page = 1)
+    public function GetAllGejala($search = "", $page = 1)
     {
         $limit = 10;
         $start = ($page * $limit) - $limit;
@@ -21,7 +21,7 @@ class Admin_gejala extends CI_Model
         return $data;
     }
 
-    public function getAllGejalaNoFilter()
+    public function GetAllGejalaNoFilter()
     {
         $this->load->database();
         $this->db->select('*');
@@ -35,7 +35,7 @@ class Admin_gejala extends CI_Model
     {
     }
 
-    public function getCountGejala($search = "", $page = 1)
+    public function GetCountGejala($search = "", $page = 1)
     {
         $this->load->database();
         $this->db->select('*');
@@ -47,7 +47,7 @@ class Admin_gejala extends CI_Model
         return $data;
     }
 
-    public function findGejala($id)
+    public function FindGejala($id)
     {
         $this->load->database();
         $this->db->select('*');

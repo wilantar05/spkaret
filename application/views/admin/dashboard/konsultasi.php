@@ -30,45 +30,51 @@
 								<div class="col-8">
 									<h3 class="mb-0">Tambah Konsultasi</h3>
 								</div>
-								
+
 								<div class="col-4 text-right">
 									<!-- <button class="btn btn-sm btn-primary" data-toggle="modal"
 										data-target="#tambah">Tambah Data</button> -->
 								</div>
 							</div>
 						</div>
-						<form action="<?php echo base_url() ?>index.php/admin/gejala/store" method="POST">
-						<div class="card-body border-0">
-						<?php if($this->session->flashdata('true')) { echo $this->session->flashdata('true'); $this->session->unset_userdata('true');}else if($this->session->flashdata('error')){ echo $this->session->flashdata('error');$this->session->unset_userdata('error');} ?>
+						<form action="<?php echo base_url() ?>index.php/admin/dashboard/detail_konsultasi" method="POST">
+							<div class="card-body border-0">
+								<?php if ($this->session->flashdata('true')) {
+									echo $this->session->flashdata('true');
+									$this->session->unset_userdata('true');
+								} else if ($this->session->flashdata('error')) {
+									echo $this->session->flashdata('error');
+									$this->session->unset_userdata('error');
+								} ?>
 
-							<div class="form-group">
-								<label for="exampleFormControlInput1">Nama</label>
-								<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama">
-							</div>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">Nama</label>
+									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama">
+								</div>
 
-							<div class="form-group">
-								<label for="exampleFormControlInput1">No HP</label>
-								<input type="text" name="NoHP" class="form-control" id="exampleFormControlInput1" placeholder="No HP">
-							</div>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">No HP</label>
+									<input type="text" name="NoHP" class="form-control" id="exampleFormControlInput1" placeholder="No HP">
+								</div>
 
-							<div class="form-group">
-								<label for="exampleFormControlInput1">Gejala</label>
-								<select class="form-control js-example-basic-multiple" name="Gejala[]" id="" multiple>
-									<?php foreach ($gejala as $key => $value) { ?>
-										<option value="<?php echo $value['id'] ?>"><?php echo $value['NamaGejala'] ?></option>
-									<?php } ?>
-								</select>
-								<!--<input type="text" name="Gejala" class="form-control" id="exampleFormControlInput1" placeholder="Gejala">-->
+								<div class="form-group">
+									<label for="exampleFormControlInput1">Gejala</label>
+									<select class="form-control js-example-basic-multiple" name="gejala[]" id="" multiple>
+										<?php foreach ($gejala as $key => $value) { ?>
+											<option value="<?php echo $value['id'] ?>"><?php echo $value['NamaGejala'] ?></option>
+										<?php } ?>
+									</select>
+									<!--<input type="text" name="Gejala" class="form-control" id="exampleFormControlInput1" placeholder="Gejala">-->
+								</div>
+
 							</div>
-							
-						</div>
-						<div class="card-footer py-4 text-right">
-							<button class="btn btn-primary" type="submit">Kirim</button>
-						</div>
+							<div class="card-footer py-4 text-right">
+								<button class="btn btn-primary" type="submit">Kirim</button>
+							</div>
 						</form>
 					</div>
 				</div>
-				
+
 
 			</div>
 		</div>

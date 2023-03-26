@@ -21,20 +21,20 @@ class Rules extends CI_Controller
 	{
 		if ($this->session->username != "") {
 			$data['title'] = "Rules";
-			$data['page'] = "List";
+			$data['page'] = "Data";
 			$data['pagenumber'] = $page;
 			$data['search'] = $search;
 
-			// $result = $this->Admin_model->getAdmin($this->session->username);
+			// $result = $this->Admin_model->GetAdmin($this->session->username);
 			// $data['user'] = $result;
 
-			$rules = $this->Admin_rules->getRuleData($search, $page);
+			$rules = $this->Admin_rules->GetRuleData($search, $page);
 			$data['rules'] = $rules;
-			$ruleCount = $this->Admin_rules->getCountRules($search, $page);
+			$ruleCount = $this->Admin_rules->GetCountRules($search, $page);
 			$data['rulescount'] = $ruleCount;
-			$gejala = $this->Admin_gejala->getAllGejala($search, $page);
+			$gejala = $this->Admin_gejala->GetAllGejala($search, $page);
 			$data['gejala'] = $gejala;
-			$penyakit = $this->Admin_penyakit->getAllPenyakit($search, $page);
+			$penyakit = $this->Admin_penyakit->GetAllPenyakit($search, $page);
 			$data['penyakit'] = $penyakit;
 			// $member = $this->Member_model->getAllMember($search,$page);
 			// $data['member'] = $member;
@@ -56,18 +56,18 @@ class Rules extends CI_Controller
 	{
 		$data['title'] = "Rules";
 		$data['page'] = "Edit";
-		$rules = $this->Admin_rules->findRules($id);
+		$rules = $this->Admin_rules->FindRules($id);
 		$data['rules'] = $rules;
-		$gejala = $this->Admin_gejala->getAllGejala();
+		$gejala = $this->Admin_gejala->GetAllGejala();
 		$data['gejala'] = $gejala;
-		$penyakit = $this->Admin_penyakit->getAllPenyakit();
+		$penyakit = $this->Admin_penyakit->GetAllPenyakit();
 		$data['penyakit'] = $penyakit;
 		//$member = $this->Member_model->findMember($id);
 		//$data['memberedit'] = $member;
 
 		$data['rulesedit'] = null;
 
-		//$result = $this->Admin_model->getAdmin($this->session->username);
+		//$result = $this->Admin_model->GetAdmin($this->session->username);
 		//$data['user'] = $result;
 		$data['user'] = null;
 		$this->load->view('admin/rules/edit', $data);

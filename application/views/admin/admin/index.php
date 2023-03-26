@@ -30,7 +30,7 @@
 								<div class="col-8">
 									<h3 class="mb-0">Tambah Admin</h3>
 								</div>
-								
+
 								<div class="col-4 text-right">
 									<!-- <button class="btn btn-sm btn-primary" data-toggle="modal"
 										data-target="#tambah">Tambah Data</button> -->
@@ -38,50 +38,56 @@
 							</div>
 						</div>
 						<form action="<?php echo base_url() ?>index.php/admin/admin/store" method="POST">
-						<div class="card-body border-0">
-						<?php if($this->session->flashdata('true')) { echo $this->session->flashdata('true'); $this->session->unset_userdata('true');}else if($this->session->flashdata('error')){ echo $this->session->flashdata('error');$this->session->unset_userdata('error');} ?>
-							<div class="form-group">
-								<label for="exampleFormControlInput1">Username</label>
-								<input type="text" name="Username" class="form-control" id="exampleFormControlInput1" placeholder="Username">
-							</div>
-                            <div class="form-group">
-								<label for="exampleFormControlInput1">Password</label>
-								<input type="password" name="Password" class="form-control" id="exampleFormControlInput1" placeholder="Password User">
-							</div>
-                            <div class="form-group">
-								<label for="exampleFormControlInput1">Nama</label>
-								<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama User">
-							</div>
-                            <!-- <div class="form-group">
+							<div class="card-body border-0">
+								<?php if ($this->session->flashdata('true')) {
+									echo $this->session->flashdata('true');
+									$this->session->unset_userdata('true');
+								} else if ($this->session->flashdata('error')) {
+									echo $this->session->flashdata('error');
+									$this->session->unset_userdata('error');
+								} ?>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">Username</label>
+									<input type="text" name="Username" class="form-control" id="exampleFormControlInput1" placeholder="Username">
+								</div>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">Password</label>
+									<input type="password" name="Password" class="form-control" id="exampleFormControlInput1" placeholder="Password User">
+								</div>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">Nama</label>
+									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama User">
+								</div>
+								<!-- <div class="form-group">
 								<label for="exampleFormControlInput1">Jenis Kelamin</label>
 								<select name="Jenis_Kelamin" class="form-control" id="exampleFormControlSelect1">
 									<option value="Laki-Laki">Laki-Laki</option>
 									<option value="Perempuan">Perempuan</option>
 								</select>
 							</div> -->
-                            <div class="form-group">
-								<label for="exampleFormControlInput1">Alamat</label>
-								<input type="text" name="Alamat" class="form-control" id="exampleFormControlInput1" placeholder="Alamat User">
-							</div>
-                            <!-- <div class="form-group">
+								<div class="form-group">
+									<label for="exampleFormControlInput1">Alamat</label>
+									<input type="text" name="Alamat" class="form-control" id="exampleFormControlInput1" placeholder="Alamat User">
+								</div>
+								<!-- <div class="form-group">
 								<label for="exampleFormControlInput1">Tanggal</label>
 								<input type="date" name="Tanggal_Lahir" class="form-control" id="exampleFormControlInput1" placeholder="Tanggal Lahir">
 							</div> -->
-                            <div class="form-group">
-								<label for="exampleFormControlInput1">No Telp</label>
-								<input type="text" name="No_Tlp" class="form-control" id="exampleFormControlInput1" placeholder="No Telp">
+								<div class="form-group">
+									<label for="exampleFormControlInput1">No Telp</label>
+									<input type="text" name="No_Tlp" class="form-control" id="exampleFormControlInput1" placeholder="No Telp">
+								</div>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">Status</label>
+									<select name="Status" class="form-control" id="exampleFormControlSelect1">
+										<option value="1">Aktif</option>
+										<option value="0">Tidak Aktif</option>
+									</select>
+								</div>
 							</div>
-							<div class="form-group">
-								<label for="exampleFormControlInput1">Status</label>
-								<select name="Status" class="form-control" id="exampleFormControlSelect1">
-									<option value="1">Aktif</option>
-									<option value="0">Tidak Aktif</option>
-								</select>
+							<div class="card-footer py-4 text-right">
+								<button class="btn btn-primary" type="submit">Simpan</button>
 							</div>
-						</div>
-						<div class="card-footer py-4 text-right">
-							<button class="btn btn-primary" type="submit">Simpan</button>
-						</div>
 						</form>
 					</div>
 				</div>
@@ -95,41 +101,40 @@
 								<div class="col-8">
 									<h3 class="mb-0">Data Admin</h3>
 								</div>
-								
+
 								<div class="col-4 text-right">
 									<form action="<?php echo base_url() ?>index.php/user/search" method="POST">
-									<input type="hidden" name="pagenumber" value="<?php echo $pagenumber ?>">
-									<div class="input-group mb-3">
-										<input type="text" class="form-control form-control-sm" name="search" placeholder="Cari User">
-										<div class="input-group-append">
-											<button class="btn btn-outline-primary btn-sm" type="submit">Search</button>
+										<input type="hidden" name="pagenumber" value="<?php echo $pagenumber ?>">
+										<div class="input-group mb-3">
+											<input type="text" class="form-control form-control-sm" name="search" placeholder="Cari User">
+											<div class="input-group-append">
+												<button class="btn btn-outline-primary btn-sm" type="submit">Search</button>
+											</div>
 										</div>
-									</div>
 									</form>
 								</div>
 							</div>
 						</div>
 						<!-- Light table -->
-	
-							<table class="table align-items-center table-flush">
-								<thead class="thead-light">
+
+						<table class="table align-items-center table-responsive">
+							<thead class="thead-light">
+								<tr>
+									<th scope="col" width="10%">No</th>
+									<th scope="col">Nama</th>
+									<th scope="col" width="10%">Status</th>
+									<th scope="col" width="10%"></th>
+								</tr>
+							</thead>
+							<tbody class="list">
+								<?php foreach ($admin as $key => $value) { ?>
 									<tr>
-										<th scope="col" width="10%">No</th>
-										<th scope="col">Nama</th>
-										<th scope="col" width="10%">Status</th>
-										<th scope="col" width="10%"></th>
-									</tr>
-								</thead>
-								<tbody class="list">
-									<?php foreach ($admin as $key => $value) { ?>
-										<tr>
-											<td><?php echo $key+1 ?></td>
-											<td><?php echo $value['Nama'] ?></td>
-											<td><?php echo $stats = ($value['Status'] == 1) ? '<span class="badge badge-default">Aktif</span>' : '<span class="badge badge-danger">Tidak Aktif</span>' ?></td>
-											<td>
+										<td><?php echo $key + 1 ?></td>
+										<td><?php echo $value['Nama'] ?></td>
+										<td><?php echo $stats = ($value['Status'] == 1) ? '<span class="badge badge-default">Aktif</span>' : '<span class="badge badge-danger">Tidak Aktif</span>' ?></td>
+										<td>
 											<div class="dropdown">
-												<a class="btn btn-sm btn-icon-only text-light" href="#" role="button"
-													data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												<a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 													<i class="fas fa-ellipsis-v"></i>
 												</a>
 												<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
@@ -137,11 +142,11 @@
 													<!-- <a class="dropdown-item" onclick="return confirm('Apakah anda yakin menghapus data ini ?')" href="<?php echo base_url() ?>index.php/admin/admin/delete/<?php echo $value['Id_Admin'] ?>">Delete</a> -->
 												</div>
 											</div>
-											</td>
-										</tr>
-									<?php } ?>
-								</tbody>
-							</table>
+										</td>
+									</tr>
+								<?php } ?>
+							</tbody>
+						</table>
 						<!-- Card footer -->
 						<div class="card-footer py-4">
 							<nav aria-label="...">
@@ -152,12 +157,12 @@
 											<span class="sr-only">Previous</span>
 										</a>
 									</li>
-									<?php for ($i=1; $i <= ceil($admincount / 10); $i++) {?>
-									<li class="page-item <?php echo $active = ($pagenumber == $i) ? "active" : "" ?>">
-										<a class="page-link" href="<?php echo base_url() ?>index.php/admin/admin/index/<?php echo $i ?>/<?php echo $search ?>"><?php echo $i ?></a>
-									</li>
+									<?php for ($i = 1; $i <= ceil($admincount / 10); $i++) { ?>
+										<li class="page-item <?php echo $active = ($pagenumber == $i) ? "active" : "" ?>">
+											<a class="page-link" href="<?php echo base_url() ?>index.php/admin/admin/index/<?php echo $i ?>/<?php echo $search ?>"><?php echo $i ?></a>
+										</li>
 									<?php } ?>
-									<li class="page-item <?php echo $disabled = (($pagenumber + 1 ) > ceil($admincount / 10)) ? "disabled" : "" ?>">
+									<li class="page-item <?php echo $disabled = (($pagenumber + 1) > ceil($admincount / 10)) ? "disabled" : "" ?>">
 										<a class="page-link" href="<?php echo base_url() ?>index.php/admin/admin/index/<?php echo $pagenumber + 1 ?>/<?php echo $search ?>">
 											<i class="fas fa-angle-right"></i>
 											<span class="sr-only">Next</span>

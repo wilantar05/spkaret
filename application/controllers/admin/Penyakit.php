@@ -18,24 +18,24 @@ class Penyakit extends CI_Controller
 	public function index($page = 1, $search = "")
 	{
 		if ($this->session->username != "") {
-			$data['title'] = "Kategori";
-			$data['page'] = "List";
+			$data['title'] = "Penyakit";
+			$data['page'] = "Data";
 			$data['pagenumber'] = $page;
 			$data['search'] = $search;
 
 			$data['user'] = null;
 			$data['penyakit'] = null;
 			$data['penyakitcount'] = 0;
-			// $result = $this->Admin_model->getAdmin($this->session->username);
+			// $result = $this->Admin_model->GetAdmin($this->session->username);
 			// $data['user'] = $result;
 
 			// $kategori = $this->Kategori_model->getAllKategori($search,$page);
 			// $data['kategori'] = $kategori;
 			// $kategoricount = $this->Kategori_model->getCountKategori($search,$page);
 			// $data['kategoricount'] = $kategoricount;
-			$penyakitcount = $this->Admin_penyakit->getCountPenyakit($search, $page);
+			$penyakitcount = $this->Admin_penyakit->GetCountPenyakit($search, $page);
 			$data['penyakitcount'] = $penyakitcount;
-			$penyakit = $this->Admin_penyakit->getAllPenyakit($search, $page);
+			$penyakit = $this->Admin_penyakit->GetAllPenyakit($search, $page);
 			$data['penyakit'] = $penyakit;
 			$this->load->view('admin/penyakit/index', $data);
 		} else {
@@ -50,12 +50,12 @@ class Penyakit extends CI_Controller
 
 		$data['penyakit'] = null;
 		$data['user'] = null;
-		$penyakit = $this->Admin_penyakit->findPenyakit($id);
+		$penyakit = $this->Admin_penyakit->FindPenyakit($id);
 		$data['penyakit'] = $penyakit;
 		// $kategori = $this->Kategori_model->findKategori($id);
 		// $data['kategori'] = $kategori;
 
-		// $result = $this->Admin_model->getAdmin($this->session->username);
+		// $result = $this->Admin_model->GetAdmin($this->session->username);
 		// $data['user'] = $result;
 		$this->load->view('admin/penyakit/edit', $data);
 	}

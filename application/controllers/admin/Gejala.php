@@ -20,7 +20,7 @@ class Gejala extends CI_Controller
 	{
 		if ($this->session->username != "") {
 			$data['title'] = "Gejala";
-			$data['page'] = "List";
+			$data['page'] = "Data";
 			$data['pagenumber'] = $page;
 			$data['search'] = $search;
 
@@ -29,7 +29,7 @@ class Gejala extends CI_Controller
 
 			$data['gejalacount'] = 0;
 
-			// $result = $this->Admin_model->getAdmin($this->session->username);
+			// $result = $this->Admin_model->GetAdmin($this->session->username);
 			// $data['user'] = $result;
 
 			// $result = $this->Kategori_model->getSelectKategori();
@@ -40,9 +40,9 @@ class Gejala extends CI_Controller
 			// $data['barang'] = $barang;
 			// $barangcount = $this->Barang_model->getCountBarang($search,$page);
 			// $data['barangcount'] = $barangcount;
-			$gejalacount = $this->Admin_gejala->getCountGejala($search, $page);
+			$gejalacount = $this->Admin_gejala->GetCountGejala($search, $page);
 			$data['gejalacount'] = $gejalacount;
-			$gejala = $this->Admin_gejala->getAllGejala($search, $page);
+			$gejala = $this->Admin_gejala->GetAllGejala($search, $page);
 			$data['gejala'] = $gejala;
 			$this->load->view('admin/gejala/index', $data);
 		} else {
@@ -57,7 +57,7 @@ class Gejala extends CI_Controller
 
 		$data['user'] = null;
 		$data['gejala'] = null;
-		$gejala = $this->Admin_gejala->findGejala($id);
+		$gejala = $this->Admin_gejala->FindGejala($id);
 		$data['gejala'] = $gejala;
 		// $barang = $this->Barang_model->findBarang($id);
 		// $data['barang'] = $barang;
@@ -68,7 +68,7 @@ class Gejala extends CI_Controller
 		// $result = $this->Barang_model->getGambarBarang($id);
 		// $data['gambar'] = $result;
 
-		// $result = $this->Admin_model->getAdmin($this->session->username);
+		// $result = $this->Admin_model->GetAdmin($this->session->username);
 		// $data['user'] = $result;
 		$this->load->view('admin/gejala/edit', $data);
 	}

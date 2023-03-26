@@ -21,7 +21,7 @@ class Admin_rules extends CI_Model
         return $data;
     }
 
-    public function getCountRules($search = "", $page = 1)
+    public function GetCountRules($search = "", $page = 1)
     {
         $this->load->database();
         $this->db->select('*');
@@ -33,7 +33,7 @@ class Admin_rules extends CI_Model
         return $data;
     }
 
-    public function getRuleData($search = "", $page = 1)
+    public function GetRuleData($search = "", $page = 1)
     {
         $limit = 10;
         $start = ($page * $limit) - $limit;
@@ -49,7 +49,7 @@ class Admin_rules extends CI_Model
         return $data;
     }
 
-    public function findRules($id)
+    public function FindRules($id)
     {
         $this->load->database();
         $this->db->select("rules.id as id, penyakit.id as idPenyakit, gejala.id as idGejala, NamaGejala, NamaPenyakit, nilaiMB, nilaiMD, nilaiCF");

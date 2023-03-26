@@ -28,7 +28,7 @@ class Admin_model extends CI_Model
         return false;
     }
 
-    public function getAdmin($username)
+    public function GetAdmin($username)
     {
         $this->load->database();
         $this->db->select('*');
@@ -47,7 +47,7 @@ class Admin_model extends CI_Model
         return false;
     }
 
-    public function getAllAdmin($search = "", $page = 1)
+    public function GetAllAdmin($search = "", $page = 1)
     {
         $limit = 10;
         $start = ($page * $limit) - $limit;
@@ -73,7 +73,7 @@ class Admin_model extends CI_Model
         return $data;
     }
 
-    public function getCountAdmin($search = "", $page = 1)
+    public function GetCountAdmin($search = "", $page = 1)
     {
         $this->load->database();
         $this->db->select('*');
@@ -85,7 +85,7 @@ class Admin_model extends CI_Model
         return $data;
     }
 
-    public function findAdmin($id)
+    public function FindAdmin($id)
     {
         $this->load->database();
         $this->db->select('*');
