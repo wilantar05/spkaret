@@ -9,16 +9,16 @@ class Admin_model extends CI_Model
     {
         $this->load->database();
         $this->db->select('*');
-        $this->db->from('admin');
+        $this->db->from('tb_admin');
         $this->db->where('status', 1);
-        $this->db->where('Username', $username);
+        $this->db->where('username', $username);
 
         if ($this->db->count_all_results() > 0) {
             $this->db->reset_query();
             $this->db->select('*');
-            $this->db->from('admin');
+            $this->db->from('tb_admin');
             $this->db->where('status', 1);
-            $this->db->where('Username', $username);
+            $this->db->where('username', $username);
             $data = $this->db->get()->result_array();
             if (password_verify($password, $data[0]['Password'])) {
                 return true;
@@ -32,9 +32,9 @@ class Admin_model extends CI_Model
     {
         $this->load->database();
         $this->db->select('*');
-        $this->db->from('admin');
+        $this->db->from('tb_admin');
         $this->db->where('status', 1);
-        $this->db->where('Username', $username);
+        $this->db->where('username', $username);
         if ($this->db->count_all_results() > 0) {
             $this->db->reset_query();
             $this->db->select('*');
@@ -54,7 +54,7 @@ class Admin_model extends CI_Model
 
         $this->load->database();
         $this->db->select('*');
-        $this->db->from('admin');
+        $this->db->from('tb_admin');
         if ($search != "") {
             $this->db->like('Nama', $search);
         }
@@ -67,8 +67,8 @@ class Admin_model extends CI_Model
     {
         $this->load->database();
         $this->db->select('*');
-        $this->db->from('admin');
-        $this->db->where('Status', 1);
+        $this->db->from('tb_admin');
+        $this->db->where('status', 1);
         $data = $this->db->get()->result_array();
         return $data;
     }
@@ -77,7 +77,7 @@ class Admin_model extends CI_Model
     {
         $this->load->database();
         $this->db->select('*');
-        $this->db->from('admin');
+        $this->db->from('tb_admin');
         if ($search != "") {
             $this->db->like('Nama', $search);
         }
@@ -89,8 +89,8 @@ class Admin_model extends CI_Model
     {
         $this->load->database();
         $this->db->select('*');
-        $this->db->from('admin');
-        $this->db->where('Id_Admin', $id);
+        $this->db->from('tb_admin');
+        $this->db->where('id_Admin', $id);
         $data = $this->db->get()->result_array();
         return $data;
     }

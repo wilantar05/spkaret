@@ -10,10 +10,10 @@ class Admin_rules extends CI_Model
 
         $this->load->database();
         $this->db->select('*');
-        $this->db->from('rules');
+        $this->db->from('tb_rules');
 
         if ($search != "") {
-            $this->db->like('idPenyakit', $search);
+            $this->db->like('id_penyakit', $search);
         }
 
         $this->db->limit($limit, $start);
@@ -25,9 +25,9 @@ class Admin_rules extends CI_Model
     {
         $this->load->database();
         $this->db->select('*');
-        $this->db->from('rules');
+        $this->db->from('tb_rules');
         if ($search != "") {
-            $this->db->like('idPenyakit', $search);
+            $this->db->like('id_penyakit', $search);
         }
         $data = $this->db->count_all_results();
         return $data;
@@ -39,10 +39,10 @@ class Admin_rules extends CI_Model
         $start = ($page * $limit) - $limit;
 
         $this->load->database();
-        $this->db->select("rules.id as id, penyakit.id as idPenyakit, gejala.id as idGejala, NamaGejala, NamaPenyakit, nilaiMB, nilaiMD, nilaiCF");
-        $this->db->from("rules");
-        $this->db->join("penyakit", "penyakit.id = rules.idPenyakit");
-        $this->db->join("gejala", "gejala.id = rules.idGejala");
+        $this->db->select("tb_rules.id_rules as id, tb_penyakit.id_penyakit as idPenyakit, tb_gejala.id_gejala as idGejala, nama_gejala, nama_penyakit, nilai_mb, nilai_md, nilai_cf");
+        $this->db->from("tb_rules");
+        $this->db->join("tb_penyakit", "tb_penyakit.id_penyakit = tb_rules.id_penyakit");
+        $this->db->join("tb_gejala", "tb_gejala.id_gejala = tb_rules.id_gejala");
 
         $this->db->limit($limit, $start);
         $data = $this->db->get()->result_array();
@@ -52,11 +52,11 @@ class Admin_rules extends CI_Model
     public function FindRules($id)
     {
         $this->load->database();
-        $this->db->select("rules.id as id, penyakit.id as idPenyakit, gejala.id as idGejala, NamaGejala, NamaPenyakit, nilaiMB, nilaiMD, nilaiCF");
-        $this->db->from("rules");
-        $this->db->join("penyakit", "penyakit.id = rules.idPenyakit");
-        $this->db->join("gejala", "gejala.id = rules.idGejala");
-        $this->db->where('rules.id', $id);
+        $this->db->select("tb_rules.id_rules as id, tb_penyakit.id_penyakit as idPenyakit, tb_gejala.id_gejala as idGejala, nama_gejala, nama_penyakit, nilai_mb, nilai_md, nilai_cf");
+        $this->db->from("tb_rules");
+        $this->db->join("tb_penyakit", "tb_penyakit.id_penyakit = tb_rules.id_penyakit");
+        $this->db->join("tb_gejala", "tb_gejala.id_gejala = tb_rules.id_gejala");
+        $this->db->where('tb_rules.id_rules', $id);
 
         $data = $this->db->get()->result_array();
         return $data;

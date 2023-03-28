@@ -10,10 +10,10 @@ class Admin_penyakit extends CI_Model
 
         $this->load->database();
         $this->db->select('*');
-        $this->db->from('penyakit');
+        $this->db->from('tb_penyakit');
 
         if ($search != "") {
-            $this->db->like('NamaPenyakit', $search);
+            $this->db->like('nama_penyakit', $search);
         }
 
         $this->db->limit($limit, $start);
@@ -25,9 +25,9 @@ class Admin_penyakit extends CI_Model
     {
         $this->load->database();
         $this->db->select('*');
-        $this->db->from('penyakit');
+        $this->db->from('tb_penyakit');
         if ($search != "") {
-            $this->db->like('NamaPenyakit', $search);
+            $this->db->like('nama_penyakit', $search);
         }
         $data = $this->db->count_all_results();
         return $data;
@@ -37,8 +37,8 @@ class Admin_penyakit extends CI_Model
     {
         $this->load->database();
         $this->db->select('*');
-        $this->db->from('penyakit');
-        $this->db->where('id', $id);
+        $this->db->from('tb_penyakit');
+        $this->db->where('id_penyakit', $id);
         $data = $this->db->get()->result_array();
         return $data;
     }

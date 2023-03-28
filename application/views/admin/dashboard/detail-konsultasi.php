@@ -37,7 +37,7 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="<?php echo base_url() ?>index.php/admin/gejala/store" method="POST">
+                        <form action="<?php echo base_url() ?>index.php/admin/dashboard/hitung" method="POST">
                             <div class="card-body border-0">
                                 <?php if ($this->session->flashdata('true')) {
                                     echo $this->session->flashdata('true');
@@ -51,15 +51,29 @@
                                 foreach ($nama as $key => $values) {
                                 ?>
                                     <div class="form-group">
-                                        <!-- <label for="exampleFormControlInput1">Nama</label> -->
-                                        <input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama" value="<?php echo $values['NamaGejala'] ?>" disabled>
+                                        <label for="exampleFormControlInput1"><?php echo $values['NamaGejala'] ?></label>
+                                        <input type="text" value="<?php echo $values['id_gejala'] ?>" name="gejala[]" hidden>
+                                        <!-- <input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama" value="<?php echo $values['NamaGejala'] ?>" disabled> -->
+                                        <select class="form-control js-example-basic-multiple" name="usercf[]">
+                                            <option value="" disabled selected hidden>Pilih Tingkat Keyakinan</option>
+                                            <option value="0">Tidak</option>
+                                            <option value="0.2">Tidak Tahu</option>
+                                            <option value="0.4">Sedikit Yakin</option>
+                                            <option value="0.6">Cukup Yakin</option>
+                                            <option value="0.8">Yakin</option>
+                                            <option value="1">Sangat Yakin</option>
+                                        </select>
+                                    <?php } ?>
+                                    <div class="card-footer py-4 text-right">
+                                        <button class="btn btn-primary" type="submit">Kirim</button>
+                                    </div>
                                     </div>
 
-                                    <div class="form-group">
+                                    <!-- <div class="form-group"> -->
 
-                                    </div>
-                                <?php } ?>
-                                <!-- <div class="form-group">
+                                    <!-- </div> -->
+
+                                    <!-- <div class="form-group">
                                     <label for="exampleFormControlInput1">Nama</label>
                                     <input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama">
                                 </div>
@@ -78,10 +92,6 @@
                                     </select>
 
                                 </div> -->
-
-                            </div>
-                            <div class="card-footer py-4 text-right">
-                                <button class="btn btn-primary" type="submit">Kirim</button>
                             </div>
                         </form>
                     </div>

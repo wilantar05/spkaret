@@ -76,16 +76,16 @@ class Rules extends CI_Controller
 	public function update()
 	{
 		$data = array(
-			'id' => $this->input->post('id'),
-			'idPenyakit' => $this->input->post('idPenyakit'),
-			'idGejala' => $this->input->post('idGejala'),
-			'nilaiMB' => $this->input->post('mb'),
-			'nilaiMD' => $this->input->post('md'),
-			'nilaiCF' => $this->input->post('cf'),
+			'id_rules' => $this->input->post('id'),
+			'id_penyakit' => $this->input->post('idPenyakit'),
+			'id_gejala' => $this->input->post('idGejala'),
+			'nilai_mb' => $this->input->post('mb'),
+			'nilai_md' => $this->input->post('md'),
+			'nilai_cf' => $this->input->post('cf'),
 		);
 
-		$this->db->where('id', $this->input->post('id'));
-		$result = $this->db->update('rules', $data);
+		$this->db->where('id_rules', $this->input->post('id'));
+		$result = $this->db->update('tb_rules', $data);
 		if ($result) {
 			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil memperbarui data rules!</div>');
 		} else {
@@ -105,15 +105,15 @@ class Rules extends CI_Controller
 	public function store()
 	{
 		$data = array(
-			'id' => $this->input->post('id'),
-			'idPenyakit' => $this->input->post('idPenyakit'),
-			'idGejala' => $this->input->post('idGejala'),
-			'nilaiMB' => $this->input->post('mb'),
-			'nilaiMD' => $this->input->post('md'),
-			'nilaiCF' => $this->input->post('cf'),
+			'id_rules' => $this->input->post('id'),
+			'id_penyakit' => $this->input->post('idPenyakit'),
+			'id_gejala' => $this->input->post('idGejala'),
+			'nilai_mb' => $this->input->post('mb'),
+			'nilai_md' => $this->input->post('md'),
+			'nilai_cf' => $this->input->post('cf'),
 		);
 
-		$result = $this->db->insert('rules', $data);
+		$result = $this->db->insert('tb_rules', $data);
 		if ($result) {
 			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil menambahkan member!</div>');
 		} else {
@@ -125,9 +125,9 @@ class Rules extends CI_Controller
 	public function delete($id)
 	{
 		$data = array(
-			'id' => $id,
+			'id_rules' => $id,
 		);
-		$result = $this->db->delete('rules', $data);
+		$result = $this->db->delete('tb_rules', $data);
 		if ($result) {
 			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil menghapus rules!</div>');
 		} else {

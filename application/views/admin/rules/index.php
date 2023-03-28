@@ -52,7 +52,7 @@
 									<label>Nama Gejala</label>
 									<select class="form-control" name="idGejala">
 										<?php foreach ($gejala as $g) { ?>
-											<option value="<?php echo $g['id']; ?>"><?php echo $g['NamaGejala']; ?> </option>
+											<option value="<?php echo $g['id_gejala']; ?>"><?php echo $g['nama_gejala']; ?> </option>
 										<?php } ?>
 									</select>
 								</div>
@@ -62,7 +62,7 @@
 									<label>Nama Penyakit</label>
 									<select class="form-control" name="idPenyakit">
 										<?php foreach ($penyakit as $p) { ?>
-											<option value="<?php echo $p['id']; ?>"><?php echo $p['NamaPenyakit']; ?> </option>
+											<option value="<?php echo $p['id_penyakit']; ?>"><?php echo $p['nama_penyakit']; ?> </option>
 										<?php } ?>
 									</select>
 								</div>
@@ -128,11 +128,11 @@
 									<?php foreach ($rules as $key => $value) { ?>
 										<tr>
 											<td><?php echo $key + 1 ?></td>
-											<td><?php echo $value['NamaGejala'] ?></td>
-											<td><?php echo $value['NamaPenyakit'] ?></td>
-											<td><?php echo $value['nilaiMB'] ?></td>
-											<td><?php echo $value['nilaiMD'] ?></td>
-											<td><?php echo $value['nilaiCF'] ?></td>
+											<td><?php echo $value['nama_gejala'] ?></td>
+											<td><?php echo $value['nama_penyakit'] ?></td>
+											<td><?php echo $value['nilai_mb'] ?></td>
+											<td><?php echo $value['nilai_md'] ?></td>
+											<td><?php echo $value['nilai_cf'] ?></td>
 
 											<td>
 												<div class="dropdown">

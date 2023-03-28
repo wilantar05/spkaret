@@ -53,9 +53,9 @@
 									<label>Nama Gejala</label>
 									<select class="form-control" name="idGejala">
 										<?php foreach ($gejala as $g) { ?>
-											<option value="<?php echo $g['id']; ?>" <?php if ($g['id'] == $rules[0]['idGejala']) {
-																						echo 'selected';
-																					} ?>><?php echo $g['NamaGejala']; ?> </option>
+											<option value="<?php echo $g['id_gejala']; ?>" <?php if ($g['id_gejala'] == $rules[0]['idGejala']) {
+																								echo 'selected';
+																							} ?>><?php echo $g['nama_gejala']; ?> </option>
 										<?php } ?>
 									</select>
 								</div>
@@ -65,23 +65,23 @@
 									<label>Nama Penyakit</label>
 									<select class="form-control" name="idPenyakit">
 										<?php foreach ($penyakit as $p) { ?>
-											<option value="<?php echo $p['id']; ?>" <?php if ($p['id'] == $rules[0]['idPenyakit']) {
-																						echo 'selected';
-																					} ?>><?php echo $p['NamaPenyakit']; ?> </option>
+											<option value="<?php echo $p['id_penyakit']; ?>" <?php if ($p['id_penyakit'] == $rules[0]['idPenyakit']) {
+																									echo 'selected';
+																								} ?>><?php echo $p['nama_penyakit']; ?> </option>
 										<?php } ?>
 									</select>
 								</div>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">MB</label>
-									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" value="<?php echo ($rules != null) ? $rules[0]['nilaiMB'] : "" ?>" placeholder="MB">
+									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" value="<?php echo ($rules != null) ? $rules[0]['nilai_mb'] : "" ?>" placeholder="MB">
 								</div>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">MD</label>
-									<input type="text" name="Alamat" class="form-control" id="exampleFormControlInput1" value="<?php echo ($rules != null) ? $rules[0]['nilaiMD'] : "" ?>" placeholder="MD">
+									<input type="text" name="Alamat" class="form-control" id="exampleFormControlInput1" value="<?php echo ($rules != null) ? $rules[0]['nilai_md'] : "" ?>" placeholder="MD">
 								</div>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">CF</label>
-									<input type="text" name="Alamat" class="form-control" id="exampleFormControlInput1" value="<?php echo ($rules != null) ? $rules[0]['nilaiCF'] : "" ?>" placeholder="CF">
+									<input type="text" name="Alamat" class="form-control" id="exampleFormControlInput1" value="<?php echo ($rules != null) ? $rules[0]['nilai_cf'] : "" ?>" placeholder="CF">
 								</div>
 							</div>
 							<div class="card-footer py-4">

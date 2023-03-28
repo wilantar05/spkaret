@@ -101,8 +101,8 @@
 									<?php foreach ($penyakit as $key => $value) { ?>
 										<tr>
 											<td><?php echo $key + 1 ?></td>
-											<td><?php echo $value['NamaPenyakit'] ?></td>
-											<td><?php echo $value['Solusi'] ?></td>
+											<td><?php echo $value['nama_penyakit'] ?></td>
+											<td><?php echo $value['solusi'] ?></td>
 
 											<td>
 												<div class="dropdown">
@@ -110,8 +110,8 @@
 														<i class="fas fa-ellipsis-v"></i>
 													</a>
 													<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-														<a class="dropdown-item" href="<?php echo base_url() ?>index.php/admin/penyakit/edit/<?php echo $value['id'] ?>">Edit</a>
-														<a class="dropdown-item" onclick="return confirm('Apakah anda yakin menghapus data ini ?')" href="<?php echo base_url() ?>index.php/admin/penyakit/delete/<?php echo $value['id'] ?>">Delete</a>
+														<a class="dropdown-item" href="<?php echo base_url() ?>index.php/admin/penyakit/edit/<?php echo $value['id_penyakit'] ?>">Edit</a>
+														<a class="dropdown-item" onclick="return confirm('Apakah anda yakin menghapus data ini ?')" href="<?php echo base_url() ?>index.php/admin/penyakit/delete/<?php echo $value['id_penyakit'] ?>">Delete</a>
 													</div>
 												</div>
 											</td>

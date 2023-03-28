@@ -10,10 +10,10 @@ class Admin_gejala extends CI_Model
 
         $this->load->database();
         $this->db->select('*');
-        $this->db->from('gejala');
+        $this->db->from('tb_gejala');
 
         if ($search != "") {
-            $this->db->like('NamaGejala', $search);
+            $this->db->like('nama_gejala', $search);
         }
 
         $this->db->limit($limit, $start);
@@ -25,7 +25,7 @@ class Admin_gejala extends CI_Model
     {
         $this->load->database();
         $this->db->select('*');
-        $this->db->from('gejala');
+        $this->db->from('tb_gejala');
 
         $data = $this->db->get()->result_array();
         return $data;
@@ -39,9 +39,9 @@ class Admin_gejala extends CI_Model
     {
         $this->load->database();
         $this->db->select('*');
-        $this->db->from('gejala');
+        $this->db->from('tb_gejala');
         if ($search != "") {
-            $this->db->like('NamaGejala', $search);
+            $this->db->like('nama_gejala', $search);
         }
         $data = $this->db->count_all_results();
         return $data;
@@ -51,8 +51,8 @@ class Admin_gejala extends CI_Model
     {
         $this->load->database();
         $this->db->select('*');
-        $this->db->from('gejala');
-        $this->db->where('id', $id);
+        $this->db->from('tb_gejala');
+        $this->db->where('id_gejala', $id);
         $data = $this->db->get()->result_array();
         return $data;
     }

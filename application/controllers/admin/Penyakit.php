@@ -63,11 +63,11 @@ class Penyakit extends CI_Controller
 	public function update()
 	{
 		$data = array(
-			'NamaPenyakit' => $this->input->post('NamaPenyakit'),
+			'nama_penyakit' => $this->input->post('NamaPenyakit'),
 		);
 
-		$this->db->where('id', $this->input->post('id'));
-		$result = $this->db->update('penyakit', $data);
+		$this->db->where('id_penyakit', $this->input->post('id'));
+		$result = $this->db->update('tb_penyakit', $data);
 		if ($result) {
 			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil memperbarui data penyakit!</div>');
 		} else {
@@ -87,13 +87,13 @@ class Penyakit extends CI_Controller
 	public function store()
 	{
 		$data = array(
-			'NamaPenyakit' => $this->input->post('NamaPenyakit'),
-			'Solusi' => $this->input->post('Solusi')
+			'nama_penyakit' => $this->input->post('NamaPenyakit'),
+			'solusi' => $this->input->post('Solusi')
 			// 'Created_at' => date("Y-m-d H:i:s"),
 			// 'Update_at' => date("Y-m-d H:i:s")
 		);
 
-		$result = $this->db->insert('penyakit', $data);
+		$result = $this->db->insert('tb_penyakit', $data);
 		if ($result) {
 			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil menambahkan data penyakit!</div>');
 		} else {
@@ -105,9 +105,9 @@ class Penyakit extends CI_Controller
 	public function delete($id)
 	{
 		$data = array(
-			'id' => $id,
+			'id_penyakit' => $id,
 		);
-		$result = $this->db->delete('penyakit', $data);
+		$result = $this->db->delete('tb_penyakit', $data);
 		if ($result) {
 			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil menghapus data penyakit!</div>');
 		} else {

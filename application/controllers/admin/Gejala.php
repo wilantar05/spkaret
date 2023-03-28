@@ -76,11 +76,11 @@ class Gejala extends CI_Controller
 	public function update()
 	{
 		$data = array(
-			'NamaGejala' => $this->input->post('NamaGejala'),
+			'nama_gejala' => $this->input->post('NamaGejala'),
 		);
 
-		$this->db->where('id', $this->input->post('id'));
-		$result = $this->db->update('gejala', $data);
+		$this->db->where('id_gejala', $this->input->post('id'));
+		$result = $this->db->update('tb_gejala', $data);
 		if ($result) {
 			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil memperbarui data gejala!</div>');
 		} else {
@@ -89,23 +89,15 @@ class Gejala extends CI_Controller
 		redirect('admin/gejala/edit/' . $this->input->post('id'), 'refresh');
 	}
 
-	public function search()
-	{
-		$pagenumber = $this->input->post('pagenumber');
-		$search = $this->input->post('search');
-
-		redirect('admin/barang/index/' . $pagenumber . '/' . $search, 'refresh');
-	}
-
 	public function store()
 	{
 		$data = array(
-			'NamaGejala' => $this->input->post('NamaGejala')
+			'nama_gejala' => $this->input->post('NamaGejala')
 			// 'Created_at' => date("Y-m-d H:i:s"),
 			// 'Update_at' => date("Y-m-d H:i:s")
 		);
 
-		$result = $this->db->insert('gejala', $data);
+		$result = $this->db->insert('tb_gejala', $data);
 		if ($result) {
 			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil menambahkan data gejala!</div>');
 		} else {
@@ -114,57 +106,12 @@ class Gejala extends CI_Controller
 		redirect('admin/gejala', 'refresh');
 	}
 
-	public function addGambar()
-	{
-		$config['upload_path'] = './././uploads/';
-		$config['allowed_types'] = 'gif|jpg|png|jpeg';
-		$config['max_size']     = '100';
-		$config['max_width'] = '1024';
-		$config['max_height'] = '768';
-		$config['file_name'] = date("YmdHis");
-
-		$this->load->library('upload', $config);
-		if (!$this->upload->do_upload('Gambar')) {
-			$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert"><strong>Gagal!</strong> Gagal mengupload file gambar!</div>');
-		} else {
-			$data = array(
-				'Id_Barang' => $this->input->post('Id_Barang'),
-				'Gambar' => $this->upload->data('file_name'),
-				'Keterangan' => $this->input->post('Keterangan'),
-				'Created_at' => date("Y-m-d H:i:s"),
-				'Update_at' => date("Y-m-d H:i:s")
-			);
-
-			$result = $this->db->insert('gambar', $data);
-			if ($result) {
-				$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil menambahkan gambar barang!</div>');
-			} else {
-				$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert"><strong>Gagal!</strong> Gagal menambahkan gambar barang!</div>');
-			}
-		}
-		redirect('admin/barang/edit/' . $this->input->post('Id_Barang'), 'refresh');
-	}
-
-	public function deleteGambar($id)
-	{
-		$data = array(
-			'Id_Gambar' => $id,
-		);
-		$result = $this->db->delete('gambar', $data);
-		if ($result) {
-			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil menghapus gambar barang!</div>');
-		} else {
-			$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert"><strong>Gagal!</strong> Gagal menghapus gambar barang!</div>');
-		}
-		redirect('admin/barang', 'refresh');
-	}
-
 	public function delete($id)
 	{
 		$data = array(
-			'id' => $id,
+			'id_gejala' => $id,
 		);
-		$result = $this->db->delete('gejala', $data);
+		$result = $this->db->delete('tb_gejala', $data);
 		if ($result) {
 			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil menghapus data gejala!</div>');
 		} else {

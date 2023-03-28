@@ -99,15 +99,15 @@
 									<?php foreach ($gejala as $key => $value) { ?>
 										<tr>
 											<td><?php echo $key + 1 ?></td>
-											<td><?php echo $value['NamaGejala'] ?></td>
+											<td><?php echo $value['nama_gejala'] ?></td>
 											<td>
 												<div class="dropdown">
 													<a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 														<i class="fas fa-ellipsis-v"></i>
 													</a>
 													<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-														<a class="dropdown-item" href="<?php echo base_url() ?>index.php/admin/gejala/edit/<?php echo $value['id'] ?>">Edit</a>
-														<a class="dropdown-item" onclick="return confirm('Apakah anda yakin menghapus data ini ?')" href="<?php echo base_url() ?>index.php/admin/gejala/delete/<?php echo $value['id'] ?>">Delete</a>
+														<a class="dropdown-item" href="<?php echo base_url() ?>index.php/admin/gejala/edit/<?php echo $value['id_gejala'] ?>">Edit</a>
+														<a class="dropdown-item" onclick="return confirm('Apakah anda yakin menghapus data ini ?')" href="<?php echo base_url() ?>index.php/admin/gejala/delete/<?php echo $value['id_gejala'] ?>">Delete</a>
 													</div>
 												</div>
 											</td>

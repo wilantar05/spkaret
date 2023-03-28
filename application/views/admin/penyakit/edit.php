@@ -38,7 +38,7 @@
 							</div>
 						</div>
 						<form action="<?php echo base_url() ?>index.php/admin/penyakit/update" method="POST">
-							<input type="hidden" name="id" value="<?php echo ($penyakit != null) ? $penyakit[0]['id'] : "" ?>">
+							<input type="hidden" name="id" value="<?php echo ($penyakit != null) ? $penyakit[0]['id_penyakit'] : "" ?>">
 							<div class="card-body border-0">
 								<?php if ($this->session->flashdata('true')) {
 									echo $this->session->flashdata('true');
@@ -49,11 +49,11 @@
 								} ?>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Penyakit</label>
-									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama Penyakit" value="<?php echo ($penyakit != null) ? $penyakit[0]['Nama'] : "" ?>">
+									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama Penyakit" value="<?php echo ($penyakit != null) ? $penyakit[0]['nama_penyakit'] : "" ?>">
 								</div>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Solusi</label>
-									<input type="text" name="Solusi" class="form-control" id="exampleFormControlInput1" placeholder="Solusi" value="<?php echo ($penyakit != null) ? $penyakit[0]['Solusi'] : "" ?>">
+									<input type="text" name="Solusi" class="form-control" id="exampleFormControlInput1" placeholder="Solusi" value="<?php echo ($penyakit != null) ? $penyakit[0]['solusi'] : "" ?>">
 								</div>
 							</div>
 							<div class="card-footer py-4">
