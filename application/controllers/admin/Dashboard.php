@@ -77,6 +77,14 @@ class Dashboard extends CI_Controller
 
 	public function hitung()
 	{
-		$data['hasilcf'] = $this->konsultasi->HitungCF();
+		$data['title'] = "Dashboard";
+		$data['page'] = "Konsultasi";
+
+		$data['user'] = null;
+		//$hasilfc = $this->konsultasi->hitungFC();
+		$hasilcf = $this->konsultasi->HitungCF();
+		//$data['hasilfc'] = $hasilfc;
+		$data['hasilcf'] = $hasilcf;
+		$this->load->view('admin/dashboard/hasilkonsultasi', $data);
 	}
 }

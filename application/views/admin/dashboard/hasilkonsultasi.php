@@ -37,30 +37,31 @@
 								</div>
 							</div>
 						</div>
-						<form action="<?php echo base_url() ?>index.php/admin/gejala/store" method="POST">
-						<div class="card-body border-0">
-						<?php if($this->session->flashdata('true')) { echo $this->session->flashdata('true'); $this->session->unset_userdata('true');}else if($this->session->flashdata('error')){ echo $this->session->flashdata('error');$this->session->unset_userdata('error');} ?>
+						<table class="table align-items-center table-responsive">
+							<thead class="thead-light">
+								<tr>
+									<th scope="col" width="10%">No</th>
+									<th scope="col">Nama Penyakit</th>
+									<th scope="col">Persentase Keyakinan</th>
 
-							<div class="form-group">
-								<label for="exampleFormControlInput1">Nama Penyakit</label>
-								<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama Penyakit">
-							</div>
-
-							<div class="form-group">
-								<label for="exampleFormControlInput1">Solusi</label>
-								<input type="text" name="NoHP" class="form-control" id="exampleFormControlInput1" placeholder="Solusi">
-							</div>
-
-							<div class="form-group">
-								<label for="exampleFormControlInput1">Kritik dan Saran</label>
-								<input type="text" name="Gejala" class="form-control" id="exampleFormControlInput1" placeholder="Kritik dan Saran">
-							</div>
-							
-						</div>
-						<div class="card-footer py-4 text-right">
-							<button class="btn btn-primary" type="submit">Kirim</button>
-						</div>
-						</form>
+									<th scope="col" width="10%"></th>
+								</tr>
+							</thead>
+							<tbody class="list">
+								<?php if ($hasilcf != null) { 
+									$i = 1;
+									//print_r($gejala) 
+								?>
+									<?php foreach ($hasilcf as $key => $value) { ?>
+										<tr>
+											<td><?php echo $i ?></td>
+											<td><?php echo $key ?></td>
+											<td><?php echo $value . " %"?></td>
+										</tr>
+									<?php $i++;} ?>
+								<?php } ?>
+							</tbody>
+						</table>
 					</div>
 				</div>
 				
