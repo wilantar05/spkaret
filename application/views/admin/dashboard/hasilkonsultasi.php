@@ -40,10 +40,9 @@
 						<table class="table align-items-center table-responsive">
 							<thead class="thead-light">
 								<tr>
-									<th scope="col" width="10%">No</th>
+									<!-- <th scope="col" width="10%">No</th> -->
 									<th scope="col">Nama Penyakit</th>
 									<th scope="col">Persentase Keyakinan</th>
-
 									<th scope="col" width="10%"></th>
 								</tr>
 							</thead>
@@ -51,13 +50,16 @@
 								<?php if ($hasilcf != null) { 
 									$i = 1;
 									//print_r($gejala) 
+									$maxcf = max($hasilcf);
+									$key = array_search($maxcf,$hasilcf);
 								?>
-									<?php foreach ($hasilcf as $key => $value) { ?>
-										<tr>
-											<td><?php echo $i ?></td>
+								<tr>
+											<!-- <td><?php echo $i ?></td> -->
 											<td><?php echo $key ?></td>
-											<td><?php echo $value . " %"?></td>
-										</tr>
+											<td><?php echo $maxcf . " %"?></td>
+								</tr>
+									<?php foreach ($hasilcf as $key => $value) { ?>
+										
 									<?php $i++;} ?>
 								<?php } ?>
 							</tbody>

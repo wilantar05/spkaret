@@ -49,8 +49,12 @@
 						<form action="<?php echo base_url() ?>index.php/admin/gejala/update" method="POST">
 							<input type="hidden" name="id" value="<?php echo ($gejala != null) ? $gejala[0]['id_gejala'] : "" ?>">
 							<div class="card-body border-0">
+							<div class="form-group">
+									<label for="exampleFormControlInput1">Kode</label>
+									<input type="text" name="KodeGejala" class="form-control" id="exampleFormControlInput1" placeholder="Kode Gejala" value="<?php echo ($gejala != null) ? $gejala[0]['kode_gejala'] : "" ?>">
+								</div>
 								<div class="form-group">
-									<label for="exampleFormControlInput1">Gejala</label>
+									<label for="exampleFormControlInput1">Nama Gejala</label>
 									<input type="text" name="NamaGejala" class="form-control" id="exampleFormControlInput1" placeholder="Nama Gejala" value="<?php echo ($gejala != null) ? $gejala[0]['nama_gejala'] : "" ?>">
 								</div>
 

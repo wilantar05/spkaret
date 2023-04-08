@@ -63,7 +63,7 @@ class Penyakit extends CI_Controller
 	public function update()
 	{
 		$data = array(
-			'nama_penyakit' => $this->input->post('NamaPenyakit'),
+			'nama_penyakit' => $this->input->post('Nama'),
 		);
 
 		$this->db->where('id_penyakit', $this->input->post('id'));
@@ -73,7 +73,7 @@ class Penyakit extends CI_Controller
 		} else {
 			$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert"><strong>Gagal!</strong> Gagal memperbarui data penyakit!</div>');
 		}
-		redirect('admin/gejala/edit/' . $this->input->post('id'), 'refresh');
+		redirect('admin/penyakit/edit/' . $this->input->post('id'), 'refresh');
 	}
 
 	public function search()
@@ -87,7 +87,7 @@ class Penyakit extends CI_Controller
 	public function store()
 	{
 		$data = array(
-			'nama_penyakit' => $this->input->post('NamaPenyakit'),
+			'nama_penyakit' => $this->input->post('Nama'),
 			'solusi' => $this->input->post('Solusi')
 			// 'Created_at' => date("Y-m-d H:i:s"),
 			// 'Update_at' => date("Y-m-d H:i:s")

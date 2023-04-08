@@ -48,7 +48,7 @@
 								} ?>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Penyakit</label>
-									<input type="text" name="NamaPenyakit" class="form-control" id="exampleFormControlInput1" placeholder="Nama Penyakit">
+									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama Penyakit">
 								</div>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Solusi</label>

@@ -76,6 +76,7 @@ class Gejala extends CI_Controller
 	public function update()
 	{
 		$data = array(
+			'kode_gejala' => $this->input->post('KodeGejala'),
 			'nama_gejala' => $this->input->post('NamaGejala'),
 		);
 
@@ -92,6 +93,7 @@ class Gejala extends CI_Controller
 	public function store()
 	{
 		$data = array(
+			'kode_gejala' => $this->input->post('KodeGejala'),
 			'nama_gejala' => $this->input->post('NamaGejala')
 			// 'Created_at' => date("Y-m-d H:i:s"),
 			// 'Update_at' => date("Y-m-d H:i:s")

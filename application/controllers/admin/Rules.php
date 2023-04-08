@@ -32,7 +32,7 @@ class Rules extends CI_Controller
 			$data['rules'] = $rules;
 			$ruleCount = $this->Admin_rules->GetCountRules($search, $page);
 			$data['rulescount'] = $ruleCount;
-			$gejala = $this->Admin_gejala->GetAllGejala($search, $page);
+			$gejala = $this->Admin_gejala->GetAllGejalaNoFilter();
 			$data['gejala'] = $gejala;
 			$penyakit = $this->Admin_penyakit->GetAllPenyakit($search, $page);
 			$data['penyakit'] = $penyakit;

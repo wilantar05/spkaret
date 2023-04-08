@@ -27,7 +27,8 @@ class Dashboard extends CI_Controller
 			$result = $this->Admin_model->GetAdmin($this->session->username);
 			//$data['user'] = $result;
 			$data['user'] = null;
-
+			$konsultasi = $this->konsultasi->GetAllKonsultasi();
+			$data['konsultasi'] = $konsultasi;
 			// $transaksi = $this->Transaksi_model->getCountTransaksi();
 			// $data['transaksi'] = $transaksi;
 
@@ -61,6 +62,8 @@ class Dashboard extends CI_Controller
 		$data['title'] = "Dashboard";
 		$data['page'] = "Konsultasi";
 		$data['user'] = null;
+		$data['form_nama'] = $this->input->post('Nama');
+		$data['form_nohp'] = $this->input->post('NoHP');
 		$data['gejala'] = $this->konsultasi->GetDetailKonsultasi();
 		$data['nama_gejala'] = $this->konsultasi->GetNamaGejala();
 		$this->load->view('admin/dashboard/detail-konsultasi', $data);

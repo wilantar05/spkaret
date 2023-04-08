@@ -22,7 +22,7 @@
 
 			<!-- Card stats -->
 			<div class="row">
-				<div class="col-xl-10 col-md-8">
+				<div class="col-xl-12 col-md-8">
 					<div class="card">
 						<!-- Card header -->
 						<div class="card-header border-0">
@@ -50,14 +50,25 @@
 							<thead class="thead-light">
 								<tr>
 									<th scope="col" width="10%">No</th>
-									<th scope="col">Nama</th>
-									<th scope="col">No. HP</th>
-									<th scope="col" width="10%">Gejala</th>
+									<th scope="col" width="25%">Nama</th>
+									<th scope="col" width="10%">No. HP</th>
+									<th scope="col" width="25%">Gejala</th>
+									<th scope="col" width="10%">Penyakit</th>
+									<th scope="col" width="10%">Keyakinan</th>
 									<th scope="col" width="10%"></th>
 								</tr>
 							</thead>
 							<tbody class="list">
-
+								<?php foreach($konsultasi as $key => $value){ ?>
+								<tr>
+									<td><?php echo $key+1; ?> </td>	
+									<td><?php echo $value['nama']; ?> </td>	
+									<td><?php echo $value['no_hp']; ?> </td>	
+									<td><?php echo $value['gejala']; ?> </td>	
+									<td><?php echo $value['penyakit']; ?> </td>	
+									<td><?php echo $value['keyakinan']; ?> </td>	
+								</tr>
+								<?php }?>
 							</tbody>
 						</table>
 						<div class="card-footer py-4">

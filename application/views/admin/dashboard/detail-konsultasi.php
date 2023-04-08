@@ -46,6 +46,8 @@
                                     echo $this->session->flashdata('error');
                                     $this->session->unset_userdata('error');
                                 } ?>
+									<input type="text" value="<?php echo $form_nama; ?>" name="Nama" class="form-control" id="exampleFormControlInput1" hidden>
+									<input type="text" value="<?php echo $form_nohp; ?>" name="NoHP" class="form-control" id="exampleFormControlInput1" hidden>
                                 <?php
                                 $nama = json_decode(json_encode($nama_gejala), true);
                                 foreach ($nama as $key => $values) {
@@ -53,8 +55,8 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlInput1"><?php echo $values['NamaGejala'] ?></label>
                                         <input type="text" value="<?php echo $values['id_gejala'] ?>" name="gejala[]" hidden>
-                                        <!-- <input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama" value="<?php echo $values['NamaGejala'] ?>" disabled> -->
-                                        <select class="form-control js-example-basic-multiple" name="usercf[]">
+                                        
+                                        <select class="form-control js-example-basic" name="usercf[]">
                                             <option value="" disabled selected hidden>Pilih Tingkat Keyakinan</option>
                                             <option value="0">Tidak</option>
                                             <option value="0.2">Tidak Tahu</option>
@@ -63,35 +65,11 @@
                                             <option value="0.8">Yakin</option>
                                             <option value="1">Sangat Yakin</option>
                                         </select>
-                                    <?php } ?>
-                                    <div class="card-footer py-4 text-right">
-                                        <button class="btn btn-primary" type="submit">Kirim</button>
                                     </div>
-                                    </div>
-
-                                    <!-- <div class="form-group"> -->
-
-                                    <!-- </div> -->
-
-                                    <!-- <div class="form-group">
-                                    <label for="exampleFormControlInput1">Nama</label>
-                                    <input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">No HP</label>
-                                    <input type="text" name="NoHP" class="form-control" id="exampleFormControlInput1" placeholder="No HP">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="exampleFormControlInput1">Gejala</label>
-                                    <select class="form-control js-example-basic-multiple" name="Gejala[]" id="" multiple>
-                                        <?php foreach ($gejala as $key => $value) { ?>
-                                            <option value="<?php echo $value['id'] ?>"><?php echo $value['NamaGejala'] ?></option>
                                         <?php } ?>
-                                    </select>
-
-                                </div> -->
+                                        <div class="card-footer py-4 text-right">
+                                        <button class="btn btn-primary" type="submit">Kirim</button>
+                                        </div>
                             </div>
                         </form>
                     </div>

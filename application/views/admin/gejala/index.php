@@ -48,7 +48,12 @@
 								} ?>
 
 								<div class="form-group">
-									<label for="exampleFormControlInput1">Gejala</label>
+									<label for="exampleFormControlInput1">Kode</label>
+									<input type="text" name="KodeGejala" class="form-control" id="exampleFormControlInput1" placeholder="Kode Gejala">
+								</div>
+
+								<div class="form-group">
+									<label for="exampleFormControlInput1">Nama</label>
 									<input type="text" name="NamaGejala" class="form-control" id="exampleFormControlInput1" placeholder="Nama Gejala">
 								</div>
 
@@ -89,6 +94,7 @@
 							<thead class="thead-light">
 								<tr>
 									<th scope="col" width="10%">No</th>
+									<th scope="col" width="10%">Kode</th>
 									<th scope="col">Nama</th>
 									<th scope="col" width="10%"></th>
 								</tr>
@@ -99,6 +105,7 @@
 									<?php foreach ($gejala as $key => $value) { ?>
 										<tr>
 											<td><?php echo $key + 1 ?></td>
+											<td><?php echo $value['kode_gejala'] ?></td>
 											<td><?php echo $value['nama_gejala'] ?></td>
 											<td>
 												<div class="dropdown">

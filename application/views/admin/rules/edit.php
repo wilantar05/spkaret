@@ -55,7 +55,7 @@
 										<?php foreach ($gejala as $g) { ?>
 											<option value="<?php echo $g['id_gejala']; ?>" <?php if ($g['id_gejala'] == $rules[0]['idGejala']) {
 																								echo 'selected';
-																							} ?>><?php echo $g['nama_gejala']; ?> </option>
+																							} ?>><?php echo "(" . $g['kode_gejala'] . ") " . $g['nama_gejala']; ?> </option>
 										<?php } ?>
 									</select>
 								</div>

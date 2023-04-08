@@ -52,7 +52,7 @@
 									<label>Nama Gejala</label>
 									<select class="form-control" name="idGejala">
 										<?php foreach ($gejala as $g) { ?>
-											<option value="<?php echo $g['id_gejala']; ?>"><?php echo $g['nama_gejala']; ?> </option>
+											<option value="<?php echo $g['id_gejala']; ?>"><?php echo "(" . $g['kode_gejala'] . ") " . $g['nama_gejala']; ?> </option>
 										<?php } ?>
 									</select>
 								</div>
@@ -128,7 +128,7 @@
 									<?php foreach ($rules as $key => $value) { ?>
 										<tr>
 											<td><?php echo $key + 1 ?></td>
-											<td><?php echo $value['nama_gejala'] ?></td>
+											<td><?php echo "(" . $value['kode_gejala'] . ") " . $value['nama_gejala'] ?></td>
 											<td><?php echo $value['nama_penyakit'] ?></td>
 											<td><?php echo $value['nilai_mb'] ?></td>
 											<td><?php echo $value['nilai_md'] ?></td>

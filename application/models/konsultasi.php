@@ -3,6 +3,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class konsultasi extends CI_Model
 {
+
+    public function GetAllKonsultasi(){
+        $this->load->database();
+        $this->db->select('*');
+        $this->db->from('tb_konsultasi');
+        $result = $this->db->get()->result_array();
+        return $result;
+    }
+
     public function GetDetailKonsultasi()
     {
         $gejala = $this->input->post('gejala');
@@ -101,7 +110,7 @@ class konsultasi extends CI_Model
 
         $cfk = [];
         for($i=0;$i<count($indexEnd);$i++){
-            $n = 0;
+            $n = 1;
             if($i> 0){
                 $n = $indexEnd[$i-1]+1;
             }
@@ -117,19 +126,21 @@ class konsultasi extends CI_Model
             }
             $cfk[$i] = $cfTemp;
         }
-
+            $in2 = null;
         for ($i = 0; $i < count($idPenyakitList); $i++) {
 
             if ($i + 1 == count($idPenyakitList)) {
-                $in .= $idPenyakitList[$i];
+                $in2 .= $idPenyakitList[$i];
             } else {
-                $in .= $idPenyakitList[$i] . ",";
+                $in2 .= $idPenyakitList[$i] . ",";
             }
         }
 
         $hasilcf = [];
+        // echo "in: " . $in2;
+        // echo nl2br("\n In \n");
 
-        $queryPenyakit = $this->db->query("SELECT nama_penyakit from tb_penyakit WHERE id_penyakit in ($in)");
+        $queryPenyakit = $this->db->query("SELECT nama_penyakit from tb_penyakit WHERE id_penyakit in ($in2)");
         $result = $queryPenyakit->result();
         $resValue = json_decode(json_encode($result), true);
         $x = 0;
@@ -138,15 +149,50 @@ class konsultasi extends CI_Model
             $hasilcf[$values['nama_penyakit']] = number_format((float)$cfk[$x]*100,2,',','') ;
             $x++;
         }
-        //print_r($hasilcf);
+
+        $queryGejala = $this->db->query("SELECT nama_gejala from tb_gejala WHERE id_gejala in ($in)");
+        $rawResult = $queryGejala->result();
+        $resultGejala = json_decode(json_encode($rawResult), true);
+        $gc = 0;
+        $gejalaNameList = null;
+
+        foreach($resultGejala as $key => $values){
+            if($gc+1 == count($resultGejala)){
+                $gejalaNameList .= $values['nama_gejala'];
+
+            }else{
+                $gejalaNameList .= $values['nama_gejala'] . ", ";
+
+            }
+            $gc++;
+        }
+
+        // $this->load->database();
+        // $this->db->select('nama_gejala');
+        // $this->db->from('tb_gejala');
+        // $this->db->where_in('id_gejala',$in);
+        // $resultGejala = $this->db->get()->result_array();
+        // $hasilcf = arsort($hasilcf);
+        //print_r(arsort($hasilcf));
         // echo nl2br("\n Penyakit \n");
         // print_r($result);
-
         // echo nl2br("\n Nilai CF \n");
         // print_r($cfk);
+        $keyakinan = max($hasilcf);
+        $penyakit = array_search($keyakinan, $hasilcf);
+        $newRecord = array(
+            'id_konsultasi' => '',
+            'nama' => $this->input->post('Nama'),
+            'no_hp' => $this->input->post('NoHP'),
+            'gejala' => $gejalaNameList,
+            'penyakit' => $penyakit,
+            'keyakinan' => $keyakinan . " %",
+        );
 
-        // $data['nama_penyakit'] = $result;
-        // $data['nilai_cf'] = $cfk;
+        $this->db->insert('tb_konsultasi',$newRecord);
+
+        $data['nama_penyakit'] = $result;
+        $data['nilai_cf'] = $cfk;
         return $hasilcf;
 
     }
