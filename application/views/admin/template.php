@@ -135,7 +135,7 @@
 										</span>
 										<div class="media-body  ml-2  d-none d-lg-block">
 											<span
-												class="mb-0 text-sm  font-weight-bold"><?php echo ($user != null && count($user) > 0) ? $user[0]['Nama'] : 'Joni' ?></span>
+												class="mb-0 text-sm  font-weight-bold"><?php echo ($user != null && count($user) > 0) ? $user[0]['username'] : 'Guest' ?></span>
 										</div>
 									</div>
 								</a>

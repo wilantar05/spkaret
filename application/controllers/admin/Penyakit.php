@@ -23,11 +23,11 @@ class Penyakit extends CI_Controller
 			$data['pagenumber'] = $page;
 			$data['search'] = $search;
 
-			$data['user'] = null;
+			//$data['user'] = null;
 			$data['penyakit'] = null;
 			$data['penyakitcount'] = 0;
-			// $result = $this->Admin_model->GetAdmin($this->session->username);
-			// $data['user'] = $result;
+			$result = $this->Admin_model->GetAdmin($this->session->username);
+			$data['user'] = $result;
 
 			// $kategori = $this->Kategori_model->getAllKategori($search,$page);
 			// $data['kategori'] = $kategori;
@@ -49,14 +49,14 @@ class Penyakit extends CI_Controller
 		$data['page'] = "Edit";
 
 		$data['penyakit'] = null;
-		$data['user'] = null;
+		//$data['user'] = null;
 		$penyakit = $this->Admin_penyakit->FindPenyakit($id);
 		$data['penyakit'] = $penyakit;
 		// $kategori = $this->Kategori_model->findKategori($id);
 		// $data['kategori'] = $kategori;
 
-		// $result = $this->Admin_model->GetAdmin($this->session->username);
-		// $data['user'] = $result;
+		$result = $this->Admin_model->GetAdmin($this->session->username);
+		$data['user'] = $result;
 		$this->load->view('admin/penyakit/edit', $data);
 	}
 

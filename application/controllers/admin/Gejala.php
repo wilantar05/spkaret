@@ -24,13 +24,13 @@ class Gejala extends CI_Controller
 			$data['pagenumber'] = $page;
 			$data['search'] = $search;
 
-			$data['user'] = null;
+			//$data['user'] = null;
 			$data['gejala'] = null;
 
 			$data['gejalacount'] = 0;
 
-			// $result = $this->Admin_model->GetAdmin($this->session->username);
-			// $data['user'] = $result;
+			$result = $this->Admin_model->GetAdmin($this->session->username);
+			$data['user'] = $result;
 
 			// $result = $this->Kategori_model->getSelectKategori();
 			// $data['kategori'] = $result;
@@ -68,8 +68,8 @@ class Gejala extends CI_Controller
 		// $result = $this->Barang_model->getGambarBarang($id);
 		// $data['gambar'] = $result;
 
-		// $result = $this->Admin_model->GetAdmin($this->session->username);
-		// $data['user'] = $result;
+		$result = $this->Admin_model->GetAdmin($this->session->username);
+		$data['user'] = $result;
 		$this->load->view('admin/gejala/edit', $data);
 	}
 

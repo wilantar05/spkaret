@@ -25,8 +25,8 @@ class Rules extends CI_Controller
 			$data['pagenumber'] = $page;
 			$data['search'] = $search;
 
-			// $result = $this->Admin_model->GetAdmin($this->session->username);
-			// $data['user'] = $result;
+			$result = $this->Admin_model->GetAdmin($this->session->username);
+			$data['user'] = $result;
 
 			$rules = $this->Admin_rules->GetRuleData($search, $page);
 			$data['rules'] = $rules;
@@ -41,7 +41,7 @@ class Rules extends CI_Controller
 			// $membercount = $this->Member_model->getCountMember($search,$page);
 			// $data['membercount'] = $membercount;
 
-			$data['user'] = null;
+			//$data['user'] = null;
 			// $data['rules'] = null;
 			//$data['rulescount'] = 0;
 
@@ -67,8 +67,8 @@ class Rules extends CI_Controller
 
 		$data['rulesedit'] = null;
 
-		//$result = $this->Admin_model->GetAdmin($this->session->username);
-		//$data['user'] = $result;
+		$result = $this->Admin_model->GetAdmin($this->session->username);
+		$data['user'] = $result;
 		$data['user'] = null;
 		$this->load->view('admin/rules/edit', $data);
 	}

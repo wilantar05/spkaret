@@ -38,7 +38,7 @@ class Admin_model extends CI_Model
         if ($this->db->count_all_results() > 0) {
             $this->db->reset_query();
             $this->db->select('*');
-            $this->db->from('admin');
+            $this->db->from('tb_admin');
             $this->db->where('status', 1);
             $this->db->where('Username', $username);
             $data = $this->db->get()->result_array();

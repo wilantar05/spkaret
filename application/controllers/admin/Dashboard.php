@@ -26,7 +26,7 @@ class Dashboard extends CI_Controller
 
 			$result = $this->Admin_model->GetAdmin($this->session->username);
 			//$data['user'] = $result;
-			$data['user'] = null;
+			$data['user'] = $result;
 			$konsultasi = $this->konsultasi->GetAllKonsultasi();
 			$data['konsultasi'] = $konsultasi;
 			// $transaksi = $this->Transaksi_model->getCountTransaksi();
