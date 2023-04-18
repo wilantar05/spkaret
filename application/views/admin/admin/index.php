@@ -122,6 +122,8 @@
 								<tr>
 									<th scope="col" width="10%">No</th>
 									<th scope="col">Nama</th>
+									<th scope="col">Alamat</th>
+									<th scope="col">No Telp</th>
 									<th scope="col" width="10%">Status</th>
 									<th scope="col" width="10%"></th>
 								</tr>
@@ -130,15 +132,17 @@
 								<?php foreach ($admin as $key => $value) { ?>
 									<tr>
 										<td><?php echo $key + 1 ?></td>
-										<td><?php echo $value['Nama'] ?></td>
-										<td><?php echo $stats = ($value['Status'] == 1) ? '<span class="badge badge-default">Aktif</span>' : '<span class="badge badge-danger">Tidak Aktif</span>' ?></td>
+										<td><?php echo $value['nama_admin'] ?></td>
+										<td><?php echo $value['alamat'] ?></td>
+										<td><?php echo $value['no_hp'] ?></td>
+										<td><?php echo $stats = ($value['status'] == 1) ? '<span class="badge badge-default">Aktif</span>' : '<span class="badge badge-danger">Tidak Aktif</span>' ?></td>
 										<td>
 											<div class="dropdown">
 												<a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 													<i class="fas fa-ellipsis-v"></i>
 												</a>
 												<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-													<a class="dropdown-item" href="<?php echo base_url() ?>index.php/admin/admin/edit/<?php echo $value['Id_Admin'] ?>">Edit</a>
+													<a class="dropdown-item" href="<?php echo base_url() ?>index.php/admin/admin/edit/<?php echo $value['id_admin'] ?>">Edit</a>
 													<!-- <a class="dropdown-item" onclick="return confirm('Apakah anda yakin menghapus data ini ?')" href="<?php echo base_url() ?>index.php/admin/admin/delete/<?php echo $value['Id_Admin'] ?>">Delete</a> -->
 												</div>
 											</div>

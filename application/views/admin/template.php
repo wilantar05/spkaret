@@ -42,8 +42,15 @@
 	<script src="<?php echo base_url() ?>/assets/vendor/chart.js/dist/Chart.min.js"></script>
 	<script src="<?php echo base_url() ?>/assets/vendor/chart.js/dist/Chart.extension.js"></script>
 
-	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+	<link href="https://adminlte.io/themes/AdminLTE/bower_components/select2/dist/css/select2.min.css" rel="stylesheet" />
+
+	<script src="https://adminlte.io/themes/AdminLTE/bower_components/select2/dist/js/select2.full.min.js"></script>
+
+	
+	<script src="https://adminlte.io/themes/AdminLTE/plugins/input-mask/jquery.inputmask.js"></script>
+	<script src="https://adminlte.io/themes/AdminLTE/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+	<script src="https://adminlte.io/themes/AdminLTE/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+
 	<!-- Argon JS -->
 
 </head>
@@ -73,6 +80,12 @@
 					</ul>
 					<?php }else{ ?>		
 					<ul class="navbar-nav">
+					<li class="nav-item">
+							<a class="nav-link" href="<?php echo base_url() ?>index.php/admin/admin/">
+								<i class="fa fa-users text-primary"></i>
+								<span class="nav-link-text">Data Admin</span>
+							</a>
+						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="<?php echo base_url() ?>index.php/admin/gejala/">
 								<i class="ni ni-bullet-list-67 text-primary"></i>

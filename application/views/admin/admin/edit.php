@@ -38,12 +38,12 @@
 							</div>
 						</div>
 						<form action="<?php echo base_url() ?>index.php/admin/admin/update" method="POST">
-                        <input type="hidden" name="Id_Admin" value="<?php echo $adminedit[0]['Id_Admin'] ?>">
+                        <input type="hidden" name="Id_Admin" value="<?php echo $adminedit[0]['id_admin'] ?>">
 						<div class="card-body border-0">
 						<?php if($this->session->flashdata('true')) { echo $this->session->flashdata('true'); $this->session->unset_userdata('true');}else if($this->session->flashdata('error')){ echo $this->session->flashdata('error');$this->session->unset_userdata('error');} ?>
 							<div class="form-group">
 								<label for="exampleFormControlInput1">Username</label>
-								<input type="text" name="Username" class="form-control" id="exampleFormControlInput1" placeholder="Username" value="<?php echo $adminedit[0]['Username'] ?>">
+								<input type="text" name="Username" class="form-control" id="exampleFormControlInput1" placeholder="Username" value="<?php echo $adminedit[0]['username'] ?>">
 							</div>
                             <div class="form-group">
 								<label for="exampleFormControlInput1">Password</label>
@@ -51,7 +51,7 @@
 							</div>
                             <div class="form-group">
 								<label for="exampleFormControlInput1">Nama</label>
-								<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama User" value="<?php echo $adminedit[0]['Nama'] ?>">
+								<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama User" value="<?php echo $adminedit[0]['nama_admin'] ?>">
 							</div>
                             <!-- <div class="form-group">
 								<label for="exampleFormControlInput1">Jenis Kelamin</label>
@@ -62,7 +62,7 @@
 							</div> -->
                             <div class="form-group">
 								<label for="exampleFormControlInput1">Alamat</label>
-								<input type="text" name="Alamat" class="form-control" id="exampleFormControlInput1" placeholder="Alamat User" value="<?php echo $adminedit[0]['Alamat'] ?>">
+								<input type="text" name="Alamat" class="form-control" id="exampleFormControlInput1" placeholder="Alamat User" value="<?php echo $adminedit[0]['alamat'] ?>">
 							</div>
                             <!-- <div class="form-group">
 								<label for="exampleFormControlInput1">Tanggal</label>
@@ -70,7 +70,7 @@
 							</div> -->
                             <div class="form-group">
 								<label for="exampleFormControlInput1">No Telp</label>
-								<input type="text" name="No_Tlp" class="form-control" id="exampleFormControlInput1" placeholder="No Telp" value="<?php echo $adminedit[0]['No_Tlp'] ?>">
+								<input type="text" name="No_Tlp" class="form-control" id="exampleFormControlInput1" placeholder="No Telp" value="<?php echo $adminedit[0]['no_hp'] ?>">
 							</div>
 							<div class="form-group">
 								<label for="exampleFormControlInput1">Status</label>
