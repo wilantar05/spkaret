@@ -67,8 +67,7 @@
         <div class="header-body text-center">
           <div class="row justify-content-center">
             <div class="col-xl-5 col-lg-6 col-md-8 px-5">
-              <h1 class="text-white">Login Admin</h1>
-              <p class="text-lead text-white">Silahkan sign in untuk mengakses halaman dashboard</p>
+              <h1 class="text-white">Register <br>  Pengguna Baru</h1>
             </div>
           </div>
         </div>
@@ -84,7 +83,31 @@
             <div class="card-body px-lg-5 py-lg-5">
               <div class="text-center text-muted mb-4">
               </div>
-              <form action="" method="POST">
+              <form action="<?php echo base_url() ?>index.php/user/auth/storeuser" method="POST">
+              <div class="form-group mb-3">
+                  <div class="input-group input-group-merge input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    </div>
+                    <input class="form-control" name="nama" placeholder="Nama" type="text">
+                  </div>
+                </div>
+                <div class="form-group mb-3">
+                  <div class="input-group input-group-merge input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                    </div>
+                    <input class="form-control" name="no_hp" placeholder="No. Telp" type="text">
+                  </div>
+                </div>
+                <div class="form-group mb-3">
+                  <div class="input-group input-group-merge input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
+                    </div>
+                    <input class="form-control" name="alamat" placeholder="Alamat" type="text">
+                  </div>
+                </div>
                 <div class="form-group mb-3">
                   <div class="input-group input-group-merge input-group-alternative">
                     <div class="input-group-prepend">
@@ -101,11 +124,17 @@
                     <input class="form-control" name="password" placeholder="Password" type="password">
                   </div>
                 </div>
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary my-4">Sign in</button>
-                  
+                <div class="form-group">
+                  <div class="input-group input-group-merge input-group-alternative">
+                    <input class="form-control" name="status" type="text" value="1" hidden>
+                  </div>
                 </div>
-
+                <div class="text-center">
+                  <button type="submit" class="btn btn-primary my-4">Register</button>
+                </div>
+                <div class="text-center">
+                  Sudah punya akun ? <a href="<?php echo base_url() ?>index.php/user/auth/">Masuk</a>
+                </div>
               </form>
             </div>
           </div>

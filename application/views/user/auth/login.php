@@ -67,7 +67,7 @@
         <div class="header-body text-center">
           <div class="row justify-content-center">
             <div class="col-xl-5 col-lg-6 col-md-8 px-5">
-              <h1 class="text-white">Login Admin</h1>
+              <h1 class="text-white">Sistem Pakar <br>  Penyakit Karet</h1>
               <p class="text-lead text-white">Silahkan sign in untuk mengakses halaman dashboard</p>
             </div>
           </div>
@@ -103,9 +103,11 @@
                 </div>
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary my-4">Sign in</button>
-                  
+                  <a href="<?php echo base_url() ?>index.php/user/auth/loginasguest">Sign in sebagai guest</a>
                 </div>
-
+                <div class="text-center">
+                  Tidak punya akun ? <a href="<?php echo base_url() ?>index.php/user/auth/register">Register</a>
+                </div>
               </form>
             </div>
           </div>
