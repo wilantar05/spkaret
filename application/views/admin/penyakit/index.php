@@ -48,11 +48,15 @@
 								} ?>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Penyakit</label>
-									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama Penyakit">
+									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama Penyakit" required>
+								</div>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">Deskripsi</label>
+									<input type="text" name="Deskripsi" class="form-control" id="exampleFormControlInput1" placeholder="Deskripsi dari penyakit" required>
 								</div>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Solusi</label>
-									<input type="text" name="Solusi" class="form-control" id="exampleFormControlInput1" placeholder="Solusi">
+									<input type="text" name="Solusi" class="form-control" id="exampleFormControlInput1" placeholder="Solusi" required>
 								</div>
 							</div>
 							<div class="card-footer py-4 text-right">
@@ -92,7 +96,8 @@
 								<tr>
 									<th scope="col" width="10%">No</th>
 									<th scope="col">Nama</th>
-									<th scope="col" width="10%">Solusi</th>
+									<th scope="col">Deskripsi</th>
+									<th scope="col">Solusi</th>
 									<th scope="col" width="10%"></th>
 								</tr>
 							</thead>
@@ -102,7 +107,8 @@
 										<tr>
 											<td><?php echo $key + 1 ?></td>
 											<td><?php echo $value['nama_penyakit'] ?></td>
-											<td><?php echo $value['solusi'] ?></td>
+											<td style="white-space: normal;"><?php echo $value['deskripsi'] ?></td>
+											<td style="white-space: normal;"><?php echo $value['solusi'] ?></td>
 
 											<td>
 												<div class="dropdown">

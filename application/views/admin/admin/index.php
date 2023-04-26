@@ -37,7 +37,7 @@
 								</div>
 							</div>
 						</div>
-						<form action="<?php echo base_url() ?>index.php/admin/admin/store" method="POST">
+						<form action="<?php echo base_url() ?>admin/admin/store" method="POST">
 							<div class="card-body border-0">
 								<?php if ($this->session->flashdata('true')) {
 									echo $this->session->flashdata('true');
@@ -48,15 +48,15 @@
 								} ?>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Username</label>
-									<input type="text" name="Username" class="form-control" id="exampleFormControlInput1" placeholder="Username">
+									<input type="text" name="Username" class="form-control" id="exampleFormControlInput1" placeholder="Username" required>
 								</div>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Password</label>
-									<input type="password" name="Password" class="form-control" id="exampleFormControlInput1" placeholder="Password User">
+									<input type="password" name="Password" class="form-control" id="exampleFormControlInput1" placeholder="Password User" required>
 								</div>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Nama</label>
-									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama User">
+									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama User" required>
 								</div>
 								<!-- <div class="form-group">
 								<label for="exampleFormControlInput1">Jenis Kelamin</label>
@@ -67,7 +67,7 @@
 							</div> -->
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Alamat</label>
-									<input type="text" name="Alamat" class="form-control" id="exampleFormControlInput1" placeholder="Alamat User">
+									<input type="text" name="Alamat" class="form-control" id="exampleFormControlInput1" placeholder="Alamat User" required>
 								</div>
 								<!-- <div class="form-group">
 								<label for="exampleFormControlInput1">Tanggal</label>

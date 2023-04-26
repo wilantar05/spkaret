@@ -11,6 +11,7 @@ class Dashboard extends CI_Controller{
 		$this->load->model('User_model');
 		$this->load->model('konsultasi');
         $this->load->model('Admin_gejala');
+		$this->load->model('Admin_penyakit');
         $this->load->model('User_model');
 		// $this->load->model('Transaksi_model');
 		// $this->load->model('Barang_model');
@@ -22,11 +23,11 @@ class Dashboard extends CI_Controller{
         if ($this->session->username != "") {
 			$data['title'] = "Dashboard";
 			$data['page'] = "Home";
-
+			$data['head'] = "Dashboard";
 			$result = $this->User_model->GetUser($this->session->username);
 			//$data['user'] = $result;
 			$data['user'] = $result;
-			$konsultasi = $this->konsultasi->GetAllKonsultasi();
+			$konsultasi = $this->konsultasi->GetRiwayatKonsultasi($data['user'][0]['id_user']);
 			$data['konsultasi'] = $konsultasi;
 			// $transaksi = $this->Transaksi_model->getCountTransaksi();
 			// $data['transaksi'] = $transaksi;
@@ -50,7 +51,7 @@ class Dashboard extends CI_Controller{
         if ($this->session->username != "" ) {
 			$data['title'] = "Dashboard";
 			$data['page'] = "Home";
-
+			$data['head'] = "Konsultasi";
 			$result = $this->User_model->GetUser($this->session->username);
 			$data['user'] = $result;
 			// $konsultasi = $this->konsultasi->GetAllKonsultasi();
@@ -75,19 +76,28 @@ class Dashboard extends CI_Controller{
 
     public function konsultasi()
 	{
+		if ($this->session->username != "" ) {
+			$result = $this->User_model->GetUser($this->session->username);
+			$data['user'] = $result;
+		}
 		$data['title'] = "Dashboard";
 		$data['page'] = "Konsultasi";
-
-		$data['user'] = null;
+		
+		$data['head'] = "Konsultasi";
 		$data['gejala'] = $this->Admin_gejala->GetAllGejalaNoFilter();
-		$this->load->view('user/dashboard/konsultasi/index', $data);
+		$this->load->view('user/konsultasi/index', $data);
 	}
 
 	public function detail_konsultasi()
 	{
+		if ($this->session->username != "" ) {
+			$result = $this->User_model->GetUser($this->session->username);
+			$data['user'] = $result;
+		}
 		$data['title'] = "Dashboard";
 		$data['page'] = "Konsultasi";
-		$data['user'] = null;
+		$data['head'] = "Konsultasi";
+		$data['form_id'] = $this->input->post('id_user');
 		$data['form_nama'] = $this->input->post('Nama');
 		$data['form_nohp'] = $this->input->post('NoHP');
 		$data['gejala'] = $this->konsultasi->GetDetailKonsultasi();
@@ -95,25 +105,68 @@ class Dashboard extends CI_Controller{
 		$this->load->view('user/konsultasi/detail-konsultasi', $data);
 	}
 
-	public function hasilkonsultasi()
+	public function hasilkonsultasi($hasilcf)
 	{
+		if ($this->session->username != "" ) {
+			$result = $this->User_model->GetUser($this->session->username);
+			$data['user'] = $result;
+		}
+		$data['head'] = "Konsultasi";
 		$data['title'] = "Dashboard";
-		$data['page'] = "Konsultasi";
+		$data['page'] = "Konsultasi / Hasil";
 
-		$data['user'] = null;
+		$maxcf = max($hasilcf);
+		$key = array_search($maxcf, $hasilcf);
+		$penyakit = $this->Admin_penyakit->FindPenyakitNama($key);
+		$data['penyakit'] = $penyakit;
+		//$data['hasilfc'] = $hasilfc;
+		$data['hasilcf'] = $hasilcf;
 		$this->load->view('user/konsultasi/hasil-konsultasi', $data);
 	}
 
 	public function hitung()
 	{
+		if ($this->session->username != "" ) {
+			$result = $this->User_model->GetUser($this->session->username);
+			$data['user'] = $result;
+		}
 		$data['title'] = "Dashboard";
 		$data['page'] = "Konsultasi";
+		$data['head'] = "Konsultasi";
 
-		$data['user'] = null;
 		//$hasilfc = $this->konsultasi->hitungFC();
 		$hasilcf = $this->konsultasi->HitungCF();
+		$this->hasilkonsultasi($hasilcf);
+		//$this->load->view('user/konsultasi/hasil-konsultasi', $data);
+	}
+
+	public function tabeldetail(){
+		if ($this->session->username != "" ) {
+			$result = $this->User_model->GetUser($this->session->username);
+			$data['user'] = $result;
+		}
+		$data['title'] = "Dashboard";
+		$data['page'] = "Konsultasi / Tabel Hasil";
+		$data['head'] = "Konsultasi";
+		$inputData = $this->input->post('hasilcf');
+		$hasilcf = unserialize($inputData);
 		//$data['hasilfc'] = $hasilfc;
 		$data['hasilcf'] = $hasilcf;
-		$this->load->view('user/konsultasi/hasil-konsultasi', $data);
+		$this->load->view('user/konsultasi/tabel-hasil-konsultasi', $data);
+	}
+
+	public function tabeldetailback(){
+		if ($this->session->username != "" ) {
+			$result = $this->User_model->GetUser($this->session->username);
+			$data['user'] = $result;
+		}
+		$data['title'] = "Dashboard";
+		$data['page'] = "Konsultasi";
+		$data['head'] = "Konsultasi";
+		$inputData = $this->input->post('hasilcf');
+		$hasilcf = unserialize($inputData);
+		//$data['hasilfc'] = $hasilfc;
+		$data['hasilcf'] = $hasilcf;
+		$this->hasilkonsultasi($hasilcf);
 	}
 }

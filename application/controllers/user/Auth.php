@@ -27,10 +27,9 @@ class Auth extends CI_Controller
 				$this->load->view('user/auth/login',$data);
 			}else{
 				$data['title'] = "Login Sistem Pakar Penyakit Karet";
-				
 				$result = $this->User_model->Login($this->input->post('username'),$this->input->post('password'));
 				// ini buat login
-				$result = true;
+				//$result = true;
 				if($result){
 					$this->session->set_userdata('username', $this->input->post('username'));
 					redirect('user/dashboard', 'refresh');

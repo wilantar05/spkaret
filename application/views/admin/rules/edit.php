@@ -73,15 +73,11 @@
 								</div>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">MB</label>
-									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" value="<?php echo ($rules != null) ? $rules[0]['nilai_mb'] : "" ?>" placeholder="MB">
+									<input type="text" name="mb" class="form-control" id="exampleFormControlInput1" value="<?php echo ($rules != null) ? $rules[0]['nilai_mb'] : "" ?>" placeholder="MB">
 								</div>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">MD</label>
-									<input type="text" name="Alamat" class="form-control" id="exampleFormControlInput1" value="<?php echo ($rules != null) ? $rules[0]['nilai_md'] : "" ?>" placeholder="MD">
-								</div>
-								<div class="form-group">
-									<label for="exampleFormControlInput1">CF</label>
-									<input type="text" name="Alamat" class="form-control" id="exampleFormControlInput1" value="<?php echo ($rules != null) ? $rules[0]['nilai_cf'] : "" ?>" placeholder="CF">
+									<input type="text" name="md" class="form-control" id="exampleFormControlInput1" value="<?php echo ($rules != null) ? $rules[0]['nilai_md'] : "" ?>" placeholder="MD">
 								</div>
 							</div>
 							<div class="card-footer py-4">

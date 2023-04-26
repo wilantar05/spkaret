@@ -49,12 +49,12 @@
 
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Kode</label>
-									<input type="text" name="KodeGejala" class="form-control" id="exampleFormControlInput1" placeholder="Kode Gejala">
+									<input type="text" name="KodeGejala" class="form-control" id="exampleFormControlInput1" placeholder="Kode Gejala" required>
 								</div>
 
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Nama</label>
-									<input type="text" name="NamaGejala" class="form-control" id="exampleFormControlInput1" placeholder="Nama Gejala">
+									<input type="text" name="NamaGejala" class="form-control" id="exampleFormControlInput1" placeholder="Nama Gejala" required>
 								</div>
 
 							</div>

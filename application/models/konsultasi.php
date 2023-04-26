@@ -12,6 +12,15 @@ class konsultasi extends CI_Model
         return $result;
     }
 
+    public function GetRiwayatKonsultasi($id_user){
+        $this->load->database();
+        $this->db->select('*');
+        $this->db->from('tb_konsultasi');
+        $this->db->where('id_user',$id_user);
+        $result = $this->db->get()->result_array();
+        return $result;
+    }
+
     public function GetDetailKonsultasi()
     {
         $gejala = $this->input->post('gejala');
@@ -182,6 +191,7 @@ class konsultasi extends CI_Model
         $penyakit = array_search($keyakinan, $hasilcf);
         $newRecord = array(
             'id_konsultasi' => '',
+            'id_user'=>$this->input->post('id_user'),
             'nama' => $this->input->post('Nama'),
             'no_hp' => $this->input->post('NoHP'),
             'gejala' => $gejalaNameList,

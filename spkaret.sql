@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2023 at 04:11 PM
+-- Generation Time: Apr 26, 2023 at 07:53 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -42,7 +42,7 @@ CREATE TABLE `tb_admin` (
 --
 
 INSERT INTO `tb_admin` (`id_admin`, `nama_admin`, `no_hp`, `alamat`, `username`, `password`, `status`) VALUES
-(1, 'Sayu Gita', '085239444071', 'Melaris', 'sayu', '1', 1);
+(2, 'Sayu Gita', '085239444071', 'Melaris', 'sayu', '$2y$10$UNjuRbrkx5p2jsO4.um0geznepEXBpGpePcUFAPXlV1oY0c/W2XLC', 1);
 
 -- --------------------------------------------------------
 
@@ -108,13 +108,23 @@ INSERT INTO `tb_gejala` (`id_gejala`, `kode_gejala`, `nama_gejala`) VALUES
 
 CREATE TABLE `tb_konsultasi` (
   `id_konsultasi` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL,
-  `no_hp` varchar(25) NOT NULL,
+  `no_hp` varchar(15) NOT NULL,
   `gejala` text NOT NULL,
   `penyakit` varchar(255) NOT NULL,
   `keyakinan` varchar(10) NOT NULL,
   `tgl_konsultasi` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `tb_konsultasi`
+--
+
+INSERT INTO `tb_konsultasi` (`id_konsultasi`, `id_user`, `nama`, `no_hp`, `gejala`, `penyakit`, `keyakinan`, `tgl_konsultasi`) VALUES
+(16, 2, 'user1', '081', 'Benang putih mirip sarang laba-laba pada bagian pangkal atau cabang, Lateks akan menjadi kehitaman, Bintil-bintil pada permukaan jaring laba-laba', 'Jamur Upas\r\n', '37,91 %', '2023-04-26 23:35:44'),
+(17, 0, 'testtt', 'aaa', 'Benang putih mirip sarang laba-laba pada bagian pangkal atau cabang', 'Nekrosis Kulit', '46,80 %', '2023-04-26 23:48:49'),
+(80, 2, 'user1', '081', 'Benang putih mirip sarang laba-laba pada bagian pangkal atau cabang, Lateks akan menjadi kehitaman, Bintil-bintil pada permukaan jaring laba-laba', 'Jamur Upas\r\n', '49,73 %', '2023-04-27 01:25:12');
 
 -- --------------------------------------------------------
 
@@ -125,23 +135,24 @@ CREATE TABLE `tb_konsultasi` (
 CREATE TABLE `tb_penyakit` (
   `id_penyakit` int(11) NOT NULL,
   `nama_penyakit` varchar(255) NOT NULL,
-  `solusi` varchar(255) NOT NULL
+  `deskripsi` text NOT NULL,
+  `solusi` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `tb_penyakit`
 --
 
-INSERT INTO `tb_penyakit` (`id_penyakit`, `nama_penyakit`, `solusi`) VALUES
-(1, 'Jamur Upas\r\n', 'Solusi 1'),
-(3, 'Kanker Bercak', 'Solusi 2'),
-(5, 'Nekrosis Kulit', ''),
-(6, 'Jamur Akar Putih', ''),
-(7, 'Kering Alur Sadap (SAP)', ''),
-(8, 'Jamur Akar Merah', ''),
-(9, 'Daun Gugur Corynospora', ''),
-(10, 'Daun Gugur Colletorichum', ''),
-(11, 'Daun Gugur Oidium', '');
+INSERT INTO `tb_penyakit` (`id_penyakit`, `nama_penyakit`, `deskripsi`, `solusi`) VALUES
+(1, 'Jamur Upas\r\n', 'Jamur upas merupakan salah satu penyakit yang menyerang batang tanaman karet. Jamur upas disebabkan oleh jamur Corticium salmonicolor. Jamur upas dapat menyerang tanaman yang belum menghasilkan ataupun tanaman yang sudah menghasilkan', 'Melakukan penanaman klon yang relatif tahan seperti klon PB 260, BPM 1 dan RRIC 100.\r\n\r\nMengurangi kelembaban suatu areal pertanaman dengan menanam karet menggunakan jarak tanam normal sehingga total populasi tidak terlalu tinggi / rapat. Populasi normal dalam satu hektar biasanya adalah 550 pokok.\r\n\r\nCabang dan ranting yang sudah rapuh dan layu akibat jamur upas ini harus dibuang dan dimusnahkan.\r\n\r\nMelakukan pengobatan tanaman yang sudah terserang penyakit jamur upas. Pengobatan biasa dilakukan dengan cara mengoles cabang tanaman yang terserang jamur menggunakan obat seperti bubur bordo dan calixin. Kulit yang sudah busuk harus dikupas terlebih dahulu, baru kemudian dioles dengan calixin.'),
+(3, 'Kanker Bercak', '', 'Solusi 2'),
+(5, 'Nekrosis Kulit', '', ''),
+(6, 'Jamur Akar Putih', '', ''),
+(7, 'Kering Alur Sadap (SAP)', '', ''),
+(8, 'Jamur Akar Merah', '', ''),
+(9, 'Daun Gugur Corynospora', '', ''),
+(10, 'Daun Gugur Colletorichum', '', ''),
+(11, 'Daun Gugur Oidium', '', '');
 
 -- --------------------------------------------------------
 
@@ -225,6 +236,7 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `nama_user`, `no_hp`, `alamat`, `username`, `password`, `status`) VALUES
+(0, 'Guest', '', '', '', '', 1),
 (2, 'user1', '081', 'disini', 'user', '$2y$10$S5y7KvPH9I57C/HqsFEwR.91JsHIeiNOM37V2i2SOsCJJzeM0A66K', 1);
 
 --
@@ -275,7 +287,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT for table `tb_admin`
 --
 ALTER TABLE `tb_admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tb_gejala`
@@ -287,25 +299,25 @@ ALTER TABLE `tb_gejala`
 -- AUTO_INCREMENT for table `tb_konsultasi`
 --
 ALTER TABLE `tb_konsultasi`
-  MODIFY `id_konsultasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_konsultasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `tb_penyakit`
 --
 ALTER TABLE `tb_penyakit`
-  MODIFY `id_penyakit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_penyakit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `tb_rules`
 --
 ALTER TABLE `tb_rules`
-  MODIFY `id_rules` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id_rules` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

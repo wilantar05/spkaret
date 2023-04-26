@@ -62,7 +62,7 @@
 			<!-- Brand -->
 			<div class="sidenav-header  align-items-center">
 				<a class="navbar-brand" href="javascript:void(0)">
-					<!-- <img src="<?php echo base_url() ?>/assets/img/brand/blue.png" class="navbar-brand-img" alt="..."> -->
+					<img src="<?php echo base_url() ?>/assets/img/brand/elastis.png" class="navbar-brand-img" alt="...">
 				</a>
 			</div>
 			<div class="navbar-inner">
@@ -72,13 +72,13 @@
 					<?php if($this->session->username == "Guest"){ ?>
 						<ul class="navbar-nav">
                         <li class="nav-item">
-							<a class="nav-link active" href="<?php echo base_url() ?>index.php/user/auth/">
+							<a class="nav-link <?php if($head == "Konsultasi") echo "active";?>"  href="<?php echo base_url() ?>user/auth/">
 								<i class="ni ni-tv-2 text-primary"></i>
 								<span class="nav-link-text">Konsultasi</span>
 							</a>
 						</li>
                         <li class="nav-item">
-							<a class="nav-link active" href="<?php echo base_url() ?>index.php/user/panduan/">
+							<a class="nav-link <?php if($head == "Panduan") echo "active";?>" href="<?php echo base_url() ?>user/panduan/">
 								<i class="ni ni-tv-2 text-primary"></i>
 								<span class="nav-link-text">Panduan</span>
 							</a>
@@ -87,19 +87,19 @@
 					<?php }else{ ?>		
 						<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link active" href="<?php echo base_url() ?>index.php/user/auth/">
+							<a class="nav-link <?php if($head == "Dashboard") echo "active";?>" href="<?php echo base_url() ?>user/auth/">
 								<i class="ni ni-tv-2 text-primary"></i>
 								<span class="nav-link-text">Dashboard</span>
 							</a>
 						</li>
                         <li class="nav-item">
-							<a class="nav-link active" href="<?php echo base_url() ?>index.php/user/dashboard/konsultasi">
+							<a class="nav-link <?php if($head == "Konsultasi") echo "active";?>" href="<?php echo base_url() ?>user/dashboard/konsultasi">
 								<i class="ni ni-tv-2 text-primary"></i>
 								<span class="nav-link-text">Konsultasi</span>
 							</a>
 						</li>
                         <li class="nav-item">
-							<a class="nav-link active" href="<?php echo base_url() ?>index.php/user/panduan/">
+							<a class="nav-link <?php if($head == "Panduan") echo "active";?>" href="<?php echo base_url() ?>user/panduan/">
 								<i class="ni ni-tv-2 text-primary"></i>
 								<span class="nav-link-text">Panduan</span>
 							</a>
@@ -123,7 +123,6 @@
 			<div class="container-fluid">
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<!-- Search form -->
-
 					<!-- Navbar links -->
 					<ul class="navbar-nav align-items-center  ml-md-auto ">
 						<li class="nav-item d-xl-none">
@@ -148,9 +147,9 @@
 										</span>
 										<div class="media-body  ml-2  d-none d-lg-block">
 											<span
-												class="mb-0 text-sm  font-weight-bold"><?php echo ($user != null && count($user) > 0) ? $user[0]['username'] : 'Guest' ?></span>
+											class="mb-0 text-sm  font-weight-bold"><?php echo ($user != null && count($user) > 0) ? $user[0]['nama_user'] : 'Guest' ?></span>
 										</div>
-									</div>
+									</div> 
 								</a>
 								<div class="dropdown-menu  dropdown-menu-right ">
 									<div class="dropdown-header noti-title">

@@ -47,14 +47,17 @@
 									$this->session->unset_userdata('error');
 								} ?>
 
+
+									<input type="text" name="id_user" class="form-control" id="exampleFormControlInput1" value="<?php echo ($user != null && count($user) > 0) ? $user[0]['id_user'] : 0 ?>" hidden>
+								
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Nama</label>
-									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama">
+									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama" value="<?php if($user!=null && count($user)>0) echo $user[0]['nama_user'] ?>" <?php if($user!=null && count($user)>0) echo "readonly" ?>>
 								</div>
 
 								<div class="form-group">
 									<label for="exampleFormControlInput1">No HP</label>
-									<input type="text" name="NoHP" class="form-control" id="exampleFormControlInput1" placeholder="No HP">
+									<input type="text" name="NoHP" class="form-control" id="exampleFormControlInput1" placeholder="No HP" value="<?php if($user!=null && count($user)>0) echo $user[0]['no_hp'] ?>" <?php if($user!=null && count($user)>0) echo "readonly" ?>>
 								</div>
 
 								<div class="form-group">

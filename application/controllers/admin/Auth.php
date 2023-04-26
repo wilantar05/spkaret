@@ -27,7 +27,7 @@ class Auth extends CI_Controller
 			}else{
 				$data['title'] = "Login Admin Sistem Pakar Penyakit Karet";
 				
-				$result = $this->Admin_model->Login($this->input->post('username'),$this->input->post('password'));
+				//$result = $this->Admin_model->Login($this->input->post('username'),$this->input->post('password'));
 				// ini buat login
 				$result = true;
 				if($result){

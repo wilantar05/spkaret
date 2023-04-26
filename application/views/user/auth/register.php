@@ -89,7 +89,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fa fa-user"></i></span>
                     </div>
-                    <input class="form-control" name="nama" placeholder="Nama" type="text">
+                    <input class="form-control" name="nama" placeholder="Nama" type="text" required>
                   </div>
                 </div>
                 <div class="form-group mb-3">
@@ -97,7 +97,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fa fa-phone"></i></span>
                     </div>
-                    <input class="form-control" name="no_hp" placeholder="No. Telp" type="text">
+                    <input class="form-control" name="no_hp" placeholder="No. Telp" type="text" required>
                   </div>
                 </div>
                 <div class="form-group mb-3">
@@ -105,7 +105,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fa fa-map-marker"></i></span>
                     </div>
-                    <input class="form-control" name="alamat" placeholder="Alamat" type="text">
+                    <input class="form-control" name="alamat" placeholder="Alamat" type="text" required>
                   </div>
                 </div>
                 <div class="form-group mb-3">
@@ -113,7 +113,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" name="username" placeholder="Username" type="text">
+                    <input class="form-control" name="username" placeholder="Username" type="text" required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -121,7 +121,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" name="password" placeholder="Password" type="password">
+                    <input class="form-control" name="password" placeholder="Password" type="password" required>
                   </div>
                 </div>
                 <div class="form-group">

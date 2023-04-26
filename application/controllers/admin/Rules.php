@@ -75,13 +75,17 @@ class Rules extends CI_Controller
 
 	public function update()
 	{
+		$nilaimb = $this->input->post('mb');
+		$nilaimd = $this->input->post('md');
+		$nilaicf = $nilaimb-$nilaimd;
+
 		$data = array(
 			'id_rules' => $this->input->post('id'),
 			'id_penyakit' => $this->input->post('idPenyakit'),
 			'id_gejala' => $this->input->post('idGejala'),
-			'nilai_mb' => $this->input->post('mb'),
-			'nilai_md' => $this->input->post('md'),
-			'nilai_cf' => $this->input->post('cf'),
+			'nilai_mb' => $nilaimb,
+			'nilai_md' => $nilaimd,
+			'nilai_cf' => $nilaicf,
 		);
 
 		$this->db->where('id_rules', $this->input->post('id'));
@@ -104,20 +108,24 @@ class Rules extends CI_Controller
 
 	public function store()
 	{
+		$nilaimb = $this->input->post('mb');
+		$nilaimd = $this->input->post('md');
+		$nilaicf = $nilaimb-$nilaimd;
+		
 		$data = array(
 			'id_rules' => $this->input->post('id'),
 			'id_penyakit' => $this->input->post('idPenyakit'),
 			'id_gejala' => $this->input->post('idGejala'),
-			'nilai_mb' => $this->input->post('mb'),
-			'nilai_md' => $this->input->post('md'),
-			'nilai_cf' => $this->input->post('cf'),
+			'nilai_mb' => $nilaimb,
+			'nilai_md' => $nilaimd,
+			'nilai_cf' => $nilaicf,
 		);
 
 		$result = $this->db->insert('tb_rules', $data);
 		if ($result) {
-			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil menambahkan member!</div>');
+			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil menambahkan rules!</div>');
 		} else {
-			$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert"><strong>Gagal!</strong> Gagal menambahkan member!</div>');
+			$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert"><strong>Gagal!</strong> Gagal menambahkan rules!</div>');
 		}
 		redirect('admin/rules', 'refresh');
 	}

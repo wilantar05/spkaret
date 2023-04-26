@@ -28,7 +28,7 @@
                             </div>
                             <div class="row align-items-center">
                                 <div class="col-8">
-                                    <h3 class="mb-0">Mulai Konsultasi</h3>
+                                    <h3 class="mb-0">Isi Tingkat Keyakinan</h3>
                                 </div>
 
                                 <div class="col-4 text-right">
@@ -46,6 +46,7 @@
                                     echo $this->session->flashdata('error');
                                     $this->session->unset_userdata('error');
                                 } ?>
+									<input type="text" value="<?php echo $form_id; ?>" name="id_user" class="form-control" id="exampleFormControlInput1" hidden>
 									<input type="text" value="<?php echo $form_nama; ?>" name="Nama" class="form-control" id="exampleFormControlInput1" hidden>
 									<input type="text" value="<?php echo $form_nohp; ?>" name="NoHP" class="form-control" id="exampleFormControlInput1" hidden>
                                 <?php
@@ -56,7 +57,7 @@
                                         <label for="exampleFormControlInput1"><?php echo $values['NamaGejala'] ?></label>
                                         <input type="text" value="<?php echo $values['id_gejala'] ?>" name="gejala[]" hidden>
                                         
-                                        <select class="form-control js-example-basic" name="usercf[]">
+                                        <select class="form-control js-example-basic" name="usercf[]" req>
                                             <option value="" disabled selected hidden>Pilih Tingkat Keyakinan</option>
                                             <option value="0">Tidak</option>
                                             <option value="0.2">Tidak Tahu</option>

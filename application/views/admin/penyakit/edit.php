@@ -52,6 +52,10 @@
 									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama Penyakit" value="<?php echo ($penyakit != null) ? $penyakit[0]['nama_penyakit'] : "" ?>">
 								</div>
 								<div class="form-group">
+									<label for="exampleFormControlInput1">Deskripsi</label>
+									<input type="text" name="Deskripsi" class="form-control" id="exampleFormControlInput1" placeholder="Deskripsi dari penyakit" value="<?php echo ($penyakit != null) ? $penyakit[0]['deskripsi'] : "" ?>">
+								</div>
+								<div class="form-group">
 									<label for="exampleFormControlInput1">Solusi</label>
 									<input type="text" name="Solusi" class="form-control" id="exampleFormControlInput1" placeholder="Solusi" value="<?php echo ($penyakit != null) ? $penyakit[0]['solusi'] : "" ?>">
 								</div>

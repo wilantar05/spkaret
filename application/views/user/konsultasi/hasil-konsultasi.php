@@ -31,44 +31,49 @@
 									<h3 class="mb-0">Hasil Konsultasi</h3>
 								</div>
 								
-								<div class="col-4 text-right">
-									<!-- <button class="btn btn-sm btn-primary" data-toggle="modal"
-										data-target="#tambah">Tambah Data</button> -->
-								</div>
 							</div>
 						</div>
-						<table class="table align-items-center table-responsive">
-							<thead class="thead-light">
-								<tr>
-									<!-- <th scope="col" width="10%">No</th> -->
-									<th scope="col">Nama Penyakit</th>
-									<th scope="col">Persentase Keyakinan</th>
-									<th scope="col" width="10%"></th>
-								</tr>
-							</thead>
-							<tbody class="list">
-								<?php if ($hasilcf != null) { 
+						<div class="col-12 text-justify">
+						<?php if ($hasilcf != null) { 
 									$i = 1;
 									//print_r($gejala) 
 									$maxcf = max($hasilcf);
 									$key = array_search($maxcf,$hasilcf);
 								?>
-								<tr>
-											<!-- <td><?php echo $i ?></td> -->
-											<td><?php echo $key ?></td>
-											<td><?php echo $maxcf . " %"?></td>
-								</tr>
-									<?php foreach ($hasilcf as $key => $value) { ?>
-										
-									<?php $i++;} ?>
+
+								<div class="col-8">
+								<h4>Nama Penyakit</h4>
+								<dd><?php echo $key ?></dd>
+								<h4>Tingkat Keyakinan</h4>
+								<dd><?php echo $maxcf . " %"?></dd>
+								</div>
 								<?php } ?>
-							</tbody>
-						</table>
+						</div>
+						<div class="col-12 text-justify">
+						<?php if ($penyakit != null && count($penyakit) > 0) { ?>
+									<?php foreach ($penyakit as $key => $value) { ?>
+										<div class="col-12">
+											<h4>Deskripsi Penyakit</h4>
+											<dd><?php echo $value['deskripsi'] ?></dd>
+											<h4>Solusi</h4>
+											<dd><?php echo $value['solusi'] ?></dd>
+										</div>
+									<?php } ?>
+								<?php } ?>
+						</div>
 					</div>
+					
+					<form method="post" action="<?php echo base_url()?>user/dashboard/tabeldetail">
+   						<input type="hidden" name="hasilcf" value="<?php echo htmlentities(serialize($hasilcf)); ?>">
+						<input type="submit" value="Lihat Tabel Hasil" class="btn btn-md btn-neutral">
+					</form>
 				</div>
 				
 
 			</div>
+
+
+
 		</div>
 	</div>
 </div>

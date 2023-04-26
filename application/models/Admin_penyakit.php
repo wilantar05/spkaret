@@ -42,4 +42,14 @@ class Admin_penyakit extends CI_Model
         $data = $this->db->get()->result_array();
         return $data;
     }
+
+    public function FindPenyakitNama($id)
+    {
+        $this->load->database();
+        $this->db->select('*');
+        $this->db->from('tb_penyakit');
+        $this->db->where('nama_penyakit', $id);
+        $data = $this->db->get()->result_array();
+        return $data;
+    }
 }

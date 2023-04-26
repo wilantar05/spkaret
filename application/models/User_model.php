@@ -17,7 +17,7 @@ class User_model extends CI_Model{
             $this->db->where('status', 1);
             $this->db->where('username', $username);
             $data = $this->db->get()->result_array();
-            if (password_verify($password, $data[0]['Password'])) {
+            if (password_verify($password, $data[0]['password'])) {
                 return true;
             }
             return false;

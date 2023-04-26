@@ -4,7 +4,7 @@
 		<div class="header-body">
 			<div class="row align-items-center py-4">
 				<div class="col-lg-6 col-7">
-					<h6 class="h2 text-white d-inline-block mb-0">Default</h6>
+					<h6 class="h2 text-white d-inline-block mb-0"></h6>
 					<nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
 						<ol class="breadcrumb breadcrumb-links breadcrumb-dark">
 							<li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
@@ -13,35 +13,25 @@
 						</ol>
 					</nav>
 				</div>
-				<div class="col-lg-6 col-5 text-right">
-					<a href="<?php echo base_url() ?>index.php/admin/dashboard/konsultasi" class="btn btn-md btn-neutral">Tambah Data</a>
-					<a href="<?php echo base_url() ?>index.php/admin/dashboard/hasilkonsultasi" class="btn btn-md btn-neutral">Hasil Konsultasi</a>
-					<!-- <a href="#" class="btn btn-sm btn-neutral">Filters</a> -->
-				</div>
 			</div>
 
 			<!-- Card stats -->
 			<div class="row">
-				<div class="col-xl-12 col-md-8">
+				<div class="col-xl-12 col-md-12">
 					<div class="card">
 						<!-- Card header -->
 						<div class="card-header border-0">
 							<div class="mt-1 mx-1">
 							</div>
 							<div class="row align-items-center">
-								<div class="col-8">
+								<div class="col-12">
 									<h3 class="mb-0">Riwayat Konsultasi</h3>
 								</div>
 
 								<div class="col-4 text-right">
 									<form action="<?php echo base_url() ?>index.php/user/search" method="POST">
 										<input type="hidden" name="pagenumber">
-										<div class="input-group mb-3">
-											<input type="text" class="form-control form-control-sm" name="search" placeholder="Cari User">
-											<div class="input-group-append">
-												<button class="btn btn-outline-primary btn-sm" type="submit">Search</button>
-											</div>
-										</div>
+	
 									</form>
 								</div>
 							</div>
@@ -50,8 +40,7 @@
 							<thead class="thead-light">
 								<tr>
 									<th scope="col" width="10%">No</th>
-									<th scope="col" width="25%">Nama</th>
-									<th scope="col" width="10%">No. HP</th>
+									<th scope="col" width="25%">Tanggal Konsultasi</th>
 									<th scope="col" width="25%">Gejala</th>
 									<th scope="col" width="10%">Penyakit</th>
 									<th scope="col" width="10%">Keyakinan</th>
@@ -62,9 +51,8 @@
 								<?php foreach($konsultasi as $key => $value){ ?>
 								<tr>
 									<td><?php echo $key+1; ?> </td>	
-									<td><?php echo $value['nama']; ?> </td>	
-									<td><?php echo $value['no_hp']; ?> </td>	
-									<td><?php echo $value['gejala']; ?> </td>	
+									<td><?php echo $value['tgl_konsultasi']; ?> </td>	
+									<td style="white-space: normal;"><?php echo $value['gejala']; ?> </td>	
 									<td><?php echo $value['penyakit']; ?> </td>	
 									<td><?php echo $value['keyakinan']; ?> </td>	
 								</tr>

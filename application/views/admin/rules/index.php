@@ -67,16 +67,12 @@
 									</select>
 								</div>
 								<div class="form-group">
-									<label for="exampleFormControlInput1">Nilai MB</label>
-									<input type="text" name="mb" class="form-control" id="exampleFormControlInput1" placeholder="Nilai MB">
+									<label for="exampleFormControlInput1">Nilai Keyakinan</label>
+									<input type="text" name="mb" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nilai dari 1 - 10" required>
 								</div>
 								<div class="form-group">
-									<label for="exampleFormControlInput1">Nilai MD</label>
-									<input type="text" name="md" class="form-control" id="exampleFormControlInput1" placeholder="Nilai MD">
-								</div>
-								<div class="form-group">
-									<label for="exampleFormControlInput1">Nilai CF</label>
-									<input type="text" name="cf" class="form-control" id="exampleFormControlInput1" placeholder="Nilai CF">
+									<label for="exampleFormControlInput1">Nilai Ketidakyakinan</label>
+									<input type="text" name="md" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nilai dari 1 - 10" required>
 								</div>
 							</div>
 							<div class="card-footer py-4 text-right">

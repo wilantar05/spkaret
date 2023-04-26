@@ -80,15 +80,15 @@ class Admin extends CI_Controller
 	public function store()
 	{
 		$data = array(
-			'Nama' => $this->input->post('Nama'),
-			'Username' => $this->input->post('Username'),
-			'Password' => password_hash($this->input->post('Password'), PASSWORD_DEFAULT),
-			'Alamat' => $this->input->post('Alamat'),
-			'No_Tlp' => $this->input->post('No_Tlp'),
-			'Status' => $this->input->post('Status')
+			'nama_admin' => $this->input->post('Nama'),
+			'username' => $this->input->post('Username'),
+			'password' => password_hash($this->input->post('Password'), PASSWORD_DEFAULT),
+			'alamat' => $this->input->post('Alamat'),
+			'no_hp' => $this->input->post('No_Tlp'),
+			'status' => $this->input->post('Status')
 		);
 
-		$result = $this->db->insert('admin', $data);
+		$result = $this->db->insert('tb_admin', $data);
 		if ($result) {
 			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil menambahkan admin!</div>');
 		} else {

@@ -62,7 +62,7 @@
 			<!-- Brand -->
 			<div class="sidenav-header  align-items-center">
 				<a class="navbar-brand" href="javascript:void(0)">
-					<!-- <img src="<?php echo base_url() ?>/assets/img/brand/blue.png" class="navbar-brand-img" alt="..."> -->
+				<img src="<?php echo base_url() ?>/assets/img/brand/elastis.png" class="navbar-brand-img" alt="...">
 				</a>
 			</div>
 			<div class="navbar-inner">
@@ -148,7 +148,7 @@
 										</span>
 										<div class="media-body  ml-2  d-none d-lg-block">
 											<span
-												class="mb-0 text-sm  font-weight-bold"><?php echo ($user != null && count($user) > 0) ? $user[0]['username'] : 'Guest' ?></span>
+												class="mb-0 text-sm  font-weight-bold"><?php echo ($user != null && count($user) > 0) ? $user[0]['nama_admin'] : 'Guest' ?></span>
 										</div>
 									</div>
 								</a>
