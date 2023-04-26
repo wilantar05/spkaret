@@ -28,7 +28,7 @@
 							</div>
 							<div class="row align-items-center">
 								<div class="col-8">
-									<h3 class="mb-0">Tambah Konsultasi</h3>
+									<h3 class="mb-0">Mulai Konsultasi</h3>
 								</div>
 
 								<div class="col-4 text-right">
@@ -49,7 +49,7 @@
 
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Nama</label>
-									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama">
+									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama">
 								</div>
 
 								<div class="form-group">
