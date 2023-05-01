@@ -30,7 +30,7 @@
 								<div class="col-8">
 									<h3 class="mb-0">Tabel Hasil Konsultasi</h3>
 								</div>
-								
+
 								<div class="col-4 text-right">
 									<!-- <button class="btn btn-sm btn-primary" data-toggle="modal"
 										data-target="#tambah">Tambah Data</button> -->
@@ -47,31 +47,42 @@
 								</tr>
 							</thead>
 							<tbody class="list">
-								<?php if ($hasilcf != null) { 
+								<?php if ($hasilcf != null) {
 									$i = 1;
 									//print_r($gejala) 
 								?>
-								
-                                <?php foreach ($hasilcf as $key => $value) { ?>
-                                <tr>
-											<td><?php echo $i ?></td>
-                                            <td><?php echo $key?></td>
-                                            <td><?php echo $value . " %"?></td>
-									<?php $i++;} ?>
-								</tr>
 
+									<?php foreach ($penyakit as $pkey => $pvalue) {
+										foreach ($hasilcf as $cfkey => $cfvalue) {
+											$keyakinan = 0;
+											if ($cfkey == $pvalue['nama_penyakit']) {
+												$keyakinan = $cfvalue;
+												break;
+											}
+										}
+									?>
+										<tr>
+											<td><?php echo $i ?></td>
+											<td><?php echo $pvalue['nama_penyakit'] ?></td>
+											<td><?php echo $keyakinan . " %"  ?></td>
+											<?php $i++;
+											?>
+										</tr>
+									<?php
+									}
+									?>
 								<?php } ?>
 
 							</tbody>
 						</table>
-         
+
 					</div>
-                    <form method="post" action="<?php echo base_url()?>user/dashboard/tabeldetailback">
-   						        <input type="hidden" name="hasilcf" value="<?php echo htmlentities(serialize($hasilcf)); ?>">
-						        <input type="submit" value="Kembali" class="btn btn-md btn-neutral">
-					            </form>
+					<form method="post" action="<?php echo base_url() ?>user/dashboard/tabeldetailback">
+						<input type="hidden" name="hasilcf" value="<?php echo htmlentities(serialize($hasilcf)); ?>">
+						<input type="submit" value="Kembali" class="btn btn-md btn-neutral">
+					</form>
 				</div>
-				
+
 
 			</div>
 		</div>

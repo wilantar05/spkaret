@@ -46,9 +46,9 @@
                                     echo $this->session->flashdata('error');
                                     $this->session->unset_userdata('error');
                                 } ?>
-									<input type="text" value="<?php echo $form_id; ?>" name="id_user" class="form-control" id="exampleFormControlInput1" hidden>
-									<input type="text" value="<?php echo $form_nama; ?>" name="Nama" class="form-control" id="exampleFormControlInput1" hidden>
-									<input type="text" value="<?php echo $form_nohp; ?>" name="NoHP" class="form-control" id="exampleFormControlInput1" hidden>
+                                <input type="text" value="<?php echo $form_id; ?>" name="id_user" class="form-control" id="exampleFormControlInput1" hidden>
+                                <input type="text" value="<?php echo $form_nama; ?>" name="Nama" class="form-control" id="exampleFormControlInput1" hidden>
+                                <input type="text" value="<?php echo $form_nohp; ?>" name="NoHP" class="form-control" id="exampleFormControlInput1" hidden>
                                 <?php
                                 $nama = json_decode(json_encode($nama_gejala), true);
                                 foreach ($nama as $key => $values) {
@@ -56,8 +56,8 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlInput1"><?php echo $values['NamaGejala'] ?></label>
                                         <input type="text" value="<?php echo $values['id_gejala'] ?>" name="gejala[]" hidden>
-                                        
-                                        <select class="form-control js-example-basic" name="usercf[]" req>
+
+                                        <select class="form-control js-example-basic" name="usercf[]" required>
                                             <option value="" disabled selected hidden>Pilih Tingkat Keyakinan</option>
                                             <option value="0">Tidak</option>
                                             <option value="0.2">Tidak Tahu</option>
@@ -67,10 +67,10 @@
                                             <option value="1">Sangat Yakin</option>
                                         </select>
                                     </div>
-                                        <?php } ?>
-                                        <div class="card-footer py-4 text-right">
-                                        <button class="btn btn-primary" type="submit">Kirim</button>
-                                        </div>
+                                <?php } ?>
+                                <div class="card-footer py-4 text-right">
+                                    <button class="btn btn-primary" type="submit">Kirim</button>
+                                </div>
                             </div>
                         </form>
                     </div>
