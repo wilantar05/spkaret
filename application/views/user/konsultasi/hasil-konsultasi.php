@@ -66,13 +66,15 @@
 					<form method="post" action="<?php echo base_url()?>user/dashboard/tabeldetail">
    						<input type="hidden" name="hasilcf" value="<?php echo htmlentities(serialize($hasilcf)); ?>">
 						<input type="submit" value="Lihat Tabel Hasil" class="btn btn-md btn-neutral">
+						
 					</form>
+
+					<form method="post" action="<?php echo base_url()?>user/auth">
+						<input type="submit" value="Konsultasi Kembali" class="btn btn-md btn-neutral">
+					</form>
+
 				</div>
-				
-
 			</div>
-
-
 
 		</div>
 	</div>

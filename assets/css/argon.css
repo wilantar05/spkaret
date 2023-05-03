@@ -28979,7 +28979,7 @@ html:not([dir='rtl']) .noUi-horizontal .noUi-handle
 .select2-container--default .select2-results__option[aria-selected='true']
 {
     color: #16181b; 
-    background-color: transparent;
+    background-color: #3789747d !IMPORTANT;
 }
 
 .select2-container--default .select2-results__option[aria-disabled=true]
