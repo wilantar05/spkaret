@@ -29838,3 +29838,18 @@ input.datetimepicker[data-color='yellow'] + .bootstrap-datetimepicker-widget.dro
 {
     background: transparent;
 }
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .left-button {
+    /* width: 100px; */
+    margin-right: 10px;
+  }
+  
+  .right-button {
+    /* width: 100px; */
+    margin-left: 10px;
+  }
