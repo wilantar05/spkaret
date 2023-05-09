@@ -30,44 +30,47 @@
 								<div class="col-8">
 									<h3 class="mb-0">Hasil Konsultasi</h3>
 								</div>
-								
+
 							</div>
 						</div>
-						<div class = "table-responsive">
-						<table class="table table-hover">
+						<div class="col-12 text-justify">
+							<?php if ($hasilcf != null) {
+								$i = 1;
+								//print_r($gejala) 
+								$maxcf = max($hasilcf);
+								$key = array_search($maxcf, $hasilcf);
+							?>
 
-							<tbody class="list">
-								<?php if ($hasilcf != null) {
-									$maxcf = max($hasilcf);
-									$key = array_search($maxcf,$hasilcf);
-									$deskripsi;
-									$solusi;
-									$nilaicf = $maxcf . " %";
-									foreach($penyakit as $pkey => $pvalue){
-										$deskripsi = $pvalue['deskripsi'];
-										$solusi = $pvalue['solusi'];
-									}
-									$dataHead = ["Nama Penyakit","Tingkat Keyakinan","Deskripsi Penyakit","Solusi"];
-									$dataValue = [$key, $nilaicf, $deskripsi, $solusi];
-									//print_r($gejala) 
-
-									for($i = 0; $i<count($dataHead);$i++){
-								?>
-								<tr>
-									<td><strong> <?php echo $dataHead[$i] ?> </strong></td>
-									<td style="white-space: normal; text-align: justify;">
-										<?php echo $dataValue[$i]?>
-									</td>
-								</tr>
-									<?php }
-								
-									}?>
-
-							</tbody>
-						</table>
+								<div class="col-8">
+									<h4>Nama Penyakit</h4>
+									<dd><?php echo $key ?></dd>
+									<h4>Tingkat Keyakinan</h4>
+									<dd><?php echo $maxcf . " %" ?></dd>
 								</div>
+							<?php } ?>
+						</div>
+						<div class="col-12 text-justify">
+							<?php if ($penyakit != null && count($penyakit) > 0) { ?>
+								<?php foreach ($penyakit as $key => $value) { ?>
+									<div class="col-12">
+										<h4>Deskripsi Penyakit</h4>
+										<dd><?php echo $value['deskripsi'] ?></dd>
+										<h4>Solusi</h4>
+										<dd><?php echo $value['solusi'] ?></dd>
+									</div>
+								<?php } ?>
+							<?php } ?>
+						</div>
 					</div>
-					
+
+					<!-- <form method="post" action="<?php echo base_url() ?>user/dashboard/tabeldetail">
+						<input type="hidden" name="hasilcf" value="<?php echo htmlentities(serialize($hasilcf)); ?>">
+						<input type="submit" value="Lihat Tabel Hasil" class="btn btn-md btn-neutral">
+
+					</form>
+					<form method="post" action="<?php echo base_url() ?>user/auth">
+						<input type="submit" value="Konsultasi Kembali" class="btn btn-md btn-neutral">
+					</form> -->
 					<div class="button-container">
 						<form method="post" action="<?php echo base_url() ?>user/dashboard/tabeldetail">
 							<input type="hidden" name="hasilcf" value="<?php echo htmlentities(serialize($hasilcf)); ?>">

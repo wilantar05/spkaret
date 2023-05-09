@@ -37,7 +37,8 @@
 								</div>
 							</div>
 						</div>
-						<table class="table align-items-center table-responsive">
+						<div class = "table-responsive">
+						<table class="table table-hover">
 							<thead class="thead-light">
 								<tr>
 									<th scope="col" width="10%">No</th>
@@ -75,7 +76,7 @@
 
 							</tbody>
 						</table>
-
+								</div>
 					</div>
 					<form method="post" action="<?php echo base_url() ?>user/dashboard/tabeldetailback">
 						<input type="hidden" name="hasilcf" value="<?php echo htmlentities(serialize($hasilcf)); ?>">

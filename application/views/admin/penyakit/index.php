@@ -94,7 +94,7 @@
 						<table class="table align-items-center table-responsive">
 							<thead class="thead-light">
 								<tr>
-									<th scope="col" width="10%">No</th>
+									<th scope="col">No</th>
 									<th scope="col">Nama</th>
 									<th scope="col">Deskripsi</th>
 									<th scope="col">Solusi</th>
@@ -105,10 +105,10 @@
 								<?php if ($penyakit != null && count($penyakit) > 0) { ?>
 									<?php foreach ($penyakit as $key => $value) { ?>
 										<tr>
-											<td><?php echo $key + 1 ?></td>
-											<td><?php echo $value['nama_penyakit'] ?></td>
-											<td style="white-space: normal;"><?php echo $value['deskripsi'] ?></td>
-											<td style="white-space: normal;"><?php echo $value['solusi'] ?></td>
+											<td style="white-space: normal; vertical-align: top;"><?php echo $key + 1 ?></td>
+											<td style="white-space: normal; vertical-align: top;"><?php echo $value['nama_penyakit'] ?></td>
+											<td style="white-space: normal; vertical-align: top; text-align: justify;"><?php echo $value['deskripsi'] ?></td>
+											<td style="white-space: normal; vertical-align: top; text-align: justify;"><?php echo $value['solusi'] ?></td>
 
 											<td>
 												<div class="dropdown">

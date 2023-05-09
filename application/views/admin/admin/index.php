@@ -56,7 +56,7 @@
 								</div>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Nama</label>
-									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama User" required>
+									<input type="text" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Nama User" min="50" max="50" pattern="[A-Za-z]+" required>
 								</div>
 								<!-- <div class="form-group">
 								<label for="exampleFormControlInput1">Jenis Kelamin</label>
@@ -75,7 +75,7 @@
 							</div> -->
 								<div class="form-group">
 									<label for="exampleFormControlInput1">No Telp</label>
-									<input type="text" name="No_Tlp" class="form-control" id="exampleFormControlInput1" placeholder="No Telp">
+									<input type="number" name="No_Tlp" class="form-control" id="exampleFormControlInput1" placeholder="No Telp" min="12" max="13" pattern="[0-9]+" required>
 								</div>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Status</label>
