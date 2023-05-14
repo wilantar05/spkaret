@@ -52,12 +52,12 @@
 
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Nama</label>
-									<input type="text" min="50" max="50" pattern="[A-Za-z]+" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama" value="<?php if ($user != null && count($user) > 0) echo $user[0]['nama_user'] ?>" <?php if ($user != null && count($user) > 0) echo "readonly" ?> required>
+									<input type="text" min="50" max="50" pattern="[A-Z a-z]+" name="Nama" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama" value="<?php if ($user != null && count($user) > 0) echo $user[0]['nama_user'] ?>" <?php if ($user != null && count($user) > 0) echo "readonly" ?> required>
 								</div>
 
 								<div class="form-group">
 									<label for="exampleFormControlInput1">No HP</label>
-									<input type="number" min="12" max="13" pattern="[0-9]+" name="NoHP" class="form-control" id="exampleFormControlInput1" placeholder="No HP" value="<?php if ($user != null && count($user) > 0) echo $user[0]['no_hp'] ?>" <?php if ($user != null && count($user) > 0) echo "readonly" ?> required>
+									<input type="number" min="000000000000" max="9999999999999" pattern="[0-9]+" name="NoHP" class="form-control" id="exampleFormControlInput1" placeholder="No HP" value="<?php if ($user != null && count($user) > 0) echo $user[0]['no_hp'] ?>" <?php if ($user != null && count($user) > 0) echo "readonly" ?> required>
 								</div>
 
 								<div class="form-group">
