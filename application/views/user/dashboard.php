@@ -36,11 +36,13 @@
 								</div>
 							</div>
 						</div>
-						<table class="table align-items-center table-responsive">
+						<div class = "table-responsive">
+						<table class="table table-hover">
+
 							<thead class="thead-light">
 								<tr>
-									<th scope="col" width="10%">No</th>
-									<th scope="col" width="25%">Tanggal Konsultasi</th>
+									<th scope="col" width="5%">No</th>
+									<th scope="col" width="10%">Tanggal Konsultasi</th>
 									<th scope="col" width="25%">Gejala</th>
 									<th scope="col" width="10%">Penyakit</th>
 									<th scope="col" width="10%">Keyakinan</th>
@@ -52,13 +54,25 @@
 								<tr>
 									<td><?php echo $key+1; ?> </td>	
 									<td><?php echo $value['tgl_konsultasi']; ?> </td>	
-									<td style="white-space: normal;"><?php echo $value['gejala']; ?> </td>	
+									<td style="white-space: normal; text-align: justify;"><?php echo $value['gejala']; ?> </td>	
 									<td><?php echo $value['penyakit']; ?> </td>	
-									<td><?php echo $value['keyakinan']; ?> </td>	
+									<td><?php echo $value['keyakinan']; ?> </td>
+									<td>
+									<!-- <button onclick="return confirm('Apakah anda yakin menghapus data ini ?')" href="<?php echo base_url() ?>index.php/admin/penyakit/delete/<?php echo $value['id_konsultasi'] ?>" class="btn btn-md btn-danger">Hapus</button> -->
+												<div class="dropdown">
+													<a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+														<i class="fas fa-ellipsis-v"></i>
+													</a>
+													<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+														<a class="dropdown-item" onclick="return confirm('Apakah anda yakin menghapus data ini ?')" href="<?php echo base_url() ?>index.php/user/dashboard/delete/<?php echo $value['id_konsultasi'] ?>">Delete</a>
+													</div>
+												</div>
+											</td>
 								</tr>
 								<?php }?>
 							</tbody>
 						</table>
+								</div>
 						<div class="card-footer py-4">
 							<nav aria-label="...">
 								<ul class="pagination justify-content-end mb-0">

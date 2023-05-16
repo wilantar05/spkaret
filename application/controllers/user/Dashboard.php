@@ -14,6 +14,7 @@ class Dashboard extends CI_Controller
 		$this->load->model('Admin_gejala');
 		$this->load->model('Admin_penyakit');
 		$this->load->model('User_model');
+		$this->load->database();
 		// $this->load->model('Transaksi_model');
 		// $this->load->model('Barang_model');
 		// $this->load->model('Member_model');
@@ -175,5 +176,18 @@ class Dashboard extends CI_Controller
 		//$data['hasilfc'] = $hasilfc;
 		$data['hasilcf'] = $hasilcf;
 		$this->hasilkonsultasi($hasilcf);
+	}
+
+	public function delete($id){
+		$data = array(
+			'id_konsultasi' => $id,
+		);
+		$result = $this->db->delete('tb_konsultasi', $data);
+		if ($result) {
+			$this->session->set_flashdata('true', '<div class="alert alert-success" role="alert"><strong>Berhasil!</strong> Berhasil menghapus data konsultasi!</div>');
+		} else {
+			$this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert"><strong>Gagal!</strong> Gagal menghapus data konsultasi!</div>');
+		}
+		redirect('user/dashboard', 'refresh');
 	}
 }
