@@ -37,7 +37,7 @@
 
                         <div class="card-body text-center">
                         <h3 class="text">Langkah 3</h3>
-                        <h3 class="text">Setelah mengisi data diri, silahkan klik area dibawah tulisan Gejala untuk menampilkan daftar gejala yang ada. Klik untuk mencatat gejala. Setelah semua gejala tercatat, klik tombol kirim yang ada di area kanan bawah</h3>
+                        <h3 class="text">Setelah mengisi data diri, silahkan klik area dibawah tulisan Gejala untuk menampilkan daftar gejala yang ada. Klik untuk mencatat gejala, dan klik lagi jika ingin membatalkan. Setelah semua gejala tercatat, klik tombol kirim yang ada di area kanan bawah</h3>
                             <img src="<?php echo base_url() ?>/assets/img/brand/panduan/u4.png" class="img-fluid mb-3" alt="Image for Tutorial">
                             <img src="<?php echo base_url() ?>/assets/img/brand/panduan/u5.png" class="img-fluid mb-3" alt="Image for Tutorial">
                             <img src="<?php echo base_url() ?>/assets/img/brand/panduan/u6.png" class="img-fluid mb-3" alt="Image for Tutorial">
