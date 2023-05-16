@@ -68,9 +68,19 @@
                                         </select>
                                     </div>
                                 <?php } ?>
-                                <div class="card-footer py-4 text-right">
-                                    <button class="btn btn-primary" type="submit">Kirim</button>
+                                <div class="button-container">
+						            <button onclick="window.location.href='<?php echo base_url() ?>user/dashboard/konsultasi'" class="btn btn-primary kembali-button">Kembali</button>
+                                    <button class="btn btn-primary right-button" type="submit">Kirim</button>
+
                                 </div>
+
+                                <!-- <div class="button-container">
+						            <form method="post" action="<?php echo base_url() ?>user/dashboard/tabeldetail">
+							        <input type="hidden" name="hasilcf" value="<?php echo htmlentities(serialize($hasilcf)); ?>">
+							        <button type="submit" class="btn btn-md btn-neutral left-button">Lihat Tabel Hasil</button>
+						        </form>
+						<button onclick="window.location.href='<?php echo base_url() ?>user/auth'" class="btn btn-md btn-neutral right-button"> Konsultasi Kembali</button>
+					</div> -->
                             </div>
                         </form>
                     </div>

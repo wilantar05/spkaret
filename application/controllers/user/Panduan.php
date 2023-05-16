@@ -19,7 +19,7 @@ class Panduan extends CI_Controller{
         if ($this->session->username != "") {
 			$data['title'] = "Dashboard";
 			$data['page'] = "Panduan";
-			$data['head'] = "Dashboard";
+			$data['head'] = "Panduan";
 			$result = $this->User_model->GetUser($this->session->username);
 			//$data['user'] = $result;
 			$data['user'] = $result;
