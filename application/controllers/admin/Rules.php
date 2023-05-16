@@ -24,6 +24,7 @@ class Rules extends CI_Controller
 			$data['page'] = "Data";
 			$data['pagenumber'] = $page;
 			$data['search'] = $search;
+			$data['head'] = "Data Rules";
 
 			$result = $this->Admin_model->GetAdmin($this->session->username);
 			$data['user'] = $result;
@@ -64,6 +65,7 @@ class Rules extends CI_Controller
 		$data['penyakit'] = $penyakit;
 		//$member = $this->Member_model->findMember($id);
 		//$data['memberedit'] = $member;
+		$data['head'] = "Data Rules";
 
 		$data['rulesedit'] = null;
 

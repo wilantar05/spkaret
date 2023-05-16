@@ -20,6 +20,7 @@ class Admin extends CI_Controller
 			$data['page'] = "List";
 			$data['pagenumber'] = $page;
 			$data['search'] = $search;
+			$data['head'] = "Data Admin";
 
 			$result = $this->Admin_model->GetAdmin($this->session->username);
 			$data['user'] = $result;
@@ -42,6 +43,7 @@ class Admin extends CI_Controller
 		$data['page'] = "Edit";
 		$admin = $this->Admin_model->FindAdmin($id);
 		$data['adminedit'] = $admin;
+		$data['head'] = "Data Admin";
 
 		$result = $this->Admin_model->GetAdmin($this->session->username);
 		$data['user'] = $result;

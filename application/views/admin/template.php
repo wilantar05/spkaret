@@ -81,25 +81,25 @@
 					<?php }else{ ?>		
 					<ul class="navbar-nav">
 					<li class="nav-item">
-							<a class="nav-link" href="<?php echo base_url() ?>index.php/admin/admin/">
+							<a class="nav-link <?php if($head == "Data Admin") echo "active";?>" href="<?php echo base_url() ?>index.php/admin/admin/">
 								<i class="fa fa-users text-primary"></i>
 								<span class="nav-link-text">Data Admin</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="<?php echo base_url() ?>index.php/admin/gejala/">
+							<a class="nav-link <?php if($head == "Data Gejala") echo "active";?>" href="<?php echo base_url() ?>index.php/admin/gejala/">
 								<i class="ni ni-bullet-list-67 text-primary"></i>
 								<span class="nav-link-text">Data Gejala</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="<?php echo base_url() ?>index.php/admin/penyakit/">
+							<a class="nav-link <?php if($head == "Data Penyakit") echo "active";?>" href="<?php echo base_url() ?>index.php/admin/penyakit/">
 								<i class="ni ni-shop text-primary"></i>
 								<span class="nav-link-text">Data Penyakit</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="<?php echo base_url() ?>index.php/admin/rules/">
+							<a class="nav-link <?php if($head == "Data Rules") echo "active";?>" href="<?php echo base_url() ?>index.php/admin/rules/">
 								<i class="ni ni-archive-2 text-primary"></i>
 								<span class="nav-link-text">Data Rules</span>
 							</a>

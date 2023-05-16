@@ -22,7 +22,7 @@ class Penyakit extends CI_Controller
 			$data['page'] = "Data";
 			$data['pagenumber'] = $page;
 			$data['search'] = $search;
-
+			$data['head'] = "Data Penyakit";
 			//$data['user'] = null;
 			$data['penyakit'] = null;
 			$data['penyakitcount'] = 0;
@@ -47,6 +47,7 @@ class Penyakit extends CI_Controller
 	{
 		$data['title'] = "Penyakit";
 		$data['page'] = "Edit";
+		$data['head'] = "Data Penyakit";
 
 		$data['penyakit'] = null;
 		//$data['user'] = null;

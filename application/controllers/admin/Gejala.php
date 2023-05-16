@@ -23,7 +23,7 @@ class Gejala extends CI_Controller
 			$data['page'] = "Data";
 			$data['pagenumber'] = $page;
 			$data['search'] = $search;
-
+			$data['head'] = "Data Gejala";
 			//$data['user'] = null;
 			$data['gejala'] = null;
 
@@ -54,7 +54,7 @@ class Gejala extends CI_Controller
 	{
 		$data['title'] = "Gejala";
 		$data['page'] = "Edit";
-
+		$data['head'] = "Data Gejala";
 		$data['user'] = null;
 		$data['gejala'] = null;
 		$gejala = $this->Admin_gejala->FindGejala($id);
