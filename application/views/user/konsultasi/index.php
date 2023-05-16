@@ -37,7 +37,7 @@
 								</div>
 							</div>
 						</div>
-						<form action="<?php echo base_url() ?>index.php/user/dashboard/detail_konsultasi" method="POST">
+						<form action="<?php echo base_url() ?>user/dashboard/detail_konsultasi" method="POST">
 							<div class="card-body border-0">
 								<?php if ($this->session->flashdata('true')) {
 									echo $this->session->flashdata('true');
