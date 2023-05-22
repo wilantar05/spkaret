@@ -43,26 +43,37 @@
 									$deskripsi;
 									$solusi;
 									$nilaicf = $maxcf . " %";
+									$obat;
+									?>
+									<tr>
+										<td></td>
+										<td><img src="<?php echo base_url() ?>/assets/img/penyakit/<?php echo $key?>.png"> </img> </td>
+									</tr>
+									<?php 
+
+									
 									foreach($penyakit as $pkey => $pvalue){
 										$deskripsi = $pvalue['deskripsi'];
 										$solusi = $pvalue['solusi'];
+										$obat = $pvalue['obat'];
 									}
-									$dataHead = ["Nama Penyakit","Tingkat Keyakinan","Deskripsi Penyakit","Solusi"];
-									$dataValue = [$key, $nilaicf, $deskripsi, $solusi];
+									$dataHead = ["Nama Penyakit","Tingkat Keyakinan","Deskripsi Penyakit","Solusi","Rekomendasi Obat"];
+									$dataValue = [$key, $nilaicf, $deskripsi, $solusi, $obat];
 									//print_r($gejala) 
 
 									for($i = 0; $i<count($dataHead);$i++){
 								?>
-								<tr>
-									<td><strong> <?php echo $dataHead[$i] ?> </strong></td>
-									<td style="white-space: normal; text-align: justify;">
-										<?php echo $dataValue[$i]?>
-									</td>
-								</tr>
-									<?php }
-								
-									}?>
+									<tr>
+										<td><strong> <?php echo $dataHead[$i] ?> </strong></td>
+										<td style="white-space: normal; text-align: justify;">
+											<?php echo $dataValue[$i]?>
+										</td>
 
+									</tr>
+								<?php } 
+								}
+									
+									?>
 							</tbody>
 						</table>
 								</div>

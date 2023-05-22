@@ -53,6 +53,41 @@ class Rules extends CI_Controller
 		}
 	}
 
+	public function rule_cf(){
+		if ($this->session->username != "") {
+			$data['title'] = "Rules";
+			$data['page'] = "Data";
+			$data['pagenumber'] = $page;
+			$data['search'] = $search;
+			$data['head'] = "Data Rules";
+
+			$result = $this->Admin_model->GetAdmin($this->session->username);
+			$data['user'] = $result;
+
+			$rules = $this->Admin_rules->GetRuleData($search, $page);
+			$data['rules'] = $rules;
+			$ruleCount = $this->Admin_rules->GetCountRules($search, $page);
+			$data['rulescount'] = $ruleCount;
+			$gejala = $this->Admin_gejala->GetAllGejalaNoFilter();
+			$data['gejala'] = $gejala;
+			$penyakit = $this->Admin_penyakit->GetAllPenyakit($search, $page);
+			$data['penyakit'] = $penyakit;
+			// $member = $this->Member_model->getAllMember($search,$page);
+			// $data['member'] = $member;
+			// $membercount = $this->Member_model->getCountMember($search,$page);
+			// $data['membercount'] = $membercount;
+
+			//$data['user'] = null;
+			// $data['rules'] = null;
+			//$data['rulescount'] = 0;
+
+
+			$this->load->view('admin/rules/index', $data);
+		} else {
+			redirect('admin/dashboard', 'refresh');
+		}
+	}
+
 	public function edit($id)
 	{
 		$data['title'] = "Rules";

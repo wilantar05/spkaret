@@ -28,8 +28,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
 	<!-- Icons -->
 	<link rel="stylesheet" href="<?php echo base_url() ?>/assets/vendor/nucleo/css/nucleo.css" type="text/css">
-	<link rel="stylesheet" href="<?php echo base_url() ?>/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css"
-		type="text/css">
+	<link rel="stylesheet" href="<?php echo base_url() ?>/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
 	<!-- Page plugins -->
 	<!-- Argon CSS -->
 	<link rel="stylesheet" href="<?php echo base_url() ?>/assets/css/argon.css?v=1.2.0" type="text/css">
@@ -39,8 +38,8 @@
 	<script src="<?php echo base_url() ?>/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
 	<script src="<?php echo base_url() ?>/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
 	<!-- Optional JS -->
-	<script src="<?php echo base_url() ?>/assets/vendor/chart.js/dist/Chart.min.js"></script>
-	<script src="<?php echo base_url() ?>/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+	<!-- <script src="<?php echo base_url() ?>/assets/vendor/chart.js/dist/Chart.min.js"></script> -->
+	<!-- <script src="<?php echo base_url() ?>/assets/vendor/chart.js/dist/Chart.extension.js"></script> -->
 
 	<link href="https://adminlte.io/themes/AdminLTE/bower_components/select2/dist/css/select2.min.css" rel="stylesheet" />
 

@@ -58,6 +58,14 @@
 									<label for="exampleFormControlInput1">Solusi</label>
 									<input type="text" name="Solusi" class="form-control" id="exampleFormControlInput1" placeholder="Solusi" required>
 								</div>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">Obat</label>
+									<input type="text" name="Obat" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nama Obat" required>
+								</div>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">Gambar</label>
+									<input type="file" name="Gambar" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Gambar" required>
+								</div>
 							</div>
 							<div class="card-footer py-4 text-right">
 								<button class="btn btn-primary" type="submit">Simpan</button>
@@ -98,6 +106,7 @@
 									<th scope="col">Nama</th>
 									<th scope="col">Deskripsi</th>
 									<th scope="col">Solusi</th>
+									<th scope="col">Obat</th>
 									<th scope="col" width="10%"></th>
 								</tr>
 							</thead>
@@ -109,7 +118,7 @@
 											<td style="white-space: normal; vertical-align: top;"><?php echo $value['nama_penyakit'] ?></td>
 											<td style="white-space: normal; vertical-align: top; text-align: justify;"><?php echo $value['deskripsi'] ?></td>
 											<td style="white-space: normal; vertical-align: top; text-align: justify;"><?php echo $value['solusi'] ?></td>
-
+											<td style="white-space: normal; vertical-align: top; text-align: justify;"><?php echo $value['obat'] ?></td>
 											<td>
 												<div class="dropdown">
 													<a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

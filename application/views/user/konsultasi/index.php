@@ -62,7 +62,7 @@
 
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Gejala</label>
-									<select class="form-control js-example-basic-multiple" name="gejala[]" id="" multiple required>
+									<select class="js-example-basic-multiple" name="gejala[]" id="" multiple required>
 										<?php foreach ($gejala as $key => $value) { ?>
 											<option value="<?php echo $value['id_gejala'] ?>"><?php echo $value['nama_gejala'] ?></option>
 										<?php } ?>

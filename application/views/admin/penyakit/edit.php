@@ -59,6 +59,14 @@
 									<label for="exampleFormControlInput1">Solusi</label>
 									<input type="text" name="Solusi" class="form-control" id="exampleFormControlInput1" placeholder="Solusi" value="<?php echo ($penyakit != null) ? $penyakit[0]['solusi'] : "" ?>">
 								</div>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">Obat</label>
+									<input type="text" name="Obat" class="form-control" id="exampleFormControlInput1" placeholder="Nama Obat" value="<?php echo ($penyakit != null) ? $penyakit[0]['obat'] : "" ?>">
+								</div>
+								<div class="form-group">
+									<label for="exampleFormControlInput1">Gambar</label>
+									<input type="file" name="Gambar" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Gambar">
+								</div>
 							</div>
 							<div class="card-footer py-4">
 								<div class="row">

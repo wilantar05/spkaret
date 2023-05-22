@@ -67,6 +67,7 @@ class Penyakit extends CI_Controller
 			'nama_penyakit' => $this->input->post('Nama'),
 			'deskripsi' => $this->input->post('Deskripsi'),
 			'solusi' => $this->input->post('Solusi'),
+			'obat' => $this->input->post('Obat')
 		);
 
 		$this->db->where('id_penyakit', $this->input->post('id'));
@@ -92,7 +93,8 @@ class Penyakit extends CI_Controller
 		$data = array(
 			'nama_penyakit' => $this->input->post('Nama'),
 			'deskripsi' => $this->input->post('Deskripsi'),
-			'solusi' => $this->input->post('Solusi')
+			'solusi' => $this->input->post('Solusi'),
+			'obat' => $this->input->post('Obat')
 			// 'Created_at' => date("Y-m-d H:i:s"),
 			// 'Update_at' => date("Y-m-d H:i:s")
 		);
