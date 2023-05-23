@@ -99,9 +99,15 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link <?php if($head == "Data Rules") echo "active";?>" href="<?php echo base_url() ?>index.php/admin/rules/">
+							<a class="nav-link <?php if($head == "RulesCF") echo "active";?>" href="<?php echo base_url() ?>index.php/admin/rules/">
 								<i class="ni ni-archive-2 text-primary"></i>
-								<span class="nav-link-text">Data Rules</span>
+								<span class="nav-link-text">Rules Certainty-Factor</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link <?php if($head == "RulesFC") echo "active";?>" href="<?php echo base_url() ?>index.php/admin/rules/rule_fc">
+								<i class="ni ni-archive-2 text-primary"></i>
+								<span class="nav-link-text">Rules Forward-Chaining</span>
 							</a>
 						</li>
 					</ul>

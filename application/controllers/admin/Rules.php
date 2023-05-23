@@ -24,7 +24,7 @@ class Rules extends CI_Controller
 			$data['page'] = "Data";
 			$data['pagenumber'] = $page;
 			$data['search'] = $search;
-			$data['head'] = "Data Rules";
+			$data['head'] = "RulesCF";
 
 			$result = $this->Admin_model->GetAdmin($this->session->username);
 			$data['user'] = $result;
@@ -53,18 +53,18 @@ class Rules extends CI_Controller
 		}
 	}
 
-	public function rule_cf(){
+	public function rule_fc($page = 1, $search = ""){
 		if ($this->session->username != "") {
 			$data['title'] = "Rules";
 			$data['page'] = "Data";
 			$data['pagenumber'] = $page;
 			$data['search'] = $search;
-			$data['head'] = "Data Rules";
+			$data['head'] = "RulesFC";
 
 			$result = $this->Admin_model->GetAdmin($this->session->username);
 			$data['user'] = $result;
 
-			$rules = $this->Admin_rules->GetRuleData($search, $page);
+			$rules = $this->Admin_rules->GetRuleDataFC($search, $page);
 			$data['rules'] = $rules;
 			$ruleCount = $this->Admin_rules->GetCountRules($search, $page);
 			$data['rulescount'] = $ruleCount;
@@ -82,7 +82,7 @@ class Rules extends CI_Controller
 			//$data['rulescount'] = 0;
 
 
-			$this->load->view('admin/rules/index', $data);
+			$this->load->view('admin/rules/indexfc', $data);
 		} else {
 			redirect('admin/dashboard', 'refresh');
 		}
