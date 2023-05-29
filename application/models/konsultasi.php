@@ -55,16 +55,22 @@ class konsultasi extends CI_Model
         $cfuser = [];
 
         $in = null;
-        for ($i = 0; $i < count($gejala); $i++) {
-            
-            $cfuser[$gejala[$i]] = $usercf[$i];
-
-            if ($i + 1 == count($gejala)) {
-                $in .= $gejala[$i];
-            } else {
-                $in .= $gejala[$i] . ",";
+        // if(count($gejala)>1){
+            for ($i = 0; $i < count($gejala); $i++) {
+                $cfuser[$gejala[$i]] = $usercf[$i];
+    
+                if ($i + 1 == count($gejala)) {
+                    $in .= $gejala[$i];
+                } else {
+                    $in .= $gejala[$i] . ",";
+                }
             }
-        }
+        // }
+        // else{
+        //     $cfuser[$gejala[0]] = $usercf[0];
+        //     $in = $gejala[0];
+        // }
+
 
         $query = $this->db->query("SELECT * from tb_rules WHERE id_gejala in ($in) ORDER BY `id_penyakit`");
         $result = $query->result();
@@ -119,13 +125,18 @@ class konsultasi extends CI_Model
 
         $cfk = [];
         for($i=0;$i<count($indexEnd);$i++){
+
             $n = 1;
+
             if($i> 0){
                 $n = $indexEnd[$i-1]+1;
+            }else{
+                $n = 0;
             }
+
             $cfTemp = 0;
             for($j = $n; $j<=$indexEnd[$i];$j++){
-                
+
                 if($j==1){
                     $cfTemp = $cfhe[$j-1] + $cfhe[$j] * (1 - $cfhe[$j-1]);
                 }else{
@@ -133,6 +144,7 @@ class konsultasi extends CI_Model
                 }
                     
             }
+
             $cfk[$i] = $cfTemp;
         }
             $in2 = null;
