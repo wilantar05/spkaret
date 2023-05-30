@@ -44,6 +44,7 @@ class Admin_rules extends CI_Model
         $this->db->join("tb_penyakit", "tb_penyakit.id_penyakit = tb_rules.id_penyakit");
         $this->db->join("tb_gejala", "tb_gejala.id_gejala = tb_rules.id_gejala");
         $this->db->order_by("idPenyakit");
+        $this->db->order_by("idGejala");
         $this->db->limit($limit, $start);
         $data = $this->db->get()->result_array();
         return $data;

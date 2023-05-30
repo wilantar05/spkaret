@@ -20,14 +20,14 @@
 
 			<!-- Card stats -->
 			<div class="row">
-				<div class="col-xl-8 col-md-8">
+				<div class="col-xl-12 col-md-12">
 					<div class="card">
 						<!-- Card header -->
 						<div class="card-header border-0">
 							<div class="mt-1 mx-1">
 							</div>
 							<div class="row align-items-center">
-								<div class="col-8">
+								<div class="col-12">
 									<h3 class="mb-0">Data Rules</h3>
 								</div>
 
@@ -35,7 +35,8 @@
 						</div>
 						<!-- Light table -->
 
-						<table class="table align-items-center table-responsive">
+						<div class = "table-responsive">
+						<table class="table table-hover">
 							<thead class="thead-light">
 								<tr>
 									<th scope="col">No</th>
@@ -86,6 +87,7 @@
 								<?php } ?>
 							</tbody>
 						</table>
+									</div>
 						<!-- Card footer -->
 
 					</div>
