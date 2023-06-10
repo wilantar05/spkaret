@@ -11,7 +11,6 @@ class Admin_gejala extends CI_Model
         $this->load->database();
         $this->db->select('*');
         $this->db->from('tb_gejala');
-
         if ($search != "") {
             $this->db->like('nama_gejala', $search);
         }
@@ -26,7 +25,6 @@ class Admin_gejala extends CI_Model
         $this->load->database();
         $this->db->select('*');
         $this->db->from('tb_gejala');
-
         $data = $this->db->get()->result_array();
         return $data;
     }

@@ -166,5 +166,35 @@
 		</div>
 	</div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/adminlte.min.js"></script>
+<div class="modal fade" id="confirmationModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Confirm Delete</h4>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>Are you sure you want to delete?</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+				<button type="button" class="btn btn-danger" onclick="confirmDelete()">Delete</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	// Confirm delete action
+	function confirmDelete() {
+		// Redirect to the delete URL
+		window.location.href = document.querySelector('.delete-button').getAttribute('href');
+	}
+</script>
+
 <!-- Page content -->
 <?php $this->load->view('admin/footer'); ?>
