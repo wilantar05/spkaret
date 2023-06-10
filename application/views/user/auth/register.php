@@ -89,7 +89,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fa fa-user"></i></span>
                     </div>
-                    <input class="form-control" name="nama" placeholder="Nama" type="text" min="50" max="50" pattern="[A-Z a-z]+" required>
+                    <input class="form-control" name="nama" placeholder="Nama" type="text" minlength="12" maxlength="25" pattern="[A-Z a-z]+" required>
                   </div>
                 </div>
                 <div class="form-group mb-3">
@@ -97,7 +97,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fa fa-phone"></i></span>
                     </div>
-                    <input class="form-control" name="no_hp" placeholder="No. Telp" type="number" min="000000000000" max="9999999999999" pattern="[0-9]+" required>
+                    <input class="form-control" name="no_hp" placeholder="No. Telp" type="number" minlength="12" maxlength="13" pattern="[0-9]+" required>
                   </div>
                 </div>
                 <div class="form-group mb-3">
@@ -113,7 +113,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" name="username" placeholder="Username" type="text" required>
+                    <input class="form-control" name="username" placeholder="Username" type="text" minlength="8" maxlength="25" required>
                   </div>
                 </div>
                 <div class="form-group">
@@ -121,7 +121,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" name="password" placeholder="Password" type="password" required>
+                    <input class="form-control" name="password" placeholder="Password" type="password" minlength="6" required>
                   </div>
                 </div>
                 <div class="form-group">
