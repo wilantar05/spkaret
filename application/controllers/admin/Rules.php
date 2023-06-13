@@ -35,7 +35,7 @@ class Rules extends CI_Controller
 			$data['rulescount'] = $ruleCount;
 			$gejala = $this->Admin_gejala->GetAllGejalaNoFilter();
 			$data['gejala'] = $gejala;
-			$penyakit = $this->Admin_penyakit->GetAllPenyakit($search, $page);
+			$penyakit = $this->Admin_penyakit->GetAllPenyakitNoFilter();
 			$data['penyakit'] = $penyakit;
 			// $member = $this->Member_model->getAllMember($search,$page);
 			// $data['member'] = $member;
@@ -94,7 +94,7 @@ class Rules extends CI_Controller
 		$data['page'] = "Edit";
 		$rules = $this->Admin_rules->FindRules($id);
 		$data['rules'] = $rules;
-		$gejala = $this->Admin_gejala->GetAllGejala();
+		$gejala = $this->Admin_gejala->GetAllGejalaNoFilter();
 		$data['gejala'] = $gejala;
 		$penyakit = $this->Admin_penyakit->GetAllPenyakit();
 		$data['penyakit'] = $penyakit;
