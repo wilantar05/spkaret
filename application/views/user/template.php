@@ -41,10 +41,17 @@
 	<!-- <script src="<?php echo base_url() ?>/assets/vendor/chart.js/dist/Chart.min.js"></script> -->
 	<!-- <script src="<?php echo base_url() ?>/assets/vendor/chart.js/dist/Chart.extension.js"></script> -->
 
-	<link href="https://adminlte.io/themes/AdminLTE/bower_components/select2/dist/css/select2.min.css" rel="stylesheet" />
-
-	<script src="https://adminlte.io/themes/AdminLTE/bower_components/select2/dist/js/select2.full.min.js"></script>
-
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+	
+	<style>
+        .select2-container .select2-search--inline {
+            display: inline;
+        }
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__display {
+            padding-left: 10px;
+        }
+    </style>
 	
 	<script src="https://adminlte.io/themes/AdminLTE/plugins/input-mask/jquery.inputmask.js"></script>
 	<script src="https://adminlte.io/themes/AdminLTE/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
