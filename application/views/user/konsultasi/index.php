@@ -63,8 +63,11 @@
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Gejala</label>
 									<select class="js-example-basic-multiple" name="gejala[]" id="" multiple required>
-										<?php foreach ($gejala as $key => $value) { ?>
-											<option value="<?php echo $value['id_gejala'] ?>"><?php echo $value['nama_gejala'] ?></option>
+										<?php foreach ($gejala as $key => $value) { 
+											$showGejala = "(" . $value['kode_gejala'] . ") " . $value['nama_gejala'];
+											?>
+											
+											<option value="<?php echo $value['id_gejala'] ?>"><?php echo $showGejala ?></option>
 										<?php } ?>
 									</select>
 									<!--<input type="text" name="Gejala" class="form-control" id="exampleFormControlInput1" placeholder="Gejala">-->

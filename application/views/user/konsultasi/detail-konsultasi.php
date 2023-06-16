@@ -52,9 +52,10 @@
                                 <?php
                                 $nama = json_decode(json_encode($nama_gejala), true);
                                 foreach ($nama as $key => $values) {
+                                    $showGejala = "(" . $values['kode_gejala'] . ") " . $values['NamaGejala'];
                                 ?>
                                     <div class="form-group">
-                                        <label for="exampleFormControlInput1"><?php echo $values['NamaGejala'] ?></label>
+                                        <label for="exampleFormControlInput1"><?php echo $showGejala ?></label>
                                         <input type="text" value="<?php echo $values['id_gejala'] ?>" name="gejala[]" hidden>
 
                                         <select class="form-control js-example-basic" name="usercf[]" required>

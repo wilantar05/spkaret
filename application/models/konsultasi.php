@@ -42,7 +42,7 @@ class konsultasi extends CI_Model
             }
         }
 
-        $query = $this->db->query("SELECT id_gejala, nama_gejala as NamaGejala from tb_gejala WHERE id_gejala in ($in)");
+        $query = $this->db->query("SELECT id_gejala, kode_gejala, nama_gejala as NamaGejala from tb_gejala WHERE id_gejala in ($in)");
         $result = $query->result();
         return $result;
     }
@@ -53,12 +53,20 @@ class konsultasi extends CI_Model
         $gejala = $this->input->post('gejala');
         $usercf = $this->input->post('usercf');
         $cfuser = [];
+        // echo "Gejala: ";
+        // print_r($gejala);
+        // echo nl2br("\n");
 
+        // echo "CFE: ";
+        // print_r($usercf);
+        // echo nl2br("\n");
+        // echo nl2br("\n");
+        // echo nl2br("\n");
         $in = null;
         // if(count($gejala)>1){
             for ($i = 0; $i < count($gejala); $i++) {
                 $cfuser[$gejala[$i]] = $usercf[$i];
-    
+                
                 if ($i + 1 == count($gejala)) {
                     $in .= $gejala[$i];
                 } else {
@@ -85,6 +93,12 @@ class konsultasi extends CI_Model
         $cfhe = [];
         foreach ($resValue as $key => $values) {
             if ($values['id_penyakit'] != $lastPenyakit) {
+                
+                // echo "i = " . $i;
+                // echo nl2br("\n");
+                // echo "ID P: ". $values['id_penyakit'];
+                // echo nl2br("\n");
+
                 $lastPenyakit = $values['id_penyakit'];
                 if ($i - 1 != -1) array_push($indexEnd, $i - 1);
                 array_push($idPenyakitList, $values['id_penyakit']);
@@ -130,14 +144,17 @@ class konsultasi extends CI_Model
 
             if($i> 0){
                 $n = $indexEnd[$i-1]+1;
+                
             }else{
                 $n = 0;
             }
 
+            //echo nl2br("Test n: " . $n . "\n");
+
             $cfTemp = 0;
             for($j = $n; $j<=$indexEnd[$i];$j++){
-
-                if($j==1){
+                //echo nl2br("Test J: " . $j . "\n" );
+                if($indexEnd[$i]-$j > 0){
                     $cfTemp = $cfhe[$j-1] + $cfhe[$j] * (1 - $cfhe[$j-1]);
                 }else{
                     $cfTemp = $cfTemp + $cfhe[$j] * (1-$cfTemp);
@@ -194,7 +211,8 @@ class konsultasi extends CI_Model
         // $this->db->where_in('id_gejala',$in);
         // $resultGejala = $this->db->get()->result_array();
         // $hasilcf = arsort($hasilcf);
-        //print_r(arsort($hasilcf));
+        // print_r(arsort($hasilcf));
+        
         // echo nl2br("\n Penyakit \n");
         // print_r($result);
         // echo nl2br("\n Nilai CF \n");
