@@ -154,9 +154,11 @@ class konsultasi extends CI_Model
             $cfTemp = 0;
             for($j = $n; $j<=$indexEnd[$i];$j++){
                 //echo nl2br("Test J: " . $j . "\n" );
-                if($indexEnd[$i]-$j > 0){
+                if($indexEnd[$i] == $j && $indexEnd[$i]-$j > 0){
+                    //echo nl2br("" . $cfhe[$j-1] . " + " . $cfhe[$j] . " * ( 1 - " . $cfhe[$j-1] . " )\n");
                     $cfTemp = $cfhe[$j-1] + $cfhe[$j] * (1 - $cfhe[$j-1]);
                 }else{
+                    //echo nl2br("" . $cfTemp . " + " . $cfhe[$j] . " * ( 1 - " . $cfTemp . " )\n");
                     $cfTemp = $cfTemp + $cfhe[$j] * (1-$cfTemp);
                 }
                     
