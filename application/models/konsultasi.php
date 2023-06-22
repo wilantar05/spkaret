@@ -112,7 +112,7 @@ class konsultasi extends CI_Model
 
             // echo "nilai_user: " . $cfuser[$values['id_gejala']];
 
-            // echo nl2br("\n");
+            //echo nl2br("\n");
             if ($i + 1 == count($resValue)) {
                 array_push($indexEnd, $i);
             }
@@ -186,7 +186,7 @@ class konsultasi extends CI_Model
         $x = 0;
         foreach($resValue as $key => $values){
             
-            $hasilcf[$values['nama_penyakit']] = number_format((float)$cfk[$x]*100,2,',','') ;
+            $hasilcf[$values['nama_penyakit']] = number_format((float)$cfk[$x]*100,2,'.','') ;
             $x++;
         }
 
@@ -218,8 +218,10 @@ class konsultasi extends CI_Model
         // echo nl2br("\n Penyakit \n");
         // print_r($result);
         // echo nl2br("\n Nilai CF \n");
-        // print_r($cfk);
-        $keyakinan = max($hasilcf);
+        // print_r($hasilcf);
+        $arrValues = array_values($hasilcf);
+        $keyakinan = max($arrValues);
+        //echo nl2br("Max: ". $keyakinan);
         $penyakit = array_search($keyakinan, $hasilcf);
         $newRecord = array(
             'id_konsultasi' => '',
