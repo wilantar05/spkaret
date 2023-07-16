@@ -37,7 +37,7 @@
 								</div>
 							</div>
 						</div>
-						<form action="<?php echo base_url() ?>index.php/admin/penyakit/update" method="POST">
+						<form action="<?php echo base_url() ?>index.php/admin/penyakit/update" method="POST" enctype="multipart/form-data">
 							<input type="hidden" name="id" value="<?php echo ($penyakit != null) ? $penyakit[0]['id_penyakit'] : "" ?>">
 							<div class="card-body border-0">
 								<?php if ($this->session->flashdata('true')) {
@@ -65,7 +65,9 @@
 								</div>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Gambar</label>
-									<input type="file" name="Gambar" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Gambar">
+									<input type="file" name="Gambar" class="form-control" id="exampleFormControlInput1">
+    									<img src="<?php echo base_url('assets/img/penyakit/' . ($penyakit != null) ? $penyakit[0]['nama_penyakit'] : "") ?>" width="100">
+    									<input type="hidden" name="Gambar" value="<?php echo base_url('assets/img/penyakit/' . ($penyakit != null) ? $penyakit[0]['nama_penyakit'] : "") ?>">
 								</div>
 							</div>
 							<div class="card-footer py-4">

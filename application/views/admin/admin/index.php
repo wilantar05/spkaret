@@ -205,10 +205,17 @@
 </div>
 
 <script>
+
+	var href;
+	function handleClick(button, id){
+		href = button.getAttribute('href');
+    	console.log('Clicked button with ID:', id);
+    	console.log('Button href:', href);
+	}
+
 	// Confirm delete action
 	function confirmDelete() {
-		// Redirect to the delete URL
-		window.location.href = document.querySelector('.delete-button').getAttribute('href');
+		window.location.href = href;
 	}
 </script>
 <!-- Page content -->

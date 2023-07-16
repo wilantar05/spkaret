@@ -113,15 +113,14 @@ class Rules extends CI_Controller
 	public function update()
 	{
 		$nilaimb = $this->input->post('mb');
-		$nilaimd = $this->input->post('md');
-		$nilaicf = $nilaimb-$nilaimd;
+		$nilaicf = $nilaimb-(10-$nilaimb);
 
 		$data = array(
 			'id_rules' => $this->input->post('id'),
 			'id_penyakit' => $this->input->post('idPenyakit'),
 			'id_gejala' => $this->input->post('idGejala'),
 			'nilai_mb' => $nilaimb,
-			'nilai_md' => $nilaimd,
+			'nilai_md' => 10-$nilaimb,
 			'nilai_cf' => $nilaicf,
 		);
 
@@ -146,15 +145,14 @@ class Rules extends CI_Controller
 	public function store()
 	{
 		$nilaimb = $this->input->post('mb');
-		$nilaimd = $this->input->post('md');
-		$nilaicf = $nilaimb-$nilaimd;
+		$nilaicf = $nilaimb-(10-$nilaimb);
 		
 		$data = array(
 			'id_rules' => $this->input->post('id'),
 			'id_penyakit' => $this->input->post('idPenyakit'),
 			'id_gejala' => $this->input->post('idGejala'),
 			'nilai_mb' => $nilaimb,
-			'nilai_md' => $nilaimd,
+			'nilai_md' => 10-$nilaimb,
 			'nilai_cf' => $nilaicf,
 		);
 

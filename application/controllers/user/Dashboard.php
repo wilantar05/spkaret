@@ -10,7 +10,7 @@ class Dashboard extends CI_Controller
 		$this->load->helper('form');
 		$this->load->helper('url');
 		$this->load->model('User_model');
-		$this->load->model('konsultasi');
+		$this->load->model('Konsultasi');
 		$this->load->model('Admin_gejala');
 		$this->load->model('Admin_penyakit');
 		$this->load->model('User_model');
@@ -30,7 +30,7 @@ class Dashboard extends CI_Controller
 			$result = $this->User_model->GetUser($this->session->username);
 			//$data['user'] = $result;
 			$data['user'] = $result;
-			$konsultasi = $this->konsultasi->GetRiwayatKonsultasi($data['user'][0]['id_user']);
+			$konsultasi = $this->Konsultasi->GetRiwayatKonsultasi($data['user'][0]['id_user']);
 			$data['konsultasi'] = $konsultasi;
 			// $transaksi = $this->Transaksi_model->getCountTransaksi();
 			// $data['transaksi'] = $transaksi;
@@ -104,8 +104,8 @@ class Dashboard extends CI_Controller
 		$data['form_id'] = $this->input->post('id_user');
 		$data['form_nama'] = $this->input->post('Nama');
 		$data['form_nohp'] = $this->input->post('NoHP');
-		$data['gejala'] = $this->konsultasi->GetDetailKonsultasi();
-		$data['nama_gejala'] = $this->konsultasi->GetNamaGejala();
+		$data['gejala'] = $this->Konsultasi->GetDetailKonsultasi();
+		$data['nama_gejala'] = $this->Konsultasi->GetNamaGejala();
 		$this->load->view('user/konsultasi/detail-konsultasi', $data);
 	}
 
@@ -139,7 +139,7 @@ class Dashboard extends CI_Controller
 		$data['head'] = "Konsultasi";
 
 		//$hasilfc = $this->konsultasi->hitungFC();
-		$hasilcf = $this->konsultasi->HitungCF();
+		$hasilcf = $this->Konsultasi->HitungCF();
 		$this->hasilkonsultasi($hasilcf);
 		//$this->load->view('user/konsultasi/hasil-konsultasi', $data);
 	}

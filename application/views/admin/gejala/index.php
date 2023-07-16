@@ -44,11 +44,15 @@
 								} else if ($this->session->flashdata('error')) {
 									echo $this->session->flashdata('error');
 									$this->session->unset_userdata('error');
-								} ?>
+								} 
+									$num_kode = substr($last_kode,1);
+									$num = (int)$num_kode;
+									$newKodeGejala = $num+1 < 10 ? "G0" . ($num+1) : "G" . ($num+1);
+								?>
 
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Kode</label>
-									<input type="text" name="KodeGejala" class="form-control" id="exampleFormControlInput1" placeholder="Kode Gejala" required>
+									<input type="text" name="KodeGejala" class="form-control" id="exampleFormControlInput1" placeholder="Kode Gejala" value="<?php echo $newKodeGejala ?>" readonly>
 								</div>
 
 								<div class="form-group">
@@ -101,7 +105,9 @@
 							<tbody class="list">
 								<?php if ($gejala != null) { //print_r($gejala) 
 								?>
-									<?php foreach ($gejala as $key => $value) { ?>
+									<?php foreach ($gejala as $key => $value) { 
+										$id_gejala = $value['id_gejala'];
+										?>
 										<tr>
 											<td><?php echo $key + 1 ?></td>
 											<td><?php echo $value['kode_gejala'] ?></td>
@@ -112,9 +118,8 @@
 														<i class="fas fa-ellipsis-v"></i>
 													</a>
 													<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-														<a class="dropdown-item" href="<?php echo base_url() ?>index.php/admin/gejala/edit/<?php echo $value['id_gejala'] ?>">Edit</a>
-														<!-- <a class="dropdown-item" onclick="return confirm('Apakah anda yakin menghapus data ini ?')" href="<?php echo base_url() ?>index.php/admin/gejala/delete/<?php echo $value['id_gejala'] ?>">Delete</a> -->
-														<a href="<?php echo base_url() ?>index.php/admin/gejala/delete/<?php echo $value['id_gejala'] ?>" class="dropdown-item delete-button" data-toggle="modal" data-target="#confirmationModal">Delete</a>
+														<a class="dropdown-item" href="<?php echo base_url() ?>index.php/admin/gejala/edit/<?php echo $id_gejala ?>">Edit</a>
+														<a href="<?php echo base_url() ?>index.php/admin/gejala/delete/<?php echo $id_gejala ?>" class="dropdown-item delete-button" data-toggle="modal" data-target="#confirmationModal" onclick="handleClick(this, <?php echo $id_gejala ?>)">Delete</a>
 													</div>
 												</div>
 											</td>
@@ -177,10 +182,17 @@
 </div>
 
 <script>
+
+	var href;
+	function handleClick(button, id){
+		href = button.getAttribute('href');
+    	console.log('Clicked button with ID:', id);
+    	console.log('Button href:', href);
+	}
+
 	// Confirm delete action
 	function confirmDelete() {
-		// Redirect to the delete URL
-		window.location.href = document.querySelector('.delete-button').getAttribute('href');
+		window.location.href = href;
 	}
 </script>
 

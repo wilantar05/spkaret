@@ -63,6 +63,25 @@ class Penyakit extends CI_Controller
 
 	public function update()
 	{
+
+						    // Set up the configuration for the file upload
+							$config['upload_path'] = FCPATH . 'assets/img/penyakit/';
+							$config['allowed_types'] = 'gif|jpg|png';
+							$config['max_size'] = 2048; // 2MB
+							$config['file_name'] = $this->input->post('Nama'); // Generate a unique filename
+							$config['overwrite'] = TRUE;
+				
+							$this->load->library('upload', $config);
+						
+							if (!$this->upload->do_upload('Gambar')) {
+							  $error = $this->upload->display_errors();
+							  echo $error;
+							} else {
+							  $imageData = $this->upload->data();
+							  $filename = $imageData['file_name'];
+				
+							}
+							
 		$data = array(
 			'nama_penyakit' => $this->input->post('Nama'),
 			'deskripsi' => $this->input->post('Deskripsi'),
@@ -90,6 +109,25 @@ class Penyakit extends CI_Controller
 
 	public function store()
 	{
+
+				    // Set up the configuration for the file upload
+			$config['upload_path'] = FCPATH . 'assets/img/penyakit/';
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size'] = 2048; // 2MB
+			$config['file_name'] = $this->input->post('Nama'); // Generate a unique filename
+			$config['overwrite'] = TRUE;
+
+			$this->load->library('upload', $config);
+		
+			if (!$this->upload->do_upload('Gambar')) {
+			  $error = $this->upload->display_errors();
+			  echo $error;
+			} else {
+			  $imageData = $this->upload->data();
+			  $filename = $imageData['file_name'];
+
+			}
+
 		$data = array(
 			'nama_penyakit' => $this->input->post('Nama'),
 			'deskripsi' => $this->input->post('Deskripsi'),
@@ -98,6 +136,8 @@ class Penyakit extends CI_Controller
 			// 'Created_at' => date("Y-m-d H:i:s"),
 			// 'Update_at' => date("Y-m-d H:i:s")
 		);
+
+
 
 		$result = $this->db->insert('tb_penyakit', $data);
 		if ($result) {

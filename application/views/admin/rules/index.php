@@ -70,10 +70,10 @@
 									<label for="exampleFormControlInput1">Nilai Keyakinan</label>
 									<input type="text" name="mb" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nilai dari 1 - 10" required>
 								</div>
-								<div class="form-group">
+								<!-- <div class="form-group">
 									<label for="exampleFormControlInput1">Nilai Ketidakyakinan</label>
 									<input type="text" name="md" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Nilai dari 1 - 10" required>
-								</div>
+								</div> -->
 							</div>
 							<div class="card-footer py-4 text-right">
 								<button class="btn btn-primary" type="submit">Simpan</button>
@@ -138,7 +138,7 @@
 													<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 														<a class="dropdown-item" href="<?php echo base_url() ?>index.php/admin/rules/edit/<?php echo $value['id'] ?>">Edit</a>
 														<!-- <a class="dropdown-item" onclick="return confirm('Apakah anda yakin menghapus data ini ?')" href="<?php echo base_url() ?>index.php/admin/rules/delete/<?php echo $value['id'] ?>">Delete</a> -->
-														<a href="<?php echo base_url() ?>index.php/admin/rules/delete/<?php echo $value['id'] ?>" class="dropdown-item delete-button" data-toggle="modal" data-target="#confirmationModal">Delete</a>
+														<a href="<?php echo base_url() ?>index.php/admin/rules/delete/<?php echo $value['id'] ?>" class="dropdown-item delete-button" data-toggle="modal" data-target="#confirmationModal" onclick="handleClick(this, <?php echo $value['id'] ?>)">Delete</a>
 
 													</div>
 												</div>
@@ -202,10 +202,17 @@
 </div>
 
 <script>
+
+	var href;
+	function handleClick(button, id){
+		href = button.getAttribute('href');
+    	console.log('Clicked button with ID:', id);
+    	console.log('Button href:', href);
+	}
+
 	// Confirm delete action
 	function confirmDelete() {
-		// Redirect to the delete URL
-		window.location.href = document.querySelector('.delete-button').getAttribute('href');
+		window.location.href = href;
 	}
 </script>
 <!-- Page content -->

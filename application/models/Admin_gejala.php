@@ -45,6 +45,17 @@ class Admin_gejala extends CI_Model
         return $data;
     }
 
+    public function GetLastKode()
+    {
+        $this->db->select('kode_gejala');
+        $this->db->from('tb_gejala');
+        $this->db->order_by('kode_gejala', 'DESC');
+        $this->db->limit(1);
+        $data = $this->db->get()->row();
+        $kode_gejala = $data->kode_gejala;
+        return $kode_gejala;
+    }
+
     public function FindGejala($id)
     {
         $this->load->database();

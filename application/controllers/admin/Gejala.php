@@ -40,8 +40,10 @@ class Gejala extends CI_Controller
 			// $data['barang'] = $barang;
 			// $barangcount = $this->Barang_model->getCountBarang($search,$page);
 			// $data['barangcount'] = $barangcount;
+			$last_kode = $this->Admin_gejala->GetLastKode();
 			$gejalacount = $this->Admin_gejala->GetCountGejala($search, $page);
 			$data['gejalacount'] = $gejalacount;
+			$data['last_kode'] = $last_kode;
 			$gejala = $this->Admin_gejala->GetAllGejala($search, $page);
 			$data['gejala'] = $gejala;
 			$this->load->view('admin/gejala/index', $data);

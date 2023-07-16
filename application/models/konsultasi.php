@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class konsultasi extends CI_Model
+class Konsultasi extends CI_Model
 {
 
     public function GetAllKonsultasi(){

@@ -37,7 +37,7 @@
 								</div>
 							</div>
 						</div>
-						<form action="<?php echo base_url() ?>index.php/admin/penyakit/store" method="POST">
+						<form action="<?php echo base_url() ?>index.php/admin/penyakit/store" method="POST" enctype="multipart/form-data">
 							<div class="card-body border-0">
 								<?php if ($this->session->flashdata('true')) {
 									echo $this->session->flashdata('true');
@@ -64,7 +64,7 @@
 								</div>
 								<div class="form-group">
 									<label for="exampleFormControlInput1">Gambar</label>
-									<input type="file" name="Gambar" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Gambar" required>
+									<input type="file" name="Gambar" class="form-control" id="exampleFormControlInput1" required>
 								</div>
 							</div>
 							<div class="card-footer py-4 text-right">
@@ -127,7 +127,7 @@
 													<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
 														<a class="dropdown-item" href="<?php echo base_url() ?>index.php/admin/penyakit/edit/<?php echo $value['id_penyakit'] ?>">Edit</a>
 														<!-- <a class="dropdown-item" onclick="return confirm('Apakah anda yakin menghapus data ini ?')" href="<?php echo base_url() ?>index.php/admin/penyakit/delete/<?php echo $value['id_penyakit'] ?>">Delete</a> -->
-														<a href="<?php echo base_url() ?>index.php/admin/penyakit/delete/<?php echo $value['id_penyakit'] ?>" class="dropdown-item delete-button" data-toggle="modal" data-target="#confirmationModal">Delete</a>
+														<a href="<?php echo base_url() ?>index.php/admin/penyakit/delete/<?php echo $value['id_penyakit'] ?>" class="dropdown-item delete-button" data-toggle="modal" data-target="#confirmationModal" onclick="handleClick(this, <?php echo $value['id_penyakit'] ?>)">Delete</a>
 
 													</div>
 												</div>
@@ -191,10 +191,17 @@
 </div>
 
 <script>
+
+	var href;
+	function handleClick(button, id){
+		href = button.getAttribute('href');
+    	console.log('Clicked button with ID:', id);
+    	console.log('Button href:', href);
+	}
+
 	// Confirm delete action
 	function confirmDelete() {
-		// Redirect to the delete URL
-		window.location.href = document.querySelector('.delete-button').getAttribute('href');
+		window.location.href = href;
 	}
 </script>
 
